@@ -2,4 +2,50 @@
 @import "../../styles/template.scss";
 
 .header {
+  min-height: 465px;
+  padding: 22px;
+  background-image: url(../../images/header/bg.png);
+  background-repeat: no-repeat;
+  background-size: cover;
+  &__logo-wrapper {
+    margin-bottom: 22px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    column-gap: 4px;
+  }
+  &__main-headline-wrapper {
+    display: flex;
+    justify-content: center;
+    column-gap: 20px;
+    .header__burger-img {
+      padding: 27px 36px 9px;
+    }
+    .header__headline-text-wrapper {
+      padding-top: 45px;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+      .header__main-headline {
+        margin-bottom: 50px;
+        max-width: 440px;
+        color: $color-white;
+        font-family: $font;
+        font-size: 50px;
+        line-height: 120%;
+        font-weight: 800;
+        &_orange {
+          color: $color-orange;
+        }
+      }
+      .header__free-delivery-text {
+        color: $color-white;
+        font-family: $font;
+        font-size: 16px;
+        &_bold {
+          font-weight: 600;
+        }
+      }
+    }
+  }
 }
