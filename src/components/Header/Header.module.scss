@@ -2,11 +2,11 @@
 @import "../../styles/template.scss";
 
 .header {
-  min-height: 465px;
   padding: 22px;
   background-image: url(../../images/header/bg.png);
   background-repeat: no-repeat;
   background-size: cover;
+  background-position: bottom;
   &__logo-wrapper {
     margin-bottom: 22px;
     display: flex;

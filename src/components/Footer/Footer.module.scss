@@ -2,4 +2,79 @@
 @import "../../styles/template.scss";
 
 .footer {
+  padding: 45px 75px 40px;
+  display: flex;
+  background-color: $color-white;
+  &__logo-copyrights-wrapper {
+    margin-right: 355px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    .footer__logo-wrapper {
+      margin-bottom: 60px;
+      display: flex;
+      align-items: center;
+      column-gap: 8px;
+    }
+    .footer__copyrights-wrapper {
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+      row-gap: 4px;
+      .footer__copyrights-text,
+      .footer__copyrights-author {
+        color: $color-black;
+        font-family: $font;
+        font-size: 12px;
+      }
+    }
+  }
+  &__order-phone-wrapper {
+    margin-right: 126px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    .footer__phone-label {
+      margin-bottom: 25px;
+      color: $color-black;
+      font-family: $font;
+      font-size: 24px;
+    }
+    .footer__phone-wrapper {
+      display: flex;
+      align-items: center;
+      column-gap: 4px;
+      .footer__phone-number {
+        color: $color-black;
+        font-family: $font;
+        font-size: 16px;
+        line-height: 130%;
+      }
+    }
+  }
+  &__socials-wrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    .footer__socials-label {
+      margin-bottom: 22px;
+      color: $color-black;
+      font-family: $font;
+      font-size: 24px;
+    }
+    .footer__socials-links-wrapper {
+      display: flex;
+      align-items: center;
+      column-gap: 16px;
+    }
+    .footer__vk-link,
+    .footer__telegram-link {
+      width: 36px;
+      height: 36px;
+      transition: 0.3s;
+      &:hover {
+        transform: scale(1.1);
+      }
+    }
+  }
 }
