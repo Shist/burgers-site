@@ -7,6 +7,10 @@
   justify-content: flex-start;
   align-items: center;
   column-gap: 6px;
+  border-top: 1px solid $color-gray;
+  &_last {
+    border-bottom: 1px solid $color-gray;
+  }
   &__img {
     width: 64px;
     height: 52px;

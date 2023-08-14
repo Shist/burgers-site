@@ -2,13 +2,24 @@ import st from "./Basket.module.scss";
 import BasketItem from "./BasketItem/BasketItem";
 import freeDeliveryIcon from "../../../images/main/basket/delivery.svg";
 
-function Basket({ extraClasses, itemsArr }) {
+function Basket({ modClasses, itemsArr }) {
   let classesStr = st["basket"];
-  if (extraClasses) classesStr += ` ${extraClasses}`;
+  if (modClasses) {
+    modClasses.split(" ").forEach((modClass) => {
+      classesStr += " ";
+      classesStr += st[`basket_${modClass}`];
+    });
+  }
 
-  const layoutItemsArr = itemsArr.map((item) => {
+  const layoutItemsArr = itemsArr.map((item, index) => {
     const { id, ...otherProps } = item;
-    return <BasketItem key={id} {...otherProps} />;
+    return (
+      <BasketItem
+        key={id}
+        modClasses={index === itemsArr.length - 1 ? "last" : ""}
+        {...otherProps}
+      />
+    );
   });
 
   const totalAmount = itemsArr
@@ -30,7 +41,7 @@ function Basket({ extraClasses, itemsArr }) {
       <div className={st["basket__items-list"]}>{layoutItemsArr}</div>
       <div className={st["basket__whole-price-wrapper"]}>
         <span className={st["basket__price-label"]}>Итого</span>
-        <span className={st["basket__price"]}>{wholePrice}</span>
+        <span className={st["basket__price"]}>{wholePrice}₽</span>
       </div>
       <button className={st["basket__checkout-btn"]}>Оформить заказ</button>
       <div className={st["basket__free-delivery-label-wrapper"]}>
