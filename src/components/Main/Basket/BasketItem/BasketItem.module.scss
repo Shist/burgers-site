@@ -1,0 +1,59 @@
+@import "../../../../styles/vars.scss";
+@import "../../../../styles/template.scss";
+
+.basket-item {
+  padding-block: 15px;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  column-gap: 6px;
+  &__img {
+    width: 64px;
+    height: 52px;
+    border-radius: 8px;
+  }
+  &__label-weight-price-wrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    row-gap: 1px;
+    .basket-item__label {
+      color: $color-black;
+      font-family: $font;
+      font-size: 12px;
+    }
+    .basket-item__weight {
+      color: $color-dark-gray;
+      font-family: $font;
+      font-size: 12px;
+    }
+    .basket-item__price {
+      margin-top: auto;
+      color: $color-black;
+      font-family: $font;
+      font-size: 12px;
+    }
+  }
+  &__amount-wrapper {
+    margin-left: auto;
+    padding: 9px 12px;
+    display: flex;
+    align-items: center;
+    column-gap: 16px;
+    background-color: $color-gray;
+    border-radius: 12px;
+    .basket-item__amount-minus,
+    .basket-item__amount-plus {
+      color: $color-black;
+      font-family: $font;
+      font-size: 16px;
+      border: none;
+      cursor: pointer;
+    }
+    .basket-item__amount {
+      color: $color-black;
+      font-family: $font;
+      font-size: 16px;
+    }
+  }
+}

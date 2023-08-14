@@ -7,4 +7,13 @@
   &__categories-list {
     margin-bottom: 50px;
   }
+  &__food-headline {
+    padding-left: 330px;
+    margin-bottom: 24px;
+    color: $color-black;
+    font-family: $font;
+    font-size: 40px;
+    font-weight: 600;
+    line-height: 120%;
+  }
 }
