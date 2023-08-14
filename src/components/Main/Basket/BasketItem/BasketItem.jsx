@@ -1,16 +1,8 @@
 import st from "./BasketItem.module.scss";
 
-function BasketItem({ modClasses, imgSrc, label, weight, price, amount }) {
-  let classesStr = st["basket-item"];
-  if (modClasses) {
-    modClasses.split(" ").forEach((modClass) => {
-      classesStr += " ";
-      classesStr += st[`basket-item_${modClass}`];
-    });
-  }
-
+function BasketItem({ imgSrc, label, weight, price, amount }) {
   return (
-    <div className={classesStr}>
+    <div className={st["basket-item"]}>
       <img src={imgSrc} alt={label} className={st["basket-item__img"]} />
       <div className={st["basket-item__label-weight-price-wrapper"]}>
         <span className={st["basket-item__label"]}>{label}</span>

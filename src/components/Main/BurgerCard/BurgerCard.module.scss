@@ -1,0 +1,56 @@
+@import "../../../styles/vars.scss";
+@import "../../../styles/template.scss";
+
+.burger-card {
+  padding: 12px;
+  max-width: 300px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  background-color: $color-white;
+  &__burger-img {
+    margin-bottom: 16px;
+    width: 276px;
+    height: 220px;
+  }
+  &__price {
+    margin-bottom: 8px;
+    color: $color-black;
+    font-family: $font;
+    font-size: 24px;
+    font-weight: 600;
+  }
+  &__label {
+    margin-bottom: 29px;
+    color: $color-black;
+    font-family: $font;
+    font-size: 16px;
+    line-height: 130%;
+  }
+  &__weight {
+    margin-bottom: 8px;
+    color: $color-dark-gray;
+    font-family: $font;
+    font-size: 16px;
+    font-weight: 600;
+    line-height: 130%;
+  }
+  &__btn-add {
+    align-self: center;
+    max-width: 270px;
+    width: 100%;
+    padding: 12px 100px;
+    color: $color-black;
+    font-family: $font;
+    font-size: 16px;
+    border-radius: 12px;
+    background-color: $color-gray;
+    border: none;
+    cursor: pointer;
+    transition: 0.3s;
+    &:hover {
+      transform: scale(1.05);
+    }
+  }
+}

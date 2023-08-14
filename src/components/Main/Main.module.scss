@@ -8,12 +8,24 @@
     margin-bottom: 50px;
   }
   &__food-headline {
-    padding-left: 330px;
+    padding-left: 340px;
     margin-bottom: 24px;
     color: $color-black;
     font-family: $font;
     font-size: 40px;
     font-weight: 600;
     line-height: 120%;
+  }
+  &__basket-menu-wrapper {
+    display: flex;
+    align-items: flex-start;
+    column-gap: 42px;
+    .main__menu-wrapper {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-evenly;
+      row-gap: 30px;
+      column-gap: 20px;
+    }
   }
 }
