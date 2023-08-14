@@ -9,6 +9,9 @@
   width: 100%;
   background-color: $color-white;
   border-radius: 18px;
+  @media (max-width: $pc-s) {
+    max-width: none;
+  }
   &__headline-amount-wrapper {
     margin-bottom: 12px;
     display: flex;

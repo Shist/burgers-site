@@ -2,15 +2,7 @@ import st from "./Basket.module.scss";
 import BasketItem from "./BasketItem/BasketItem";
 import freeDeliveryIcon from "../../../images/main/basket/delivery.svg";
 
-function Basket({ modClasses, itemsArr }) {
-  let classesStr = st["basket"];
-  if (modClasses) {
-    modClasses.split(" ").forEach((modClass) => {
-      classesStr += " ";
-      classesStr += st[`basket_${modClass}`];
-    });
-  }
-
+function Basket({ itemsArr }) {
   const layoutItemsArr = itemsArr.map((item, index) => {
     const { id, ...otherProps } = item;
     return (
@@ -33,7 +25,7 @@ function Basket({ modClasses, itemsArr }) {
     .reduce((prevItemPrice, nextItemPrice) => prevItemPrice + nextItemPrice);
 
   return (
-    <div className={classesStr}>
+    <div className={st["basket"]}>
       <div className={st["basket__headline-amount-wrapper"]}>
         <h3 className={st["basket__headline"]}>Корзина</h3>
         <span className={st["basket__total-amount"]}>{totalAmount}</span>

@@ -20,12 +20,19 @@
     column-gap: 20px;
     .header__burger-img {
       padding: 27px 36px 9px;
+      @media (max-width: $tablet-l) {
+        display: none;
+      }
     }
     .header__headline-text-wrapper {
       padding-top: 45px;
       display: flex;
       flex-direction: column;
       justify-content: flex-start;
+      @media (max-width: $tablet-l) {
+        text-align: center;
+        padding-top: 0;
+      }
       .header__main-headline {
         margin-bottom: 50px;
         max-width: 440px;

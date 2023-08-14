@@ -3,6 +3,10 @@
 
 .categories-list {
   display: flex;
+  flex-wrap: wrap;
   justify-content: flex-start;
-  column-gap: 24px;
+  gap: 24px;
+  @media (max-width: $pc-m) {
+    justify-content: center;
+  }
 }

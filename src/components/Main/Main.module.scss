@@ -4,6 +4,12 @@
 .main {
   flex-grow: 1;
   padding: 40px 75px 100px;
+  @media (max-width: $phone-l) {
+    padding: 20px 30px 50px;
+  }
+  @media (max-width: $phone-m) {
+    padding-inline: 10px;
+  }
   &__categories-list {
     margin-bottom: 50px;
   }
@@ -15,11 +21,18 @@
     font-size: 40px;
     font-weight: 600;
     line-height: 120%;
+    @media (max-width: $pc-s) {
+      padding-left: 0;
+      text-align: center;
+    }
   }
   &__basket-menu-wrapper {
     display: flex;
     align-items: flex-start;
-    column-gap: 42px;
+    gap: 42px;
+    @media (max-width: $pc-s) {
+      flex-direction: column;
+    }
     .main__menu-wrapper {
       display: flex;
       flex-wrap: wrap;

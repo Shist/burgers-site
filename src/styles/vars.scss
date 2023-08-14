@@ -73,6 +73,7 @@
 // Fonts
 $font: "Nunito";
 
+// Colors
 $color-white: #fff;
 $color-black: #000;
 $color-light-gray: #f9f9f9;
@@ -80,3 +81,17 @@ $color-gray: #f2f2f3;
 $color-dark-gray: #b1b1b1;
 $color-dark-yellow: #ffab08;
 $color-orange: #ff7020;
+
+// Default checkpoints for adaptive
+$pc-l: 1920px;
+$pc-m: 1400px;
+$pc-s: 1280px;
+$laptop-l: 1024px;
+$laptop-m: 960px;
+$laptop-s: 864px;
+$tablet-l: 768px;
+$tablet-m: 640px;
+$tablet-s: 576px;
+$phone-l: 480px;
+$phone-m: 360px;
+$phone-s: 320px;
