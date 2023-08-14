@@ -2,4 +2,9 @@
 @import "../../styles/template.scss";
 
 .main {
+  flex-grow: 1;
+  padding: 40px 75px 100px;
+  &__categories-list {
+    margin-bottom: 50px;
+  }
 }
