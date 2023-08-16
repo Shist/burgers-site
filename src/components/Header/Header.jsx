@@ -1,7 +1,8 @@
-import st from "./Header.module.scss";
 import logoText from "../../images/header/logo-text.svg";
 import logoImage from "../../images/header/logo-img.svg";
 import burgerImage from "../../images/header/burger.png";
+
+import st from "./Header.module.scss";
 
 function Header() {
   return (

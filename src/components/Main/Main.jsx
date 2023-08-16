@@ -1,9 +1,10 @@
 import jsonData from "../../data/data.json";
 
-import st from "./Main.module.scss";
 import CategoriesList from "../CategoriesList/CategoriesList";
 import Basket from "../Basket/Basket";
 import BurgerCard from "../BurgerCard/BurgerCard";
+
+import st from "./Main.module.scss";
 
 function Main() {
   const layoutBurgerItemsArr = jsonData.burgerItems.map((item) => {

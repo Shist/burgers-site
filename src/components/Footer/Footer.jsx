@@ -1,9 +1,10 @@
-import st from "./Footer.module.scss";
 import logoText from "../../images/footer/logo-text.svg";
 import logoImage from "../../images/footer/logo-img.svg";
 import phoneImage from "../../images/footer/phone.svg";
 import vkImage from "../../images/footer/vk.svg";
 import telegramImage from "../../images/footer/telegram.svg";
+
+import st from "./Footer.module.scss";
 
 function Footer() {
   return (

@@ -1,5 +1,6 @@
-import st from "./CategoriesList.module.scss";
 import CategoryItem from "./CategoryItem/CategoryItem";
+
+import st from "./CategoriesList.module.scss";
 
 function CategoriesList({ extraClasses, categoriesArr }) {
   let classesStr = st["categories-list"];
