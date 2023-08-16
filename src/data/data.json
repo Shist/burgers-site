@@ -1,4 +1,60 @@
 {
+  "categoryItems": [
+    {
+      "id": 1,
+      "imgSrc": "burger.svg",
+      "label": "Бургеры",
+      "isActive": true
+    },
+    {
+      "id": 2,
+      "imgSrc": "snacks.svg",
+      "label": "Закуски",
+      "isActive": false
+    },
+    {
+      "id": 3,
+      "imgSrc": "hot-dogs.svg",
+      "label": "Хот-доги",
+      "isActive": false
+    },
+    {
+      "id": 4,
+      "imgSrc": "combo.svg",
+      "label": "Комбо",
+      "isActive": false
+    },
+    {
+      "id": 5,
+      "imgSrc": "shawarma.svg",
+      "label": "Шаурма",
+      "isActive": false
+    },
+    {
+      "id": 6,
+      "imgSrc": "pizza.svg",
+      "label": "Пицца",
+      "isActive": false
+    },
+    {
+      "id": 7,
+      "imgSrc": "wok.svg",
+      "label": "Вок",
+      "isActive": false
+    },
+    {
+      "id": 8,
+      "imgSrc": "dessert.svg",
+      "label": "Дессерты",
+      "isActive": false
+    },
+    {
+      "id": 9,
+      "imgSrc": "sauces.svg",
+      "label": "Соусы",
+      "isActive": false
+    }
+  ],
   "basketItems": [
     {
       "id": 1,

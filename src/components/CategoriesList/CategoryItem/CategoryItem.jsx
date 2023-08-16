@@ -9,7 +9,11 @@ function CategoryItem({ imgSrc, label, isActive }) {
           : st["category-item"]
       }
     >
-      <img src={imgSrc} alt={label} className={st["category-item__icon"]} />
+      <img
+        src={require(`../../../images/main/categories/${imgSrc}`)}
+        alt={label}
+        className={st["category-item__icon"]}
+      />
       <span className={st["category-item__label"]}>{label}</span>
     </div>
   );
