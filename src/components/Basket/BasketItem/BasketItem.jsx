@@ -11,7 +11,11 @@ function BasketItem({ modClasses, imgSrc, label, weight, price, amount }) {
 
   return (
     <div className={classesStr}>
-      <img src={imgSrc} alt={label} className={st["basket-item__img"]} />
+      <img
+        src={require(`../../../images/main/basket/${imgSrc}`)}
+        alt={label}
+        className={st["basket-item__img"]}
+      />
       <div className={st["basket-item__label-weight-price-wrapper"]}>
         <span className={st["basket-item__label"]}>{label}</span>
         <span className={st["basket-item__weight"]}>{`${weight}г`}</span>

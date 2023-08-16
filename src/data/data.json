@@ -1,0 +1,72 @@
+{
+  "basketItems": [
+    {
+      "id": 1,
+      "imgSrc": "cheese-burger.png",
+      "label": "Супер сырный",
+      "weight": 512,
+      "price": 550,
+      "amount": 1
+    },
+    {
+      "id": 2,
+      "imgSrc": "potato.png",
+      "label": "Картошка фри",
+      "weight": 180,
+      "price": 245,
+      "amount": 2
+    },
+    {
+      "id": 3,
+      "imgSrc": "hot-dog.png",
+      "label": "Жгучий хот-дог",
+      "weight": 245,
+      "price": 239,
+      "amount": 1
+    }
+  ],
+  "burgerItems": [
+    {
+      "id": 1,
+      "imgSrc": "meat-bomb.png",
+      "price": 689,
+      "label": "Мясная бомба",
+      "weight": 520
+    },
+    {
+      "id": 2,
+      "imgSrc": "super-cheesy.png",
+      "price": 550,
+      "label": "Супер сырный",
+      "weight": 512
+    },
+    {
+      "id": 3,
+      "imgSrc": "satisfying.png",
+      "price": 639,
+      "label": "Сытный",
+      "weight": 580
+    },
+    {
+      "id": 4,
+      "imgSrc": "heavy-blow.png",
+      "price": 480,
+      "label": "Тяжелый удар",
+      "weight": 470
+    },
+    {
+      "id": 5,
+      "imgSrc": "timeless-classic.png",
+      "price": 450,
+      "label": "Вечная классика",
+      "weight": 450
+    },
+    {
+      "id": 6,
+      "imgSrc": "italian.png",
+      "price": 560,
+      "label": "Итальянский",
+      "weight": 510
+    }
+  ]
+}
