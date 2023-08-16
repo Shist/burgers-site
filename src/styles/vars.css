@@ -1,0 +1,30 @@
+/* font "Nunito", regular, 400 */
+@font-face {
+  font-family: "Nunito";
+  /* IE9 Compat Modes */
+  src: url(../fonts/Nunito-Regular/Nunito-Regular.eot);
+  /* Trying to find out that font in system */
+  src: local("Nunito"), url(../fonts/Nunito-Regular/Nunito-Regular.eot?#iefix) format("embedded-opentype"), url(../fonts/Nunito-Regular/Nunito-Regular.otf) format("otf"), url(../fonts/Nunito-Regular/Nunito-Regular.svg#Nunito-Regular) format("svg"), url(../fonts/Nunito-Regular/Nunito-Regular.ttf) format("truetype"), url(../fonts/Nunito-Regular/Nunito-Regular.woff) format("woff"), url(../fonts/Nunito-Regular/Nunito-Regular.woff2) format("woff2");
+  font-weight: normal;
+  font-style: normal;
+}
+/* font "Nunito", semiBold, 600 */
+@font-face {
+  font-family: "Nunito";
+  /* IE9 Compat Modes */
+  src: url(../fonts/Nunito-SemiBold/Nunito-SemiBold.eot);
+  /* Trying to find out that font in system */
+  src: local("Nunito"), url(../fonts/Nunito-SemiBold/Nunito-SemiBold.eot?#iefix) format("embedded-opentype"), url(../fonts/Nunito-SemiBold/Nunito-SemiBold.otf) format("otf"), url(../fonts/Nunito-SemiBold/Nunito-SemiBold.svg#Nunito-SemiBold) format("svg"), url(../fonts/Nunito-SemiBold/Nunito-SemiBold.ttf) format("truetype"), url(../fonts/Nunito-SemiBold/Nunito-SemiBold.woff) format("woff"), url(../fonts/Nunito-SemiBold/Nunito-SemiBold.woff2) format("woff2");
+  font-weight: 600;
+  font-style: normal;
+}
+/* font "Nunito", extraBold, 800 */
+@font-face {
+  font-family: "Nunito";
+  /* IE9 Compat Modes */
+  src: url(../fonts/Nunito-ExtraBold/Nunito-ExtraBold.eot);
+  /* Trying to find out that font in system */
+  src: local("Nunito"), url(../fonts/Nunito-ExtraBold/Nunito-ExtraBold.eot?#iefix) format("embedded-opentype"), url(../fonts/Nunito-ExtraBold/Nunito-ExtraBold.otf) format("otf"), url(../fonts/Nunito-ExtraBold/Nunito-ExtraBold.svg#Nunito-ExtraBold) format("svg"), url(../fonts/Nunito-ExtraBold/Nunito-ExtraBold.ttf) format("truetype"), url(../fonts/Nunito-ExtraBold/Nunito-ExtraBold.woff) format("woff"), url(../fonts/Nunito-ExtraBold/Nunito-ExtraBold.woff2) format("woff2");
+  font-weight: 800;
+  font-style: normal;
+}/*# sourceMappingURL=vars.css.map */
