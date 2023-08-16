@@ -1,6 +1,7 @@
 import st from "./BasketItem.module.scss";
 
 function BasketItem({ modClasses, imgSrc, label, weight, price, amount }) {
+  // TODO Rewrite this code with adding modification classes for BasketItem in future ---> with states <---
   let classesStr = st["basket-item"];
   if (modClasses) {
     modClasses.split(" ").forEach((modClass) => {
