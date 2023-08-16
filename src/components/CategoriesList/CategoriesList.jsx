@@ -1,14 +1,14 @@
 import st from "./CategoriesList.module.scss";
 import CategoryItem from "./CategoryItem/CategoryItem";
-import burgersIcon from "../../../images/main/categories/burger.svg";
-import snacksIcon from "../../../images/main/categories/snacks.svg";
-import hotDogsIcon from "../../../images/main/categories/hot-dogs.svg";
-import comboIcon from "../../../images/main/categories/combo.svg";
-import shawarmaIcon from "../../../images/main/categories/shawarma.svg";
-import pizzaIcon from "../../../images/main/categories/pizza.svg";
-import wokIcon from "../../../images/main/categories/wok.svg";
-import dessertIcon from "../../../images/main/categories/dessert.svg";
-import saucesIcon from "../../../images/main/categories/sauces.svg";
+import burgersIcon from "../../images/main/categories/burger.svg";
+import snacksIcon from "../../images/main/categories/snacks.svg";
+import hotDogsIcon from "../../images/main/categories/hot-dogs.svg";
+import comboIcon from "../../images/main/categories/combo.svg";
+import shawarmaIcon from "../../images/main/categories/shawarma.svg";
+import pizzaIcon from "../../images/main/categories/pizza.svg";
+import wokIcon from "../../images/main/categories/wok.svg";
+import dessertIcon from "../../images/main/categories/dessert.svg";
+import saucesIcon from "../../images/main/categories/sauces.svg";
 
 function CategoriesList({ extraClasses }) {
   let classesStr = st["categories-list"];

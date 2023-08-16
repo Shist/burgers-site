@@ -1,7 +1,7 @@
 import st from "./Main.module.scss";
-import CategoriesList from "./CategoriesList/CategoriesList";
-import Basket from "./Basket/Basket";
-import BurgerCard from "./BurgerCard/BurgerCard";
+import CategoriesList from "../CategoriesList/CategoriesList";
+import Basket from "../Basket/Basket";
+import BurgerCard from "../BurgerCard/BurgerCard";
 
 function Main() {
   const basketItemsArr = [

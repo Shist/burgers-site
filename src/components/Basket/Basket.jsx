@@ -1,6 +1,6 @@
 import st from "./Basket.module.scss";
 import BasketItem from "./BasketItem/BasketItem";
-import freeDeliveryIcon from "../../../images/main/basket/delivery.svg";
+import freeDeliveryIcon from "../../images/main/basket/delivery.svg";
 
 function Basket({ itemsArr }) {
   const layoutItemsArr = itemsArr.map((item, index) => {
