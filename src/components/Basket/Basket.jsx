@@ -1,3 +1,4 @@
+import { useState } from "react";
 import BasketItem from "./BasketItem/BasketItem";
 
 import freeDeliveryIcon from "../../images/main/basket/delivery.svg";
@@ -5,6 +6,21 @@ import freeDeliveryIcon from "../../images/main/basket/delivery.svg";
 import st from "./Basket.module.scss";
 
 function Basket({ itemsArr }) {
+  const [totalAmount, updateTotalAmount] = useState(
+    itemsArr
+      .map((item) => item.amount)
+      .reduce(
+        (prevItemAmount, nextItemAmount) => prevItemAmount + nextItemAmount
+      )
+  );
+
+  const [wholePrice, updateWholePrice] = useState(
+    itemsArr
+      .map((item) => item.price * item.amount)
+      .reduce((prevItemPrice, nextItemPrice) => prevItemPrice + nextItemPrice)
+  );
+
+  // TODO Rewrite this code with adding modification classes for BasketItem in future ---> with states <---
   const layoutItemsArr = itemsArr.map((item, index) => {
     const { id, ...otherProps } = item;
     return (
@@ -12,19 +28,11 @@ function Basket({ itemsArr }) {
         key={id}
         modClasses={index === itemsArr.length - 1 ? "last" : ""}
         {...otherProps}
+        updateTotalAmount={updateTotalAmount}
+        updateWholePrice={updateWholePrice}
       />
     );
   });
-
-  const totalAmount = itemsArr
-    .map((item) => item.amount)
-    .reduce(
-      (prevItemAmount, nextItemAmount) => prevItemAmount + nextItemAmount
-    );
-
-  const wholePrice = itemsArr
-    .map((item) => item.price * item.amount)
-    .reduce((prevItemPrice, nextItemPrice) => prevItemPrice + nextItemPrice);
 
   return (
     <div className={st["basket"]}>
