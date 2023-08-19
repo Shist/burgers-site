@@ -1,3 +1,5 @@
+import jsonData from "../../data/data.json";
+
 import { useState } from "react";
 import BasketItem from "./BasketItem/BasketItem";
 
@@ -5,7 +7,9 @@ import freeDeliveryIcon from "../../images/main/basket/delivery.svg";
 
 import st from "./Basket.module.scss";
 
-function Basket({ itemsArr }) {
+function Basket() {
+  const itemsArr = jsonData.basketItems;
+
   const [totalAmount, updateTotalAmount] = useState(
     itemsArr
       .map((item) => item.amount)

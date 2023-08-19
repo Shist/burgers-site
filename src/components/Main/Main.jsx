@@ -14,13 +14,10 @@ function Main() {
 
   return (
     <main className={st.main}>
-      <CategoriesList
-        extraClasses={st["main__categories-list"]}
-        categoriesArr={jsonData.categoryItems}
-      />
+      <CategoriesList extraClasses={st["main__categories-list"]} />
       <h2 className={st["main__food-headline"]}>Бургеры</h2>
       <div className={st["main__basket-menu-wrapper"]}>
-        <Basket itemsArr={jsonData.basketItems} />
+        <Basket />
         <div className={st["main__menu-wrapper"]}>{layoutBurgerItemsArr}</div>
       </div>
     </main>
