@@ -2,11 +2,68 @@
 @import "../../styles/template.scss";
 
 .header {
+  position: relative;
   padding: 22px;
   background-image: url(../../images/header/bg.png);
   background-repeat: no-repeat;
   background-size: cover;
   background-position: bottom;
+  &__burger-menu-btn {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    width: 50px;
+    height: 50px;
+    border: none;
+    cursor: pointer;
+    display: none;
+    transition: 0.3s;
+    @media (max-width: $tablet-l) {
+      display: inline-block;
+    }
+    @media (max-width: $phone-l) {
+      top: 10px;
+      right: 10px;
+    }
+    &_open {
+      background: url(../../images/header/burger-bar.png);
+      background-size: cover;
+    }
+    &_close {
+      position: fixed;
+      background: url(../../images/header/white-cross.png);
+      background-size: cover;
+    }
+  }
+  &__sign-in-wrapper {
+    position: absolute;
+    top: 30px;
+    right: 30px;
+    background-color: $color-dark-yellow;
+    display: flex;
+    align-items: center;
+    column-gap: 10px;
+    cursor: pointer;
+    transition: 0.3s;
+    &:hover {
+      transform: scale(1.1);
+    }
+    @media (max-width: $tablet-l) {
+      display: none;
+    }
+    .header__sign-in-text {
+      color: $color-white;
+      font-family: $font;
+      font-size: 24px;
+      font-weight: 600;
+    }
+    .header__sign-in-image {
+      width: 50px;
+      height: 50px;
+      background-size: cover;
+      border: none;
+    }
+  }
   &__logo-wrapper {
     margin-bottom: 22px;
     display: flex;

@@ -1,3 +1,4 @@
+import logInImage from "../../images/header/sign-in.png";
 import logoText from "../../images/header/logo-text.svg";
 import logoImage from "../../images/header/logo-img.svg";
 import burgerImage from "../../images/header/burger.png";
@@ -5,14 +6,35 @@ import burgerImage from "../../images/header/burger.png";
 import st from "./Header.module.scss";
 
 function Header() {
+  const toggleBurgerBtn = (e) => {
+    e.target.classList.toggle(st["header__burger-menu-btn_open"]);
+    e.target.classList.toggle(st["header__burger-menu-btn_close"]);
+  };
+
   return (
     <header className={st.header}>
+      <div className={st["header__sign-in-wrapper"]}>
+        <span className={st["header__sign-in-text"]}>Войти</span>
+        <img
+          src={logInImage}
+          alt="Sign In"
+          className={st["header__sign-in-image"]}
+        />
+      </div>
+      <button
+        className={`${st["header__burger-menu-btn"]} ${st["header__burger-menu-btn_open"]}`}
+        onClick={toggleBurgerBtn}
+      ></button>
       <div className={st["header__logo-wrapper"]}>
-        <img src={logoText} alt="Your meal" className="header__logo-text" />
+        <img
+          src={logoText}
+          alt="Your meal"
+          className={st["header__logo-text"]}
+        />
         <img
           src={logoImage}
           alt="Your meal logo"
-          className="header__logo-image"
+          className={st["header__logo-image"]}
         />
       </div>
       <div className={st["header__main-headline-wrapper"]}>
