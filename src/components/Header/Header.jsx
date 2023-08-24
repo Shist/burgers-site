@@ -5,7 +5,7 @@ import burgerImage from "../../images/header/burger.png";
 
 import st from "./Header.module.scss";
 
-function Header({ toggleBurgerMenu }) {
+function Header({ isBurgerMenuOpened, toggleBurgerMenu }) {
   const toggleBurgerBtn = (e) => {
     e.target.classList.toggle(st["header__burger-menu-btn_open"]);
     e.target.classList.toggle(st["header__burger-menu-btn_close"]);
@@ -23,7 +23,11 @@ function Header({ toggleBurgerMenu }) {
         />
       </div>
       <button
-        className={`${st["header__burger-menu-btn"]} ${st["header__burger-menu-btn_open"]}`}
+        className={`${st["header__burger-menu-btn"]} ${
+          isBurgerMenuOpened
+            ? st["header__burger-menu-btn_close"]
+            : st["header__burger-menu-btn_open"]
+        }`}
         onClick={toggleBurgerBtn}
       ></button>
       <div className={st["header__logo-wrapper"]}>
