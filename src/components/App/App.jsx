@@ -30,7 +30,10 @@ function App() {
       />
       <Main />
       <Footer />
-      <BurgerMenu isBurgerMenuOpened={burgerMenuOpened} />
+      <BurgerMenu
+        isBurgerMenuOpened={burgerMenuOpened}
+        toggleBurgerMenu={updateBurgerMenuState}
+      />
     </div>
   );
 }
