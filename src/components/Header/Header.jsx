@@ -5,10 +5,11 @@ import burgerImage from "../../images/header/burger.png";
 
 import st from "./Header.module.scss";
 
-function Header() {
+function Header({ toggleBurgerMenu }) {
   const toggleBurgerBtn = (e) => {
     e.target.classList.toggle(st["header__burger-menu-btn_open"]);
     e.target.classList.toggle(st["header__burger-menu-btn_close"]);
+    toggleBurgerMenu((isOpened) => !isOpened);
   };
 
   return (

@@ -10,6 +10,7 @@
   background-position: bottom;
   &__burger-menu-btn {
     position: absolute;
+    z-index: 3;
     top: 20px;
     right: 20px;
     width: 50px;

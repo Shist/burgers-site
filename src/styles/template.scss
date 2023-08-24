@@ -1,3 +1,11 @@
 @import "./vars.scss";
 
-// Here we can add some templates for similar elemens on the page
+// This class is needed to hide elements (by adding this class)
+.hidden-element {
+  display: none !important;
+}
+
+// This class is needed to make elements appear (by adding this class)
+.appeared-flex {
+  display: flex !important;
+}
