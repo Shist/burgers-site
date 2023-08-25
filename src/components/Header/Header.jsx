@@ -5,7 +5,7 @@ import burgerImage from "../../images/header/burger.png";
 
 import st from "./Header.module.scss";
 
-function Header({ isBurgerMenuOpened, toggleBurgerMenu }) {
+function Header({ isBurgerMenuOpened, toggleBurgerMenu, setCurrForm }) {
   const toggleBurgerBtn = (e) => {
     e.target.classList.toggle(st["header__burger-menu-btn_open"]);
     e.target.classList.toggle(st["header__burger-menu-btn_close"]);
@@ -14,7 +14,12 @@ function Header({ isBurgerMenuOpened, toggleBurgerMenu }) {
 
   return (
     <header className={st.header}>
-      <div className={st["header__sign-in-wrapper"]}>
+      <div
+        className={st["header__sign-in-wrapper"]}
+        onClick={() => {
+          setCurrForm("sign-in");
+        }}
+      >
         <span className={st["header__sign-in-text"]}>Войти</span>
         <img
           src={logInImage}

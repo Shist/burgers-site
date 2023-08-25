@@ -1,6 +1,6 @@
 import st from "./LoginInput.module.scss";
 
-function LoginInput({ modClasses, loginState, setLoginState }) {
+function LoginInput({ modClasses, loginState, setLoginState, idName }) {
   // TODO Rewrite this code with adding modification classes for BasketItem in future ---> with states <---
   let classesStr = st["login-input"];
   if (modClasses) {
@@ -13,9 +13,9 @@ function LoginInput({ modClasses, loginState, setLoginState }) {
   return (
     <input
       type="text"
-      name="login"
+      name={idName}
       className={classesStr}
-      id="loginInput"
+      id={`${idName}Input`}
       placeholder="Введите логин"
       required
       value={loginState}

@@ -10,6 +10,7 @@ import "./App.scss";
 
 function App() {
   const [burgerMenuOpened, updateBurgerMenuState] = useState(false);
+  const [currForm, setCurrForm] = useState("none");
 
   const TABLET_WIDTH = 768;
   useEffect(() => {
@@ -24,11 +25,23 @@ function App() {
     };
   }, []);
 
+  function FormOrNothing({ formType }) {
+    switch (formType) {
+      case "sign-in":
+        return <SignInForm setCurrForm={setCurrForm} />;
+      case "sign-up":
+        return <SignUpForm setCurrForm={setCurrForm} />;
+      default:
+        return null;
+    }
+  }
+
   return (
     <div className="app">
       <Header
         isBurgerMenuOpened={burgerMenuOpened}
         toggleBurgerMenu={updateBurgerMenuState}
+        setCurrForm={setCurrForm}
       />
       <Main />
       <Footer />
@@ -36,6 +49,7 @@ function App() {
         isBurgerMenuOpened={burgerMenuOpened}
         toggleBurgerMenu={updateBurgerMenuState}
       />
+      <FormOrNothing formType={currForm} />
     </div>
   );
 }

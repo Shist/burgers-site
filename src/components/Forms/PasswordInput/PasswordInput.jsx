@@ -5,6 +5,7 @@ function PasswordInput({
   passwordState,
   setPasswordState,
   placeholder,
+  idName,
 }) {
   // TODO Rewrite this code with adding modification classes for BasketItem in future ---> with states <---
   let classesStr = st["password-input"];
@@ -18,9 +19,9 @@ function PasswordInput({
   return (
     <input
       type="password"
-      name="password"
+      name={idName}
       className={classesStr}
-      id="passwordInput"
+      id={`${idName}Input`}
       placeholder={placeholder}
       required
       value={passwordState}
