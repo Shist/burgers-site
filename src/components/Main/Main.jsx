@@ -1,24 +1,45 @@
 import jsonData from "../../data/data.json";
 
+import { useState } from "react";
 import CategoriesList from "../CategoriesList/CategoriesList";
 import Basket from "../Basket/Basket";
-import BurgerCard from "../BurgerCard/BurgerCard";
+import FoodItemCard from "../FoodItemCard/FoodItemCard";
 
 import st from "./Main.module.scss";
 
 function Main() {
-  const layoutBurgerItemsArr = jsonData.burgerItems.map((item) => {
+  const [currCategory, setCurrCategory] = useState(
+    localStorage.getItem("currCategory")
+      ? localStorage.getItem("currCategory")
+      : "burgers"
+  );
+
+  const layoutFoodItemsArr = jsonData.categoryItems[
+    jsonData.categoryItems.map((item) => item.labelId).indexOf(currCategory)
+  ].items.map((item) => {
     const { id, ...otherProps } = item;
-    return <BurgerCard key={id} {...otherProps} />;
+    return <FoodItemCard key={id} {...otherProps} labelId={currCategory} />;
   });
 
   return (
     <main className={st.main}>
-      <CategoriesList extraClasses={st["main__categories-list"]} />
-      <h2 className={st["main__food-headline"]}>Бургеры</h2>
+      <CategoriesList
+        extraClasses={st["main__categories-list"]}
+        currCategory={currCategory}
+        setCurrCategory={setCurrCategory}
+      />
+      <h2 className={st["main__food-headline"]}>
+        {
+          jsonData.categoryItems[
+            jsonData.categoryItems
+              .map((item) => item.labelId)
+              .indexOf(currCategory)
+          ].label
+        }
+      </h2>
       <div className={st["main__basket-menu-wrapper"]}>
         <Basket />
-        <div className={st["main__menu-wrapper"]}>{layoutBurgerItemsArr}</div>
+        <div className={st["main__menu-wrapper"]}>{layoutFoodItemsArr}</div>
       </div>
     </main>
   );

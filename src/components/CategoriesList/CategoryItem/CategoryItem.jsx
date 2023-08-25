@@ -1,6 +1,6 @@
 import st from "./CategoryItem.module.scss";
 
-function CategoryItem({ imgSrc, label, isActive }) {
+function CategoryItem({ imgSrc, label, isActive, setAsCurrCategory }) {
   return (
     <div
       className={
@@ -8,6 +8,7 @@ function CategoryItem({ imgSrc, label, isActive }) {
           ? `${st["category-item"]} ${st["category-item_active"]}`
           : st["category-item"]
       }
+      onClick={setAsCurrCategory}
     >
       <img
         src={require(`../../../images/main/categories/${imgSrc}`)}
