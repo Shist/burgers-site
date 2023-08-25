@@ -11,7 +11,9 @@ import "./App.scss";
 function App() {
   const [burgerMenuOpened, updateBurgerMenuState] = useState(false);
   const [currForm, setCurrForm] = useState("none");
-  const [guestMode, setGuestMode] = useState(true);
+  const [guestMode, setGuestMode] = useState(
+    localStorage.getItem("currentUser") === null ? true : false
+  );
 
   const TABLET_WIDTH = 768;
   useEffect(() => {
