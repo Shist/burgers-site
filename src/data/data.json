@@ -59,42 +59,42 @@
         {
           "id": 1,
           "imgSrc": "snack-1.png",
-          "price": 689,
+          "price": 384,
           "label": "Мясная бомба",
           "weight": 520
         },
         {
           "id": 2,
           "imgSrc": "snack-2.png",
-          "price": 550,
+          "price": 616,
           "label": "Супер сырный",
           "weight": 512
         },
         {
           "id": 3,
           "imgSrc": "snack-3.png",
-          "price": 639,
+          "price": 541,
           "label": "Сытный",
           "weight": 580
         },
         {
           "id": 4,
           "imgSrc": "snack-4.png",
-          "price": 480,
+          "price": 494,
           "label": "Тяжелый удар",
           "weight": 470
         },
         {
           "id": 5,
           "imgSrc": "snack-5.png",
-          "price": 450,
+          "price": 436,
           "label": "Вечная классика",
           "weight": 450
         },
         {
           "id": 6,
           "imgSrc": "snack-6.png",
-          "price": 560,
+          "price": 370,
           "label": "Итальянский",
           "weight": 510
         }
@@ -109,42 +109,42 @@
         {
           "id": 1,
           "imgSrc": "hot-dog-1.png",
-          "price": 689,
+          "price": 598,
           "label": "Мясная бомба",
           "weight": 520
         },
         {
           "id": 2,
           "imgSrc": "hot-dog-2.png",
-          "price": 550,
+          "price": 299,
           "label": "Супер сырный",
           "weight": 512
         },
         {
           "id": 3,
           "imgSrc": "hot-dog-3.png",
-          "price": 639,
+          "price": 284,
           "label": "Сытный",
           "weight": 580
         },
         {
           "id": 4,
           "imgSrc": "hot-dog-4.png",
-          "price": 480,
+          "price": 279,
           "label": "Тяжелый удар",
           "weight": 470
         },
         {
           "id": 5,
           "imgSrc": "hot-dog-5.png",
-          "price": 450,
+          "price": 316,
           "label": "Вечная классика",
           "weight": 450
         },
         {
           "id": 6,
           "imgSrc": "hot-dog-6.png",
-          "price": 560,
+          "price": 410,
           "label": "Итальянский",
           "weight": 510
         }
@@ -159,42 +159,42 @@
         {
           "id": 1,
           "imgSrc": "combo-1.png",
-          "price": 689,
+          "price": 857,
           "label": "Мясная бомба",
           "weight": 520
         },
         {
           "id": 2,
           "imgSrc": "combo-2.png",
-          "price": 550,
+          "price": 750,
           "label": "Супер сырный",
           "weight": 512
         },
         {
           "id": 3,
           "imgSrc": "combo-3.png",
-          "price": 639,
+          "price": 973,
           "label": "Сытный",
           "weight": 580
         },
         {
           "id": 4,
           "imgSrc": "combo-4.png",
-          "price": 480,
+          "price": 1150,
           "label": "Тяжелый удар",
           "weight": 470
         },
         {
           "id": 5,
           "imgSrc": "combo-5.png",
-          "price": 450,
+          "price": 1026,
           "label": "Вечная классика",
           "weight": 450
         },
         {
           "id": 6,
           "imgSrc": "combo-6.png",
-          "price": 560,
+          "price": 1165,
           "label": "Итальянский",
           "weight": 510
         }
@@ -209,42 +209,42 @@
         {
           "id": 1,
           "imgSrc": "shawarma-1.png",
-          "price": 689,
+          "price": 344,
           "label": "Мясная бомба",
           "weight": 520
         },
         {
           "id": 2,
           "imgSrc": "shawarma-2.png",
-          "price": 550,
+          "price": 393,
           "label": "Супер сырный",
           "weight": 512
         },
         {
           "id": 3,
           "imgSrc": "shawarma-3.png",
-          "price": 639,
+          "price": 456,
           "label": "Сытный",
           "weight": 580
         },
         {
           "id": 4,
           "imgSrc": "shawarma-4.png",
-          "price": 480,
+          "price": 274,
           "label": "Тяжелый удар",
           "weight": 470
         },
         {
           "id": 5,
           "imgSrc": "shawarma-5.png",
-          "price": 450,
+          "price": 468,
           "label": "Вечная классика",
           "weight": 450
         },
         {
           "id": 6,
           "imgSrc": "shawarma-6.png",
-          "price": 560,
+          "price": 561,
           "label": "Итальянский",
           "weight": 510
         }
@@ -259,42 +259,42 @@
         {
           "id": 1,
           "imgSrc": "pizza-1.png",
-          "price": 689,
+          "price": 616,
           "label": "Мясная бомба",
           "weight": 520
         },
         {
           "id": 2,
           "imgSrc": "pizza-2.png",
-          "price": 550,
+          "price": 507,
           "label": "Супер сырный",
           "weight": 512
         },
         {
           "id": 3,
           "imgSrc": "pizza-3.png",
-          "price": 639,
+          "price": 736,
           "label": "Сытный",
           "weight": 580
         },
         {
           "id": 4,
           "imgSrc": "pizza-4.png",
-          "price": 480,
+          "price": 780,
           "label": "Тяжелый удар",
           "weight": 470
         },
         {
           "id": 5,
           "imgSrc": "pizza-5.png",
-          "price": 450,
+          "price": 739,
           "label": "Вечная классика",
           "weight": 450
         },
         {
           "id": 6,
           "imgSrc": "pizza-6.png",
-          "price": 560,
+          "price": 410,
           "label": "Итальянский",
           "weight": 510
         }
@@ -309,42 +309,42 @@
         {
           "id": 1,
           "imgSrc": "wok-1.png",
-          "price": 689,
+          "price": 589,
           "label": "Мясная бомба",
           "weight": 520
         },
         {
           "id": 2,
           "imgSrc": "wok-2.png",
-          "price": 550,
+          "price": 739,
           "label": "Супер сырный",
           "weight": 512
         },
         {
           "id": 3,
           "imgSrc": "wok-3.png",
-          "price": 639,
+          "price": 673,
           "label": "Сытный",
           "weight": 580
         },
         {
           "id": 4,
           "imgSrc": "wok-4.png",
-          "price": 480,
+          "price": 677,
           "label": "Тяжелый удар",
           "weight": 470
         },
         {
           "id": 5,
           "imgSrc": "wok-5.png",
-          "price": 450,
+          "price": 623,
           "label": "Вечная классика",
           "weight": 450
         },
         {
           "id": 6,
           "imgSrc": "wok-6.png",
-          "price": 560,
+          "price": 578,
           "label": "Итальянский",
           "weight": 510
         }
@@ -359,42 +359,42 @@
         {
           "id": 1,
           "imgSrc": "dessert-1.png",
-          "price": 689,
+          "price": 540,
           "label": "Мясная бомба",
           "weight": 520
         },
         {
           "id": 2,
           "imgSrc": "dessert-2.png",
-          "price": 550,
+          "price": 669,
           "label": "Супер сырный",
           "weight": 512
         },
         {
           "id": 3,
           "imgSrc": "dessert-3.png",
-          "price": 639,
+          "price": 457,
           "label": "Сытный",
           "weight": 580
         },
         {
           "id": 4,
           "imgSrc": "dessert-4.png",
-          "price": 480,
+          "price": 323,
           "label": "Тяжелый удар",
           "weight": 470
         },
         {
           "id": 5,
           "imgSrc": "dessert-5.png",
-          "price": 450,
+          "price": 325,
           "label": "Вечная классика",
           "weight": 450
         },
         {
           "id": 6,
           "imgSrc": "dessert-6.png",
-          "price": 560,
+          "price": 487,
           "label": "Итальянский",
           "weight": 510
         }
@@ -409,42 +409,42 @@
         {
           "id": 1,
           "imgSrc": "sauce-1.png",
-          "price": 689,
+          "price": 165,
           "label": "Мясная бомба",
           "weight": 520
         },
         {
           "id": 2,
           "imgSrc": "sauce-2.png",
-          "price": 550,
+          "price": 125,
           "label": "Супер сырный",
           "weight": 512
         },
         {
           "id": 3,
           "imgSrc": "sauce-3.png",
-          "price": 639,
+          "price": 158,
           "label": "Сытный",
           "weight": 580
         },
         {
           "id": 4,
           "imgSrc": "sauce-4.png",
-          "price": 480,
+          "price": 162,
           "label": "Тяжелый удар",
           "weight": 470
         },
         {
           "id": 5,
           "imgSrc": "sauce-5.png",
-          "price": 450,
+          "price": 177,
           "label": "Вечная классика",
           "weight": 450
         },
         {
           "id": 6,
           "imgSrc": "sauce-6.png",
-          "price": 560,
+          "price": 175,
           "label": "Итальянский",
           "weight": 510
         }
