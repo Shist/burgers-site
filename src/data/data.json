@@ -259,16 +259,16 @@
         {
           "id": 1,
           "imgSrc": "pizza-1.png",
-          "price": 616,
-          "label": "Барбекю",
-          "weight": 992
+          "price": 780,
+          "label": "С колбаской",
+          "weight": 1120
         },
         {
           "id": 2,
           "imgSrc": "pizza-2.png",
-          "price": 507,
-          "label": "Четыре сезона",
-          "weight": 728
+          "price": 410,
+          "label": "Сырная",
+          "weight": 1109
         },
         {
           "id": 3,
@@ -280,9 +280,9 @@
         {
           "id": 4,
           "imgSrc": "pizza-4.png",
-          "price": 780,
-          "label": "С колбаской",
-          "weight": 1120
+          "price": 616,
+          "label": "Барбекю",
+          "weight": 992
         },
         {
           "id": 5,
@@ -294,9 +294,9 @@
         {
           "id": 6,
           "imgSrc": "pizza-6.png",
-          "price": 410,
-          "label": "Сырная",
-          "weight": 1109
+          "price": 507,
+          "label": "Четыре сезона",
+          "weight": 728
         }
       ]
     },
