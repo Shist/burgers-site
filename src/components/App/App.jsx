@@ -11,6 +11,7 @@ import "./App.scss";
 function App() {
   const [burgerMenuOpened, updateBurgerMenuState] = useState(false);
   const [currForm, setCurrForm] = useState("none");
+  const [guestMode, setGuestMode] = useState(true);
 
   const TABLET_WIDTH = 768;
   useEffect(() => {
@@ -25,12 +26,32 @@ function App() {
     };
   }, []);
 
+  function setUserToLocalStorage(userName) {
+    setGuestMode(false);
+    localStorage.setItem("currentUser", userName);
+  }
+
+  function deleteUserFromLocalStorage() {
+    setGuestMode(true);
+    localStorage.removeItem("currentUser");
+  }
+
   function FormOrNothing({ formType }) {
     switch (formType) {
       case "sign-in":
-        return <SignInForm setCurrForm={setCurrForm} />;
+        return (
+          <SignInForm
+            setCurrForm={setCurrForm}
+            setUserToLocalStorage={setUserToLocalStorage}
+          />
+        );
       case "sign-up":
-        return <SignUpForm setCurrForm={setCurrForm} />;
+        return (
+          <SignUpForm
+            setCurrForm={setCurrForm}
+            setUserToLocalStorage={setUserToLocalStorage}
+          />
+        );
       default:
         return null;
     }
@@ -42,13 +63,17 @@ function App() {
         isBurgerMenuOpened={burgerMenuOpened}
         toggleBurgerMenu={updateBurgerMenuState}
         setCurrForm={setCurrForm}
+        guestMode={guestMode}
+        deleteUserFromLocalStorage={deleteUserFromLocalStorage}
       />
       <Main />
       <Footer />
       <BurgerMenu
         isBurgerMenuOpened={burgerMenuOpened}
-        toggleBurgerMenu={updateBurgerMenuState}
+        setBurgerMenu={updateBurgerMenuState}
         setCurrForm={setCurrForm}
+        guestMode={guestMode}
+        deleteUserFromLocalStorage={deleteUserFromLocalStorage}
       />
       <FormOrNothing formType={currForm} />
     </div>

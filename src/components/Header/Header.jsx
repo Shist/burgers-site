@@ -1,22 +1,31 @@
-import logInImage from "../../images/header/sign-in.png";
+import signInImage from "../../images/header/sign-in.png";
+import signOutImage from "../../images/header/sign-out.png";
 import logoText from "../../images/header/logo-text.svg";
 import logoImage from "../../images/header/logo-img.svg";
 import burgerImage from "../../images/header/burger.png";
 
 import st from "./Header.module.scss";
 
-function Header({ isBurgerMenuOpened, toggleBurgerMenu, setCurrForm }) {
+function Header({
+  isBurgerMenuOpened,
+  toggleBurgerMenu,
+  setCurrForm,
+  guestMode,
+  deleteUserFromLocalStorage,
+}) {
   return (
     <header className={st.header}>
       <div
         className={st["header__sign-in-wrapper"]}
         onClick={() => {
-          setCurrForm("sign-in");
+          guestMode ? setCurrForm("sign-in") : deleteUserFromLocalStorage();
         }}
       >
-        <span className={st["header__sign-in-text"]}>Войти</span>
+        <span className={st["header__sign-in-text"]}>
+          {guestMode ? "Войти" : "Выйти"}
+        </span>
         <img
-          src={logInImage}
+          src={guestMode ? signInImage : signOutImage}
           alt="Sign In"
           className={st["header__sign-in-image"]}
         />

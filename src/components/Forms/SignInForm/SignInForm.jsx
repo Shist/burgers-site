@@ -4,7 +4,7 @@ import PasswordInput from "../PasswordInput/PasswordInput";
 
 import st from "./SignInForm.module.scss";
 
-function SignInForm({ setCurrForm }) {
+function SignInForm({ setCurrForm, setUserToLocalStorage }) {
   const [loginState, setLoginState] = useState("");
   const [passwordState, setPasswordState] = useState("");
 
@@ -42,7 +42,14 @@ function SignInForm({ setCurrForm }) {
         >
           Ещё не зарегистрированы? Создать аккаунт
         </a>
-        <button className={st["sign-in-form__submit-btn"]}>
+        <button
+          className={st["sign-in-form__submit-btn"]}
+          onClick={(e) => {
+            e.preventDefault();
+            setUserToLocalStorage(loginState);
+            setCurrForm("none");
+          }}
+        >
           Войти в аккаунт
         </button>
       </form>
