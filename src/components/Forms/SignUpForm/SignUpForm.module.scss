@@ -1,0 +1,53 @@
+@import "../../../styles/vars.scss";
+@import "../../../styles/template.scss";
+
+/* This wrapper will be removed in future when forms will be moved to other pages */
+.sign-up-form-wrapper {
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+.sign-up-form {
+  margin: 200px auto; /* <-- This code will be removed in future when forms will be moved to other pages */
+  @extend %default-form;
+  &__headline {
+    margin-bottom: 30px;
+    color: $color-white;
+    font-family: $font;
+    font-size: 48px;
+    font-weight: 600;
+  }
+  &__link-to-sign-in {
+    margin-bottom: 30px;
+    max-width: 200px;
+    width: 100%;
+    text-align: center;
+    color: $color-white;
+    font-family: $font;
+    font-size: 18px;
+    transition: 0.3s;
+    &:hover {
+      transform: scale(1.05);
+    }
+  }
+  &__submit-btn {
+    max-width: 300px;
+    width: 100%;
+    padding: 12px 35px;
+    color: $color-white;
+    font-family: $font;
+    font-size: 18px;
+    border-radius: 12px;
+    background-color: $color-orange;
+    border: none;
+    cursor: pointer;
+    transition: 0.3s;
+    &:hover {
+      transform: scale(1.05);
+    }
+  }
+}

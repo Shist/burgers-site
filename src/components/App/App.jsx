@@ -3,6 +3,8 @@ import Header from "../Header/Header";
 import Main from "../Main/Main";
 import Footer from "../Footer/Footer";
 import BurgerMenu from "../BurgerMenu/BurgerMenu";
+import SignInForm from "../Forms/SignInForm/SignInForm";
+import SignUpForm from "../Forms/SignUpForm/SignUpForm";
 
 import "./App.scss";
 
