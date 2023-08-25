@@ -1,11 +1,9 @@
 import st from "./BurgerMenu.module.scss";
 import "./../../styles/template.scss";
 
-function BurgerMenu({ isBurgerMenuOpened, toggleBurgerMenu }) {
+function BurgerMenu({ isBurgerMenuOpened, toggleBurgerMenu, setCurrForm }) {
   const handleClickToDarkSpace = (e) => {
     if (e.target.classList.contains(st["burger-menu"])) {
-      e.target.classList.toggle(st["header__burger-menu-btn_open"]);
-      e.target.classList.toggle(st["header__burger-menu-btn_close"]);
       toggleBurgerMenu((isOpened) => !isOpened);
     }
   };
@@ -22,7 +20,14 @@ function BurgerMenu({ isBurgerMenuOpened, toggleBurgerMenu }) {
         <h2 className={st["burger-menu__headline"]}>Menu</h2>
         <ul className={st["burger-menu__nav-list"]}>
           <li className={st["burger-menu__nav-list-item"]}>
-            <a href="#" className={st["burger-menu__link"]}>
+            <a
+              href="#"
+              className={st["burger-menu__link"]}
+              onClick={() => {
+                setCurrForm("sign-in");
+                toggleBurgerMenu((isOpened) => !isOpened);
+              }}
+            >
               Войти
             </a>
           </li>

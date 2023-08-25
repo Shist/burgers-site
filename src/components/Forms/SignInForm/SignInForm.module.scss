@@ -4,6 +4,7 @@
 /* This wrapper will be removed in future when forms will be moved to other pages */
 .sign-in-form-wrapper {
   position: fixed;
+  z-index: 4;
   left: 0;
   top: 0;
   width: 100%;

@@ -48,6 +48,7 @@ function App() {
       <BurgerMenu
         isBurgerMenuOpened={burgerMenuOpened}
         toggleBurgerMenu={updateBurgerMenuState}
+        setCurrForm={setCurrForm}
       />
       <FormOrNothing formType={currForm} />
     </div>

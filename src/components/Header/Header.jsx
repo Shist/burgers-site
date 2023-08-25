@@ -6,12 +6,6 @@ import burgerImage from "../../images/header/burger.png";
 import st from "./Header.module.scss";
 
 function Header({ isBurgerMenuOpened, toggleBurgerMenu, setCurrForm }) {
-  const toggleBurgerBtn = (e) => {
-    e.target.classList.toggle(st["header__burger-menu-btn_open"]);
-    e.target.classList.toggle(st["header__burger-menu-btn_close"]);
-    toggleBurgerMenu((isOpened) => !isOpened);
-  };
-
   return (
     <header className={st.header}>
       <div
@@ -33,7 +27,7 @@ function Header({ isBurgerMenuOpened, toggleBurgerMenu, setCurrForm }) {
             ? st["header__burger-menu-btn_close"]
             : st["header__burger-menu-btn_open"]
         }`}
-        onClick={toggleBurgerBtn}
+        onClick={() => toggleBurgerMenu((isOpened) => !isOpened)}
       ></button>
       <div className={st["header__logo-wrapper"]}>
         <img
