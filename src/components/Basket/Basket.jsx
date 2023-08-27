@@ -24,8 +24,7 @@ function Basket() {
       .reduce((prevItemPrice, nextItemPrice) => prevItemPrice + nextItemPrice)
   );
 
-  // TODO Rewrite this code with adding modification classes for BasketItem in future ---> with states <---
-  const layoutItemsArr = itemsArr.map((item, index) => {
+  const layoutItemsArr = itemsArr.map((item) => {
     const { id, ...otherProps } = item;
     return (
       <BasketItem
