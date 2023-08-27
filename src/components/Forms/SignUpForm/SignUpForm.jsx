@@ -24,20 +24,20 @@ function SignUpForm({ setCurrForm, setUserToLocalStorage }) {
       <form action="#" className={st["sign-up-form"]}>
         <h2 className={st["sign-up-form__headline"]}>Регистрация</h2>
         <LoginInput
-          modClasses="mb10"
+          extraClasses="mb10"
           loginState={loginState}
           setLoginState={setLoginState}
           idName="login"
         />
         <PasswordInput
-          modClasses="mb10"
+          extraClasses="mb10"
           passwordState={passwordState}
           setPasswordState={setPasswordState}
           placeholder="Введите пароль"
           idName="password"
         />
         <PasswordInput
-          modClasses="mb10"
+          extraClasses="mb10"
           passwordState={repeatPasswordState}
           setPasswordState={setRepeatPasswordState}
           placeholder="Повторите пароль"

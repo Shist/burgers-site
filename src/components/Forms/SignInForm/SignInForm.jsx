@@ -23,13 +23,13 @@ function SignInForm({ setCurrForm, setUserToLocalStorage }) {
       <form action="#" className={st["sign-in-form"]}>
         <h2 className={st["sign-in-form__headline"]}>Авторизация</h2>
         <LoginInput
-          modClasses="mb10"
+          extraClasses="mb10"
           loginState={loginState}
           setLoginState={setLoginState}
           idName="login"
         />
         <PasswordInput
-          modClasses="mb10"
+          extraClasses="mb10"
           passwordState={passwordState}
           setPasswordState={setPasswordState}
           placeholder="Введите пароль"

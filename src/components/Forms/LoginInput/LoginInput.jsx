@@ -1,14 +1,8 @@
 import st from "./LoginInput.module.scss";
 
-function LoginInput({ modClasses, loginState, setLoginState, idName }) {
-  // TODO Rewrite this code with adding modification classes for BasketItem in future ---> with states <---
+function LoginInput({ extraClasses, loginState, setLoginState, idName }) {
   let classesStr = st["login-input"];
-  if (modClasses) {
-    modClasses.split(" ").forEach((modClass) => {
-      classesStr += " ";
-      classesStr += st[`login-input_${modClass}`];
-    });
-  }
+  if (extraClasses) classesStr += ` ${extraClasses}`;
 
   return (
     <input

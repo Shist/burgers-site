@@ -3,7 +3,6 @@ import { useState } from "react";
 import st from "./BasketItem.module.scss";
 
 function BasketItem({
-  modClasses,
   imgSrc,
   label,
   weight,
@@ -12,15 +11,6 @@ function BasketItem({
   updateTotalAmount,
   updateWholePrice,
 }) {
-  // TODO Rewrite this code with adding modification classes for BasketItem in future ---> with states <---
-  let classesStr = st["basket-item"];
-  if (modClasses) {
-    modClasses.split(" ").forEach((modClass) => {
-      classesStr += " ";
-      classesStr += st[`basket-item_${modClass}`];
-    });
-  }
-
   const ITEMS_MAX_LIMIT = 100;
 
   const [itemAmount, updateItemAmount] = useState(amount);
@@ -42,7 +32,7 @@ function BasketItem({
   }
 
   return (
-    <div className={classesStr}>
+    <div className={st["basket-item"]}>
       <img
         src={require(`../../../images/main/basket/${imgSrc}`)}
         alt={label}

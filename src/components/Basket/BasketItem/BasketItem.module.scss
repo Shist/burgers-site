@@ -8,7 +8,7 @@
   align-items: center;
   column-gap: 6px;
   border-top: 1px solid $color-gray;
-  &_last {
+  &:last-child {
     border-bottom: 1px solid $color-gray;
   }
   &__img {

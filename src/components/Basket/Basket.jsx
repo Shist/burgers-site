@@ -30,7 +30,6 @@ function Basket() {
     return (
       <BasketItem
         key={id}
-        modClasses={index === itemsArr.length - 1 ? "last" : ""}
         {...otherProps}
         updateTotalAmount={updateTotalAmount}
         updateWholePrice={updateWholePrice}
