@@ -2,7 +2,7 @@ import { imagesObj } from "../CategoriesImgArr";
 
 import st from "./CategoryItem.module.scss";
 
-function CategoryItem({ imgKey, label, isActive, setAsCurrCategory }) {
+function CategoryItem({ categoryIconKey, label, isActive, setAsCurrCategory }) {
   return (
     <div
       className={
@@ -13,7 +13,7 @@ function CategoryItem({ imgKey, label, isActive, setAsCurrCategory }) {
       onClick={setAsCurrCategory}
     >
       <img
-        src={imagesObj[imgKey]}
+        src={imagesObj[categoryIconKey]}
         alt={label}
         className={st["category-item__icon"]}
       />

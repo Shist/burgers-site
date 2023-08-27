@@ -1,10 +1,12 @@
+import { imagesObj } from "./FoodImgArr";
+
 import st from "./FoodItemCard.module.scss";
 
-function FoodItemCard({ labelId, imgSrc, price, label, weight }) {
+function FoodItemCard({ labelId, imgKey, price, label, weight }) {
   return (
     <div className={st["food-item-card"]}>
       <img
-        src={require(`../../images/main/${labelId}/${imgSrc}`)}
+        src={imagesObj[labelId][imgKey]}
         alt={label}
         className={st["food-item-card__food-img"]}
       />

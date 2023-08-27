@@ -18,7 +18,7 @@ function Main() {
     jsonData.categoryItems.map((item) => item.labelId).indexOf(currCategory)
   ].items.map((item) => {
     const { id, ...otherProps } = item;
-    return <FoodItemCard key={id} {...otherProps} labelId={currCategory} />;
+    return <FoodItemCard key={id} labelId={currCategory} {...otherProps} />;
   });
 
   return (
