@@ -3,7 +3,7 @@
     {
       "id": 1,
       "labelId": "burgers",
-      "imgSrc": "burger.svg",
+      "imgKey": "burger",
       "label": "Бургеры",
       "items": [
         {
@@ -53,7 +53,7 @@
     {
       "id": 2,
       "labelId": "snacks",
-      "imgSrc": "snacks.svg",
+      "imgKey": "snack",
       "label": "Закуски",
       "items": [
         {
@@ -103,7 +103,7 @@
     {
       "id": 3,
       "labelId": "hot-dogs",
-      "imgSrc": "hot-dogs.svg",
+      "imgKey": "hotDog",
       "label": "Хот-доги",
       "items": [
         {
@@ -153,7 +153,7 @@
     {
       "id": 4,
       "labelId": "combo",
-      "imgSrc": "combo.svg",
+      "imgKey": "combo",
       "label": "Комбо",
       "items": [
         {
@@ -203,7 +203,7 @@
     {
       "id": 5,
       "labelId": "shawarma",
-      "imgSrc": "shawarma.svg",
+      "imgKey": "shawarma",
       "label": "Шаурма",
       "items": [
         {
@@ -253,7 +253,7 @@
     {
       "id": 6,
       "labelId": "pizza",
-      "imgSrc": "pizza.svg",
+      "imgKey": "pizza",
       "label": "Пицца",
       "items": [
         {
@@ -303,7 +303,7 @@
     {
       "id": 7,
       "labelId": "wok",
-      "imgSrc": "wok.svg",
+      "imgKey": "wok",
       "label": "Вок",
       "items": [
         {
@@ -353,7 +353,7 @@
     {
       "id": 8,
       "labelId": "desserts",
-      "imgSrc": "dessert.svg",
+      "imgKey": "dessert",
       "label": "Дессерты",
       "items": [
         {
@@ -403,7 +403,7 @@
     {
       "id": 9,
       "labelId": "sauces",
-      "imgSrc": "sauces.svg",
+      "imgKey": "sauce",
       "label": "Соусы",
       "items": [
         {
