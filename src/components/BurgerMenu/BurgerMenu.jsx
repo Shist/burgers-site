@@ -1,3 +1,5 @@
+import SignModeLabel from "../SignModeLabel/SignModeLabel";
+
 import st from "./BurgerMenu.module.scss";
 import "./../../styles/template.scss";
 
@@ -23,7 +25,11 @@ function BurgerMenu({
       onClick={handleClickToDarkSpace}
     >
       <nav className={st["burger-menu__nav"]}>
-        <h2 className={st["burger-menu__headline"]}>Menu</h2>
+        <h2 className={st["burger-menu__headline"]}>Меню</h2>
+        <SignModeLabel
+          extraClasses="flex-row-reverse mb30"
+          guestMode={guestMode}
+        />
         <ul className={st["burger-menu__nav-list"]}>
           <li className={st["burger-menu__nav-list-item"]}>
             <a

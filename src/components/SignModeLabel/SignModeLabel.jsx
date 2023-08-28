@@ -3,9 +3,12 @@ import userImage from "../../images/header/user.png";
 
 import st from "./SignModeLabel.module.scss";
 
-function SignModeLabel({ guestMode }) {
+function SignModeLabel({ extraClasses, guestMode }) {
+  let classesStr = st["curr-user-wrapper"];
+  if (extraClasses) classesStr += ` ${extraClasses}`;
+
   return (
-    <div className={st["curr-user-wrapper"]}>
+    <div className={classesStr}>
       <span className={st["curr-user-wrapper__text"]}>
         {guestMode ? "Гость" : localStorage.getItem("currentUser")}
       </span>

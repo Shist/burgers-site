@@ -22,6 +22,16 @@
   margin-bottom: 30px;
 }
 
+.flex-row-reverse {
+  flex-direction: row-reverse;
+  justify-content: flex-end;
+}
+
+.flex-column-reverse {
+  flex-direction: column-reverse;
+  justify-content: flex-end;
+}
+
 %default-input {
   padding-inline: 20px;
   max-width: 300px;
