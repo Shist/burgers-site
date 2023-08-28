@@ -1,5 +1,5 @@
-import guestImage from "../../images/header/guest.png";
-import userImage from "../../images/header/user.png";
+import SignModeLabel from "../SignModeLabel/SignModeLabel";
+
 import signInImage from "../../images/header/sign-in.png";
 import signOutImage from "../../images/header/sign-out.png";
 import logoText from "../../images/header/logo-text.svg";
@@ -18,16 +18,7 @@ function Header({
   return (
     <header className={st.header}>
       <div className={st["header__sign-in-wrapper"]}>
-        <div className={st["header__curr-user-wrapper"]}>
-          <span className={st["header__curr-user-text"]}>
-            {guestMode ? "Гость" : localStorage.getItem("currentUser")}
-          </span>
-          <img
-            src={guestMode ? guestImage : userImage}
-            alt="Sign In"
-            className={st["header__curr-user-image"]}
-          />
-        </div>
+        <SignModeLabel guestMode={guestMode} />
         <div
           className={st["header__sign-in-btn-wrapper"]}
           onClick={() => {
