@@ -1,37 +1,36 @@
-import jsonData from "../../data/data.json";
-
-import { useState } from "react";
 import BasketItem from "./BasketItem/BasketItem";
 
 import freeDeliveryIcon from "../../images/main/basket/delivery.svg";
 
 import st from "./Basket.module.scss";
 
-function Basket() {
-  const itemsArr = jsonData.basketItems;
-
-  const [totalAmount, updateTotalAmount] = useState(
-    itemsArr
-      .map((item) => item.amount)
-      .reduce(
-        (prevItemAmount, nextItemAmount) => prevItemAmount + nextItemAmount
-      )
+function Basket({ basketData, setBasketData }) {
+  const itemsArr = Object.entries(basketData).map(
+    (basketItemKeyValue) => basketItemKeyValue[1]
   );
 
-  const [wholePrice, updateWholePrice] = useState(
-    itemsArr
-      .map((item) => item.price * item.amount)
-      .reduce((prevItemPrice, nextItemPrice) => prevItemPrice + nextItemPrice)
-  );
+  const totalAmount = itemsArr.length
+    ? itemsArr
+        .map((item) => item.amount)
+        .reduce(
+          (prevItemAmount, nextItemAmount) => prevItemAmount + nextItemAmount
+        )
+    : 0;
+
+  const wholePrice = itemsArr.length
+    ? itemsArr
+        .map((item) => item.price * item.amount)
+        .reduce((prevItemPrice, nextItemPrice) => prevItemPrice + nextItemPrice)
+    : 0;
 
   const layoutItemsArr = itemsArr.map((item) => {
-    const { id, ...otherProps } = item;
+    const { uniqueFoodKey, ...otherProps } = item;
     return (
       <BasketItem
-        key={id}
+        key={uniqueFoodKey}
+        uniqueFoodKey={uniqueFoodKey}
         {...otherProps}
-        updateTotalAmount={updateTotalAmount}
-        updateWholePrice={updateWholePrice}
+        setBasketData={setBasketData}
       />
     );
   });

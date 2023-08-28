@@ -9,15 +9,15 @@ function CategoriesList({ extraClasses, currCategory, setCurrCategory }) {
   if (extraClasses) classesStr += ` ${extraClasses}`;
 
   const layoutCategoriesArr = jsonData.categoryItems.map((item) => {
-    const { id, ...otherProps } = item;
+    const { uniqueCategoryId, ...otherProps } = item;
     return (
       <CategoryItem
-        key={id}
+        key={uniqueCategoryId}
         {...otherProps}
-        isActive={currCategory === item.labelId ? true : false}
+        isActive={currCategory === uniqueCategoryId ? true : false}
         setAsCurrCategory={() => {
-          setCurrCategory(item.labelId);
-          localStorage.setItem("currCategory", item.labelId);
+          setCurrCategory(uniqueCategoryId);
+          localStorage.setItem("currCategory", uniqueCategoryId);
         }}
       />
     );

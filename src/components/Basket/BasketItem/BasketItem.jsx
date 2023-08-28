@@ -1,40 +1,45 @@
-import { useState } from "react";
+import { imagesObj } from "../../FoodItemCard/FoodImgArr";
 
 import st from "./BasketItem.module.scss";
 
 function BasketItem({
-  imgSrc,
+  uniqueCategoryId,
+  uniqueFoodKey,
   label,
   weight,
   price,
   amount,
-  updateTotalAmount,
-  updateWholePrice,
+  setBasketData,
 }) {
   const ITEMS_MAX_LIMIT = 100;
 
-  const [itemAmount, updateItemAmount] = useState(amount);
-
   function subtractOne() {
-    if (itemAmount - 1 >= 0) {
-      updateItemAmount((itemAmount) => itemAmount - 1);
-      updateTotalAmount((totalAmount) => totalAmount - 1);
-      updateWholePrice((wholePrice) => wholePrice - price);
+    if (amount - 1 >= 0) {
+      setBasketData((prevBasketState) => {
+        const newBasketState = { ...prevBasketState };
+        newBasketState[uniqueFoodKey].amount--;
+        if (!newBasketState[uniqueFoodKey].amount) {
+          delete newBasketState[uniqueFoodKey];
+        }
+        return newBasketState;
+      });
     }
   }
 
   function addOne() {
-    if (itemAmount + 1 <= ITEMS_MAX_LIMIT) {
-      updateItemAmount((itemAmount) => itemAmount + 1);
-      updateTotalAmount((totalAmount) => totalAmount + 1);
-      updateWholePrice((wholePrice) => wholePrice + price);
+    if (amount + 1 <= ITEMS_MAX_LIMIT) {
+      setBasketData((prevBasketState) => {
+        const newBasketState = { ...prevBasketState };
+        newBasketState[uniqueFoodKey].amount++;
+        return newBasketState;
+      });
     }
   }
 
   return (
     <div className={st["basket-item"]}>
       <img
-        src={require(`../../../images/main/basket/${imgSrc}`)}
+        src={imagesObj[uniqueCategoryId][uniqueFoodKey]}
         alt={label}
         className={st["basket-item__img"]}
       />
@@ -50,7 +55,7 @@ function BasketItem({
         >
           -
         </button>
-        <span className={st["basket-item__amount"]}>{itemAmount}</span>
+        <span className={st["basket-item__amount"]}>{amount}</span>
         <button className={st["basket-item__amount-plus"]} onClick={addOne}>
           +
         </button>

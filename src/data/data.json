@@ -1,49 +1,42 @@
 {
   "categoryItems": [
     {
-      "id": 1,
-      "labelId": "burgers",
+      "uniqueCategoryId": "burgers",
       "categoryIconKey": "burger",
       "label": "Бургеры",
       "items": [
         {
-          "id": 1,
-          "imgKey": "burger1",
+          "uniqueFoodKey": "burger1",
           "price": 689,
           "label": "Мясная бомба",
           "weight": 520
         },
         {
-          "id": 2,
-          "imgKey": "burger2",
+          "uniqueFoodKey": "burger2",
           "price": 550,
           "label": "Супер сырный",
           "weight": 512
         },
         {
-          "id": 3,
-          "imgKey": "burger3",
+          "uniqueFoodKey": "burger3",
           "price": 639,
           "label": "Сытный",
           "weight": 580
         },
         {
-          "id": 4,
-          "imgKey": "burger4",
+          "uniqueFoodKey": "burger4",
           "price": 480,
           "label": "Тяжелый удар",
           "weight": 470
         },
         {
-          "id": 5,
-          "imgKey": "burger5",
+          "uniqueFoodKey": "burger5",
           "price": 450,
           "label": "Вечная классика",
           "weight": 450
         },
         {
-          "id": 6,
-          "imgKey": "burger6",
+          "uniqueFoodKey": "burger6",
           "price": 560,
           "label": "Итальянский",
           "weight": 510
@@ -51,49 +44,42 @@
       ]
     },
     {
-      "id": 2,
-      "labelId": "snacks",
+      "uniqueCategoryId": "snacks",
       "categoryIconKey": "snack",
       "label": "Закуски",
       "items": [
         {
-          "id": 1,
-          "imgKey": "snack1",
+          "uniqueFoodKey": "snack1",
           "price": 384,
           "label": "Начос",
           "weight": 360
         },
         {
-          "id": 2,
-          "imgKey": "snack2",
+          "uniqueFoodKey": "snack2",
           "price": 616,
           "label": "Картошка фри",
           "weight": 544
         },
         {
-          "id": 3,
-          "imgKey": "snack3",
+          "uniqueFoodKey": "snack3",
           "price": 541,
           "label": "Луковые кольца",
           "weight": 584
         },
         {
-          "id": 4,
-          "imgKey": "snack4",
+          "uniqueFoodKey": "snack4",
           "price": 494,
           "label": "Подкрепление",
           "weight": 522
         },
         {
-          "id": 5,
-          "imgKey": "snack5",
+          "uniqueFoodKey": "snack5",
           "price": 436,
           "label": "Небольшой сюрприз",
           "weight": 332
         },
         {
-          "id": 6,
-          "imgKey": "snack6",
+          "uniqueFoodKey": "snack6",
           "price": 370,
           "label": "Сочная закуска",
           "weight": 513
@@ -101,49 +87,42 @@
       ]
     },
     {
-      "id": 3,
-      "labelId": "hotDogs",
+      "uniqueCategoryId": "hotDogs",
       "categoryIconKey": "hotDog",
       "label": "Хот-доги",
       "items": [
         {
-          "id": 1,
-          "imgKey": "hotDog1",
+          "uniqueFoodKey": "hotDog1",
           "price": 598,
           "label": "Домашний хот-дог",
           "weight": 297
         },
         {
-          "id": 2,
-          "imgKey": "hotDog2",
+          "uniqueFoodKey": "hotDog2",
           "price": 299,
           "label": "Жгучий хот-дог",
           "weight": 327
         },
         {
-          "id": 3,
-          "imgKey": "hotDog3",
+          "uniqueFoodKey": "hotDog3",
           "price": 284,
           "label": "Классический хот-дог",
           "weight": 207
         },
         {
-          "id": 4,
-          "imgKey": "hotDog4",
+          "uniqueFoodKey": "hotDog4",
           "price": 279,
           "label": "Жаркий хот-дог",
           "weight": 457
         },
         {
-          "id": 5,
-          "imgKey": "hotDog5",
+          "uniqueFoodKey": "hotDog5",
           "price": 316,
           "label": "Хот-дог от бога",
           "weight": 344
         },
         {
-          "id": 6,
-          "imgKey": "hotDog6",
+          "uniqueFoodKey": "hotDog6",
           "price": 410,
           "label": "Изящный хот-дог",
           "weight": 268
@@ -151,49 +130,42 @@
       ]
     },
     {
-      "id": 4,
-      "labelId": "combo",
+      "uniqueCategoryId": "combo",
       "categoryIconKey": "combo",
       "label": "Комбо",
       "items": [
         {
-          "id": 1,
-          "imgKey": "combo1",
+          "uniqueFoodKey": "combo1",
           "price": 857,
           "label": "Стандартное комбо",
           "weight": 1007
         },
         {
-          "id": 2,
-          "imgKey": "combo2",
+          "uniqueFoodKey": "combo2",
           "price": 750,
           "label": "Премиум комбо",
           "weight": 1280
         },
         {
-          "id": 3,
-          "imgKey": "combo3",
+          "uniqueFoodKey": "combo3",
           "price": 973,
           "label": "Комбо +",
           "weight": 628
         },
         {
-          "id": 4,
-          "imgKey": "combo4",
+          "uniqueFoodKey": "combo4",
           "price": 1150,
           "label": "Комбо для компании",
           "weight": 1070
         },
         {
-          "id": 5,
-          "imgKey": "combo5",
+          "uniqueFoodKey": "combo5",
           "price": 1026,
           "label": "Комбо на весь день",
           "weight": 613
         },
         {
-          "id": 6,
-          "imgKey": "combo6",
+          "uniqueFoodKey": "combo6",
           "price": 1165,
           "label": "Комбо на все вкусы",
           "weight": 1067
@@ -201,49 +173,42 @@
       ]
     },
     {
-      "id": 5,
-      "labelId": "shawarma",
+      "uniqueCategoryId": "shawarma",
       "categoryIconKey": "shawarma",
       "label": "Шаурма",
       "items": [
         {
-          "id": 1,
-          "imgKey": "shawarma1",
+          "uniqueFoodKey": "shawarma1",
           "price": 344,
           "label": "С ветчиной",
           "weight": 734
         },
         {
-          "id": 2,
-          "imgKey": "shawarma2",
+          "uniqueFoodKey": "shawarma2",
           "price": 393,
           "label": "Овощная",
           "weight": 578
         },
         {
-          "id": 3,
-          "imgKey": "shawarma3",
+          "uniqueFoodKey": "shawarma3",
           "price": 456,
           "label": "Со свининой",
           "weight": 611
         },
         {
-          "id": 4,
-          "imgKey": "shawarma4",
+          "uniqueFoodKey": "shawarma4",
           "price": 274,
           "label": "С курицей",
           "weight": 1070
         },
         {
-          "id": 5,
-          "imgKey": "shawarma5",
+          "uniqueFoodKey": "shawarma5",
           "price": 468,
           "label": "С говядиной",
           "weight": 588
         },
         {
-          "id": 6,
-          "imgKey": "shawarma6",
+          "uniqueFoodKey": "shawarma6",
           "price": 561,
           "label": "С сюрпризом",
           "weight": 766
@@ -251,49 +216,42 @@
       ]
     },
     {
-      "id": 6,
-      "labelId": "pizza",
+      "uniqueCategoryId": "pizza",
       "categoryIconKey": "pizza",
       "label": "Пицца",
       "items": [
         {
-          "id": 1,
-          "imgKey": "pizza1",
+          "uniqueFoodKey": "pizza1",
           "price": 780,
           "label": "С колбаской",
           "weight": 1120
         },
         {
-          "id": 2,
-          "imgKey": "pizza2",
+          "uniqueFoodKey": "pizza2",
           "price": 410,
           "label": "Сырная",
           "weight": 1109
         },
         {
-          "id": 3,
-          "imgKey": "pizza3",
+          "uniqueFoodKey": "pizza3",
           "price": 736,
           "label": "Итальянская",
           "weight": 1135
         },
         {
-          "id": 4,
-          "imgKey": "pizza4",
+          "uniqueFoodKey": "pizza4",
           "price": 616,
           "label": "Барбекю",
           "weight": 992
         },
         {
-          "id": 5,
-          "imgKey": "pizza5",
+          "uniqueFoodKey": "pizza5",
           "price": 739,
           "label": "С ананасами",
           "weight": 780
         },
         {
-          "id": 6,
-          "imgKey": "pizza6",
+          "uniqueFoodKey": "pizza6",
           "price": 507,
           "label": "Четыре сезона",
           "weight": 728
@@ -301,49 +259,42 @@
       ]
     },
     {
-      "id": 7,
-      "labelId": "wok",
+      "uniqueCategoryId": "wok",
       "categoryIconKey": "wok",
       "label": "Вок",
       "items": [
         {
-          "id": 1,
-          "imgKey": "wok1",
+          "uniqueFoodKey": "wok1",
           "price": 589,
           "label": "Классический вок",
           "weight": 843
         },
         {
-          "id": 2,
-          "imgKey": "wok2",
+          "uniqueFoodKey": "wok2",
           "price": 739,
           "label": "Вок побольше",
           "weight": 1072
         },
         {
-          "id": 3,
-          "imgKey": "wok3",
+          "uniqueFoodKey": "wok3",
           "price": 673,
           "label": "Огромный вок",
           "weight": 1047
         },
         {
-          "id": 4,
-          "imgKey": "wok4",
+          "uniqueFoodKey": "wok4",
           "price": 677,
           "label": "Маленький вок",
           "weight": 670
         },
         {
-          "id": 5,
-          "imgKey": "wok5",
+          "uniqueFoodKey": "wok5",
           "price": 623,
           "label": "Средний вок",
           "weight": 837
         },
         {
-          "id": 6,
-          "imgKey": "wok6",
+          "uniqueFoodKey": "wok6",
           "price": 578,
           "label": "Необычный вок",
           "weight": 1014
@@ -351,49 +302,42 @@
       ]
     },
     {
-      "id": 8,
-      "labelId": "desserts",
+      "uniqueCategoryId": "desserts",
       "categoryIconKey": "dessert",
       "label": "Дессерты",
       "items": [
         {
-          "id": 1,
-          "imgKey": "dessert1",
+          "uniqueFoodKey": "dessert1",
           "price": 540,
           "label": "Мороженное",
           "weight": 552
         },
         {
-          "id": 2,
-          "imgKey": "dessert2",
+          "uniqueFoodKey": "dessert2",
           "price": 669,
           "label": "Коктейль",
           "weight": 556
         },
         {
-          "id": 3,
-          "imgKey": "dessert3",
+          "uniqueFoodKey": "dessert3",
           "price": 457,
           "label": "Желе",
           "weight": 218
         },
         {
-          "id": 4,
-          "imgKey": "dessert4",
+          "uniqueFoodKey": "dessert4",
           "price": 323,
           "label": "Леденцы",
           "weight": 313
         },
         {
-          "id": 5,
-          "imgKey": "dessert5",
+          "uniqueFoodKey": "dessert5",
           "price": 325,
           "label": "Конфеты",
           "weight": 445
         },
         {
-          "id": 6,
-          "imgKey": "dessert6",
+          "uniqueFoodKey": "dessert6",
           "price": 487,
           "label": "Шоколад",
           "weight": 601
@@ -401,80 +345,47 @@
       ]
     },
     {
-      "id": 9,
-      "labelId": "sauces",
+      "uniqueCategoryId": "sauces",
       "categoryIconKey": "sauce",
       "label": "Соусы",
       "items": [
         {
-          "id": 1,
-          "imgKey": "sauce1",
+          "uniqueFoodKey": "sauce1",
           "price": 165,
           "label": "Кетчуп",
           "weight": 107
         },
         {
-          "id": 2,
-          "imgKey": "sauce2",
+          "uniqueFoodKey": "sauce2",
           "price": 125,
           "label": "Майонез",
           "weight": 138
         },
         {
-          "id": 3,
-          "imgKey": "sauce3",
+          "uniqueFoodKey": "sauce3",
           "price": 158,
           "label": "Горчица",
           "weight": 69
         },
         {
-          "id": 4,
-          "imgKey": "sauce4",
+          "uniqueFoodKey": "sauce4",
           "price": 162,
           "label": "Особый",
           "weight": 150
         },
         {
-          "id": 5,
-          "imgKey": "sauce5",
+          "uniqueFoodKey": "sauce5",
           "price": 177,
           "label": "Нежный",
           "weight": 50
         },
         {
-          "id": 6,
-          "imgKey": "sauce6",
+          "uniqueFoodKey": "sauce6",
           "price": 175,
           "label": "Острый",
           "weight": 82
         }
       ]
-    }
-  ],
-  "basketItems": [
-    {
-      "id": 1,
-      "imgSrc": "cheese-burger.png",
-      "label": "Супер сырный",
-      "weight": 512,
-      "price": 550,
-      "amount": 1
-    },
-    {
-      "id": 2,
-      "imgSrc": "potato.png",
-      "label": "Картошка фри",
-      "weight": 180,
-      "price": 245,
-      "amount": 2
-    },
-    {
-      "id": 3,
-      "imgSrc": "hot-dog.png",
-      "label": "Жгучий хот-дог",
-      "weight": 245,
-      "price": 239,
-      "amount": 1
     }
   ]
 }

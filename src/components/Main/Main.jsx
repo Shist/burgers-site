@@ -14,12 +14,51 @@ function Main() {
       : "burgers"
   );
 
-  const layoutFoodItemsArr = jsonData.categoryItems[
-    jsonData.categoryItems.map((item) => item.labelId).indexOf(currCategory)
-  ].items.map((item) => {
-    const { id, ...otherProps } = item;
-    return <FoodItemCard key={id} labelId={currCategory} {...otherProps} />;
+  const [basketData, setBasketData] = useState({
+    burger2: {
+      uniqueCategoryId: "burgers",
+      uniqueFoodKey: "burger2",
+      label: "Супер сырный",
+      weight: 512,
+      price: 550,
+      amount: 1,
+    },
+    snack2: {
+      uniqueCategoryId: "snacks",
+      uniqueFoodKey: "snack2",
+      label: "Картошка фри",
+      weight: 180,
+      price: 245,
+      amount: 2,
+    },
+    hotDog2: {
+      uniqueCategoryId: "hotDogs",
+      uniqueFoodKey: "hotDog2",
+      label: "Жгучий хот-дог",
+      weight: 245,
+      price: 239,
+      amount: 1,
+    },
   });
+
+  const categoryIdInArr = jsonData.categoryItems
+    .map((item) => item.uniqueCategoryId)
+    .indexOf(currCategory);
+
+  const layoutFoodItemsArr = jsonData.categoryItems[categoryIdInArr].items.map(
+    (item) => {
+      const { uniqueFoodKey, ...otherProps } = item;
+      return (
+        <FoodItemCard
+          key={uniqueFoodKey}
+          uniqueCategoryId={currCategory}
+          uniqueFoodKey={uniqueFoodKey}
+          {...otherProps}
+          setBasketData={setBasketData}
+        />
+      );
+    }
+  );
 
   return (
     <main className={st.main}>
@@ -29,16 +68,10 @@ function Main() {
         setCurrCategory={setCurrCategory}
       />
       <h2 className={st["main__food-headline"]}>
-        {
-          jsonData.categoryItems[
-            jsonData.categoryItems
-              .map((item) => item.labelId)
-              .indexOf(currCategory)
-          ].label
-        }
+        {jsonData.categoryItems[categoryIdInArr].label}
       </h2>
       <div className={st["main__basket-menu-wrapper"]}>
-        <Basket />
+        <Basket basketData={basketData} setBasketData={setBasketData} />
         <div className={st["main__menu-wrapper"]}>{layoutFoodItemsArr}</div>
       </div>
     </main>
