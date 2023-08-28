@@ -1,3 +1,5 @@
+import guestImage from "../../images/header/guest.png";
+import userImage from "../../images/header/user.png";
 import signInImage from "../../images/header/sign-in.png";
 import signOutImage from "../../images/header/sign-out.png";
 import logoText from "../../images/header/logo-text.svg";
@@ -15,20 +17,32 @@ function Header({
 }) {
   return (
     <header className={st.header}>
-      <div
-        className={st["header__sign-in-wrapper"]}
-        onClick={() => {
-          guestMode ? setCurrForm("sign-in") : deleteUserFromLocalStorage();
-        }}
-      >
-        <span className={st["header__sign-in-text"]}>
-          {guestMode ? "Войти" : "Выйти"}
-        </span>
-        <img
-          src={guestMode ? signInImage : signOutImage}
-          alt="Sign In"
-          className={st["header__sign-in-image"]}
-        />
+      <div className={st["header__sign-in-wrapper"]}>
+        <div className={st["header__curr-user-wrapper"]}>
+          <span className={st["header__curr-user-text"]}>
+            {guestMode ? "Гость" : localStorage.getItem("currentUser")}
+          </span>
+          <img
+            src={guestMode ? guestImage : userImage}
+            alt="Sign In"
+            className={st["header__curr-user-image"]}
+          />
+        </div>
+        <div
+          className={st["header__sign-in-btn-wrapper"]}
+          onClick={() => {
+            guestMode ? setCurrForm("sign-in") : deleteUserFromLocalStorage();
+          }}
+        >
+          <span className={st["header__sign-in-text"]}>
+            {guestMode ? "Войти" : "Выйти"}
+          </span>
+          <img
+            src={guestMode ? signInImage : signOutImage}
+            alt={guestMode ? "Sign In" : "Sign Out"}
+            className={st["header__sign-in-image"]}
+          />
+        </div>
       </div>
       <button
         className={`${st["header__burger-menu-btn"]} ${
