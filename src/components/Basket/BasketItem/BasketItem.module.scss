@@ -40,14 +40,15 @@
   }
   &__amount-wrapper {
     margin-left: auto;
-    padding: 9px 12px;
     display: flex;
     align-items: center;
-    column-gap: 16px;
+    column-gap: 4px;
     background-color: $color-gray;
     border-radius: 12px;
     .basket-item__amount-minus,
     .basket-item__amount-plus {
+      padding: 9px 12px;
+      border-radius: 12px;
       color: $color-black;
       font-family: $font;
       font-size: 16px;
