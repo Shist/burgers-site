@@ -37,6 +37,14 @@
     display: flex;
     flex-direction: column;
   }
+  &__empty-basket-label {
+    color: $color-black;
+    font-family: $font;
+    font-size: 16px;
+    padding-block: 15px;
+    border-top: 1px solid $color-gray;
+    border-bottom: 1px solid $color-gray;
+  }
   &__whole-price-wrapper {
     margin-bottom: 24px;
     display: flex;

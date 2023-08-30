@@ -42,7 +42,15 @@ function Basket({ basketData, setBasketData }) {
         <h3 className={st["basket__headline"]}>Корзина</h3>
         <span className={st["basket__total-amount"]}>{totalAmount}</span>
       </div>
-      <div className={st["basket__items-list"]}>{layoutItemsArr}</div>
+      <div className={st["basket__items-list"]}>
+        {layoutItemsArr.length ? (
+          layoutItemsArr
+        ) : (
+          <span className={st["basket__empty-basket-label"]}>
+            На данный момент ваша корзина пуста, добавьте в неё что-нибудь!
+          </span>
+        )}
+      </div>
       <div className={st["basket__whole-price-wrapper"]}>
         <span className={st["basket__price-label"]}>Итого</span>
         <span className={st["basket__price"]}>{wholePrice}₽</span>
