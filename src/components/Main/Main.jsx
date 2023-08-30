@@ -54,6 +54,7 @@ function Main() {
           uniqueCategoryId={currCategory}
           uniqueFoodKey={uniqueFoodKey}
           {...otherProps}
+          basketData={basketData}
           setBasketData={setBasketData}
         />
       );

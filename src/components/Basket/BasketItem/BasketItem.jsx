@@ -9,30 +9,27 @@ function BasketItem({
   weight,
   price,
   amount,
+  basketData,
   setBasketData,
 }) {
   const ITEMS_MAX_LIMIT = 100;
 
   function subtractOne() {
     if (amount - 1 >= 0) {
-      setBasketData((prevBasketState) => {
-        const newBasketState = { ...prevBasketState };
-        newBasketState[uniqueFoodKey].amount--;
-        if (!newBasketState[uniqueFoodKey].amount) {
-          delete newBasketState[uniqueFoodKey];
-        }
-        return newBasketState;
-      });
+      const newBasketState = { ...basketData };
+      newBasketState[uniqueFoodKey].amount--;
+      if (!newBasketState[uniqueFoodKey].amount) {
+        delete newBasketState[uniqueFoodKey];
+      }
+      setBasketData(() => newBasketState);
     }
   }
 
   function addOne() {
     if (amount + 1 <= ITEMS_MAX_LIMIT) {
-      setBasketData((prevBasketState) => {
-        const newBasketState = { ...prevBasketState };
-        newBasketState[uniqueFoodKey].amount++;
-        return newBasketState;
-      });
+      const newBasketState = { ...basketData };
+      newBasketState[uniqueFoodKey].amount++;
+      setBasketData(() => newBasketState);
     }
   }
 

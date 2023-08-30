@@ -8,6 +8,7 @@ function FoodItemCard({
   price,
   label,
   weight,
+  basketData,
   setBasketData,
 }) {
   return (
@@ -23,20 +24,18 @@ function FoodItemCard({
       <button
         className={st["food-item-card__btn-add"]}
         onClick={() => {
-          setBasketData((prevBasketState) => {
-            const newBasketState = { ...prevBasketState };
-            newBasketState[uniqueFoodKey]
-              ? newBasketState[uniqueFoodKey].amount++
-              : (newBasketState[uniqueFoodKey] = {
-                  uniqueCategoryId: uniqueCategoryId,
-                  uniqueFoodKey: uniqueFoodKey,
-                  label: label,
-                  weight: weight,
-                  price: price,
-                  amount: 1,
-                });
-            return newBasketState;
-          });
+          const newBasketState = { ...basketData };
+          newBasketState[uniqueFoodKey]
+            ? newBasketState[uniqueFoodKey].amount++
+            : (newBasketState[uniqueFoodKey] = {
+                uniqueCategoryId: uniqueCategoryId,
+                uniqueFoodKey: uniqueFoodKey,
+                label: label,
+                weight: weight,
+                price: price,
+                amount: 1,
+              });
+          setBasketData(() => newBasketState);
         }}
       >
         Добавить

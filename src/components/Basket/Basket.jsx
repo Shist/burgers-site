@@ -30,6 +30,7 @@ function Basket({ basketData, setBasketData }) {
         key={uniqueFoodKey}
         uniqueFoodKey={uniqueFoodKey}
         {...otherProps}
+        basketData={basketData}
         setBasketData={setBasketData}
       />
     );
