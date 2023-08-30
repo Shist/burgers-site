@@ -1,6 +1,5 @@
 import { useState } from "react";
-import LoginInput from "../LoginInput/LoginInput";
-import PasswordInput from "../PasswordInput/PasswordInput";
+import Input from "../Input/Input";
 
 import st from "./SignUpForm.module.scss";
 
@@ -23,25 +22,29 @@ function SignUpForm({ setCurrForm, setUserToLocalStorage }) {
     >
       <form action="#" className={st["sign-up-form"]}>
         <h2 className={st["sign-up-form__headline"]}>Регистрация</h2>
-        <LoginInput
+        <Input
           extraClasses="mb10"
-          loginState={loginState}
-          setLoginState={setLoginState}
-          idName="login"
+          inputState={loginState}
+          setInputState={setLoginState}
+          type="text"
+          idName="loginInput"
+          placeholder="Введите логин"
         />
-        <PasswordInput
+        <Input
           extraClasses="mb10"
-          passwordState={passwordState}
-          setPasswordState={setPasswordState}
+          inputState={passwordState}
+          setInputState={setPasswordState}
+          type="password"
+          idName="passwordInput"
           placeholder="Введите пароль"
-          idName="password"
         />
-        <PasswordInput
+        <Input
           extraClasses="mb10"
-          passwordState={repeatPasswordState}
-          setPasswordState={setRepeatPasswordState}
+          inputState={repeatPasswordState}
+          setInputState={setRepeatPasswordState}
+          type="password"
+          idName="repeatPasswordInput"
           placeholder="Повторите пароль"
-          idName="repeatPassword"
         />
         <a
           href="#"
