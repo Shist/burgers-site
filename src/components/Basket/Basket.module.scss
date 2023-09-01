@@ -7,10 +7,15 @@
   padding: 24px 16px;
   max-width: 300px;
   width: 100%;
+  max-height: 1200px;
   background-color: $color-white;
   border-radius: 18px;
   @media (max-width: $pc-s) {
     max-width: none;
+    max-height: 850px;
+  }
+  @media (max-width: $phone-l) {
+    max-height: 500px;
   }
   &__headline-amount-wrapper {
     margin-bottom: 12px;
@@ -36,6 +41,12 @@
     margin-bottom: 16px;
     display: flex;
     flex-direction: column;
+    overflow-y: scroll;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+    &::-webkit-scrollbar {
+      display: none;
+    }
   }
   &__empty-basket-label {
     color: $color-black;
