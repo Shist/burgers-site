@@ -1,4 +1,5 @@
 import { imagesObj } from "../../FoodItemCard/FoodImgArr";
+import trashCanImg from "../../../images/main/basket/trash-can.png";
 
 import st from "./BasketItem.module.scss";
 
@@ -45,17 +46,33 @@ function BasketItem({
         <span className={st["basket-item__weight"]}>{`${weight}г`}</span>
         <span className={st["basket-item__price"]}>{`${price}₽`}</span>
       </div>
-      <div className={st["basket-item__amount-wrapper"]}>
+      <div className={st["basket-item__del-btn-and-amount-wrapper"]}>
         <button
-          className={st["basket-item__amount-minus"]}
-          onClick={subtractOne}
+          className={st["basket-item__clear-all-btn"]}
+          onClick={() => {
+            const newBasketState = { ...basketData };
+            delete newBasketState[uniqueFoodKey];
+            setBasketData(() => newBasketState);
+          }}
         >
-          -
+          <img
+            src={trashCanImg}
+            alt="Удалить весь товар этого типа из корзины"
+            className={st["basket-item__clear-all-img"]}
+          />
         </button>
-        <span className={st["basket-item__amount"]}>{amount}</span>
-        <button className={st["basket-item__amount-plus"]} onClick={addOne}>
-          +
-        </button>
+        <div className={st["basket-item__amount-wrapper"]}>
+          <button
+            className={st["basket-item__amount-minus"]}
+            onClick={subtractOne}
+          >
+            -
+          </button>
+          <span className={st["basket-item__amount"]}>{amount}</span>
+          <button className={st["basket-item__amount-plus"]} onClick={addOne}>
+            +
+          </button>
+        </div>
       </div>
     </div>
   );

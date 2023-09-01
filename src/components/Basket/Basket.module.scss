@@ -4,8 +4,8 @@
 .basket {
   display: flex;
   flex-direction: column;
-  padding: 24px 16px;
-  max-width: 300px;
+  padding: 24px 10px;
+  max-width: 320px;
   width: 100%;
   max-height: 1200px;
   background-color: $color-white;
@@ -16,6 +16,7 @@
   }
   @media (max-width: $phone-l) {
     max-height: 500px;
+    padding: 12px 8px;
   }
   &__headline-amount-wrapper {
     margin-bottom: 12px;
