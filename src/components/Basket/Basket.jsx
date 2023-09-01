@@ -1,5 +1,6 @@
 import BasketItem from "./BasketItem/BasketItem";
 
+import trashCanImg from "../../images/main/basket/trash-can.png";
 import freeDeliveryIcon from "../../images/main/basket/delivery.svg";
 
 import st from "./Basket.module.scss";
@@ -42,6 +43,19 @@ function Basket({ basketData, setBasketData }) {
         <h3 className={st["basket__headline"]}>Корзина</h3>
         <span className={st["basket__total-amount"]}>{totalAmount}</span>
       </div>
+      {layoutItemsArr.length ? (
+        <button
+          className={st["basket__clear-all-btn"]}
+          onClick={() => setBasketData({})}
+        >
+          <img
+            src={trashCanImg}
+            alt="Очистить корзину"
+            className={st["basket__clear-all-btn-img"]}
+          />
+          <span className={st["basket__clear-all-text"]}>Очистить корзину</span>
+        </button>
+      ) : null}
       <div className={st["basket__items-list"]}>
         {layoutItemsArr.length ? (
           layoutItemsArr

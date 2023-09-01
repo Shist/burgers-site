@@ -37,6 +37,35 @@
       border-radius: 6px;
     }
   }
+  &__clear-all-btn {
+    margin-bottom: 12px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    column-gap: 10px;
+    width: 100%;
+    padding: 12px;
+    color: $color-black;
+    font-family: $font;
+    font-size: 16px;
+    border-radius: 12px;
+    background-color: $color-gray;
+    border: none;
+    cursor: pointer;
+    transition: 0.3s;
+    &:hover {
+      transform: scale(1.05);
+    }
+    .basket__clear-all-btn-img {
+      width: 20px;
+      height: 20px;
+    }
+    .basket__clear-all-text {
+      color: $color-black;
+      font-family: $font;
+      font-size: 16px;
+    }
+  }
   &__items-list {
     margin-bottom: 16px;
     display: flex;
