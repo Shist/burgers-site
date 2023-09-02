@@ -1,25 +1,7 @@
 @import "../../../styles/vars.scss";
 @import "../../../styles/template.scss";
 
-/* This wrapper will be removed in future when forms will be moved to other pages */
-.sign-up-form-wrapper {
-  position: fixed;
-  z-index: 4;
-  left: 0;
-  top: 0;
-  width: 100%;
-  height: 100%;
-  padding: 10px;
-  background-color: rgba(0, 0, 0, 0.5);
-}
-
 .sign-up-form {
-  /* <-- This code will be removed in future when forms will be moved to other pages --> */
-  margin: 150px auto;
-  @media (max-width: $phone-l) {
-    margin: 100px auto;
-  }
-  /* <-- This code will be removed in future when forms will be moved to other pages --> */
   @extend %default-form;
   &__headline {
     margin-bottom: 30px;

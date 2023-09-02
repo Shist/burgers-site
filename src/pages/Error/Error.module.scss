@@ -1,0 +1,22 @@
+@import "../../styles/vars.scss";
+@import "../../styles/template.scss";
+
+.error {
+  padding: 50px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  &__headline {
+    margin-bottom: 30px;
+    color: $color-orange;
+    font-family: $font;
+    font-size: 48px;
+    font-weight: 600;
+  }
+  &__text {
+    color: $color-dark-yellow;
+    font-family: $font;
+    font-size: 36px;
+  }
+}

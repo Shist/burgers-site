@@ -1,13 +1,13 @@
 import jsonData from "../../data/data.json";
 
 import { useState } from "react";
-import CategoriesList from "../CategoriesList/CategoriesList";
-import Basket from "../Basket/Basket";
-import FoodItemCard from "../FoodItemCard/FoodItemCard";
+import CategoriesList from "../../components/CategoriesList/CategoriesList";
+import Basket from "../../components/Basket/Basket";
+import FoodItemCard from "../../components/FoodItemCard/FoodItemCard";
 
-import st from "./Main.module.scss";
+import st from "./Home.module.scss";
 
-function Main() {
+function Home() {
   const [currCategory, setCurrCategory] = useState(
     localStorage.getItem("currCategory")
       ? localStorage.getItem("currCategory")
@@ -37,21 +37,21 @@ function Main() {
   );
 
   return (
-    <main className={st.main}>
+    <div className={st.home}>
       <CategoriesList
-        extraClasses={st["main__categories-list"]}
+        extraClasses={st["home__categories-list"]}
         currCategory={currCategory}
         setCurrCategory={setCurrCategory}
       />
-      <h2 className={st["main__food-headline"]}>
+      <h2 className={st["home__food-headline"]}>
         {jsonData.categoryItems[categoryIdInArr].label}
       </h2>
-      <div className={st["main__basket-menu-wrapper"]}>
+      <div className={st["home__basket-menu-wrapper"]}>
         <Basket basketData={basketData} setBasketData={setBasketData} />
-        <div className={st["main__menu-wrapper"]}>{layoutFoodItemsArr}</div>
+        <div className={st["home__menu-wrapper"]}>{layoutFoodItemsArr}</div>
       </div>
-    </main>
+    </div>
   );
 }
 
-export default Main;
+export default Home;

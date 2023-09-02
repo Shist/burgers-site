@@ -1,3 +1,4 @@
+import { useNavigate } from "react-router-dom";
 import SignModeLabel from "../SignModeLabel/SignModeLabel";
 
 import signInImage from "../../images/header/sign-in.png";
@@ -11,10 +12,11 @@ import st from "./Header.module.scss";
 function Header({
   isBurgerMenuOpened,
   toggleBurgerMenu,
-  setCurrForm,
   guestMode,
   deleteUserFromLocalStorage,
 }) {
+  const navigate = useNavigate();
+
   return (
     <header className={st.header}>
       <div className={st["header__sign-in-wrapper"]}>
@@ -22,7 +24,7 @@ function Header({
         <div
           className={st["header__sign-in-btn-wrapper"]}
           onClick={() => {
-            guestMode ? setCurrForm("sign-in") : deleteUserFromLocalStorage();
+            guestMode ? navigate("/sign-in") : deleteUserFromLocalStorage();
           }}
         >
           <span className={st["header__sign-in-text"]}>
