@@ -5,4 +5,7 @@
   padding: 50px;
   display: flex;
   justify-content: center;
+  @media (max-width: $phone-l) {
+    padding: 10px;
+  }
 }

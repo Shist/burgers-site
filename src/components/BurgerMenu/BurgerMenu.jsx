@@ -5,7 +5,7 @@ import st from "./BurgerMenu.module.scss";
 import "./../../styles/template.scss";
 
 function BurgerMenu({
-  isBurgerMenuOpened,
+  burgerMenu,
   setBurgerMenu,
   guestMode,
   deleteUserFromLocalStorage,
@@ -17,11 +17,10 @@ function BurgerMenu({
     }
   };
 
-  // TODO - Rewrite this link to needed page (instead of "#") after learning Routings
   return (
     <div
       className={`${st["burger-menu"]} ${
-        isBurgerMenuOpened ? "appeared-flex" : "hidden-element"
+        burgerMenu ? "appeared-flex" : "hidden-element"
       }`}
       onClick={handleClickToDarkSpace}
     >

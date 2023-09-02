@@ -10,8 +10,8 @@ import burgerImage from "../../images/header/burger.png";
 import st from "./Header.module.scss";
 
 function Header({
-  isBurgerMenuOpened,
-  toggleBurgerMenu,
+  burgerMenu,
+  setBurgerMenu,
   guestMode,
   deleteUserFromLocalStorage,
 }) {
@@ -39,11 +39,11 @@ function Header({
       </div>
       <button
         className={`${st["header__burger-menu-btn"]} ${
-          isBurgerMenuOpened
+          burgerMenu
             ? st["header__burger-menu-btn_close"]
             : st["header__burger-menu-btn_open"]
         }`}
-        onClick={() => toggleBurgerMenu((isOpened) => !isOpened)}
+        onClick={() => setBurgerMenu((isOpened) => !isOpened)}
       ></button>
       <div className={st["header__logo-wrapper"]}>
         <img

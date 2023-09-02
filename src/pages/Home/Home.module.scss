@@ -2,6 +2,7 @@
 @import "../../styles/template.scss";
 
 .home {
+  flex-grow: 1;
   padding: 40px 75px 100px;
   @media (max-width: $phone-l) {
     padding: 20px 30px 50px;

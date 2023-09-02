@@ -2,11 +2,15 @@
 @import "../../styles/template.scss";
 
 .error {
+  flex-grow: 1;
   padding: 50px;
   display: flex;
   flex-direction: column;
   align-items: center;
   text-align: center;
+  @media (max-width: $phone-l) {
+    padding: 10px;
+  }
   &__headline {
     margin-bottom: 30px;
     color: $color-orange;
