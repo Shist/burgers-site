@@ -11,6 +11,21 @@ function FoodItemCard({
   basketData,
   setBasketData,
 }) {
+  const addFoodItemToBasket = () => {
+    const newBasketState = { ...basketData };
+    newBasketState[uniqueFoodKey]
+      ? newBasketState[uniqueFoodKey].amount++
+      : (newBasketState[uniqueFoodKey] = {
+          uniqueCategoryId: uniqueCategoryId,
+          uniqueFoodKey: uniqueFoodKey,
+          label: label,
+          weight: weight,
+          price: price,
+          amount: 1,
+        });
+    setBasketData(() => newBasketState);
+  };
+
   return (
     <div className={st["food-item-card"]}>
       <img
@@ -23,20 +38,7 @@ function FoodItemCard({
       <span className={st["food-item-card__weight"]}>{weight}г</span>
       <button
         className={st["food-item-card__btn-add"]}
-        onClick={() => {
-          const newBasketState = { ...basketData };
-          newBasketState[uniqueFoodKey]
-            ? newBasketState[uniqueFoodKey].amount++
-            : (newBasketState[uniqueFoodKey] = {
-                uniqueCategoryId: uniqueCategoryId,
-                uniqueFoodKey: uniqueFoodKey,
-                label: label,
-                weight: weight,
-                price: price,
-                amount: 1,
-              });
-          setBasketData(() => newBasketState);
-        }}
+        onClick={addFoodItemToBasket}
       >
         Добавить
       </button>
