@@ -69,7 +69,12 @@ function Basket({ basketData, setBasketData }) {
         <span className={st["basket__price-label"]}>Итого</span>
         <span className={st["basket__price"]}>{wholePrice}₽</span>
       </div>
-      <button className={st["basket__checkout-btn"]}>Оформить заказ</button>
+      <button
+        className={st["basket__checkout-btn"]}
+        disabled={!layoutItemsArr.length}
+      >
+        Оформить заказ
+      </button>
       <div className={st["basket__free-delivery-label-wrapper"]}>
         <img
           src={freeDeliveryIcon}
