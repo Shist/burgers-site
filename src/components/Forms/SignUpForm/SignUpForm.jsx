@@ -11,6 +11,31 @@ function SignUpForm({ setUserToLocalStorage }) {
   const [repeatPasswordState, setRepeatPasswordState] = useState("");
   const [invalidInput, setInvalidInput] = useState(false);
 
+  const confirmBtnClicked = (e) => {
+    e.preventDefault();
+    if (loginState.indexOf(" ") >= 0) {
+      setInvalidInput("Логин не должен содержать пробелов!");
+    } else if (loginState.length > 8) {
+      setInvalidInput("Логин не должен содержать более 8 символов!");
+    } else if (loginState.length < 3) {
+      setInvalidInput("Логин должен содержать хотя бы 3 символа!");
+    } else if (passwordState.length > 22) {
+      setInvalidInput("Пароль не должен содержать более 22 символов!");
+    } else if (passwordState.length < 8) {
+      setInvalidInput("Пароль должен содержать хотя бы 8 символов!");
+    } else if (!/\d/.test(passwordState)) {
+      setInvalidInput("Пароль должен содержать хотя бы одну цифру!");
+    } else if (!/[a-zA-Z]/.test(passwordState)) {
+      setInvalidInput("Пароль должен содержать хотя бы одну латинскую букву!");
+    } else if (passwordState !== repeatPasswordState) {
+      setInvalidInput("Введённые пароли не совпадают!");
+    } else {
+      setUserToLocalStorage(loginState);
+      setInvalidInput(false);
+      navigate("/");
+    }
+  };
+
   return (
     <form action="#" className={st["sign-up-form"]}>
       <h2 className={st["sign-up-form__headline"]}>Регистрация</h2>
@@ -46,32 +71,7 @@ function SignUpForm({ setUserToLocalStorage }) {
       </Link>
       <button
         className={st["sign-up-form__submit-btn"]}
-        onClick={(e) => {
-          e.preventDefault();
-          if (loginState.indexOf(" ") >= 0) {
-            setInvalidInput("Логин не должен содержать пробелов!");
-          } else if (loginState.length > 8) {
-            setInvalidInput("Логин не должен содержать более 8 символов!");
-          } else if (loginState.length < 3) {
-            setInvalidInput("Логин должен содержать хотя бы 3 символа!");
-          } else if (passwordState.length > 22) {
-            setInvalidInput("Пароль не должен содержать более 22 символов!");
-          } else if (passwordState.length < 8) {
-            setInvalidInput("Пароль должен содержать хотя бы 8 символов!");
-          } else if (!/\d/.test(passwordState)) {
-            setInvalidInput("Пароль должен содержать хотя бы одну цифру!");
-          } else if (!/[a-zA-Z]/.test(passwordState)) {
-            setInvalidInput(
-              "Пароль должен содержать хотя бы одну латинскую букву!"
-            );
-          } else if (passwordState !== repeatPasswordState) {
-            setInvalidInput("Введённые пароли не совпадают!");
-          } else {
-            setUserToLocalStorage(loginState);
-            setInvalidInput(false);
-            navigate("/");
-          }
-        }}
+        onClick={confirmBtnClicked}
       >
         Зарегистрировать аккаунт
       </button>
