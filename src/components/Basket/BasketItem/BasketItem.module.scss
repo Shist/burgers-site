@@ -4,7 +4,6 @@
 .basket-item {
   padding-block: 15px;
   display: flex;
-  flex-wrap: wrap;
   justify-content: flex-start;
   align-items: center;
   gap: 5px;
@@ -22,7 +21,11 @@
     flex-direction: column;
     justify-content: flex-start;
     row-gap: 1px;
+    overflow: hidden;
     .basket-item__label {
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
       color: $color-black;
       font-family: $font;
       font-size: 12px;
