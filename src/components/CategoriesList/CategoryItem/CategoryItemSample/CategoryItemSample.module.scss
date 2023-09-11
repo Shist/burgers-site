@@ -1,0 +1,18 @@
+@import "../../../../styles/vars.scss";
+@import "../../../../styles/template.scss";
+
+.category-item-sample {
+  width: 120px;
+  display: flex;
+  align-items: center;
+  padding: 8px 14px;
+  column-gap: 8px;
+  border-radius: 50px;
+  background: $color-white;
+  &__icon {
+    @include sample(24px, 24px, 100%);
+  }
+  &__label {
+    @include sample(60px, 20px, 10%);
+  }
+}

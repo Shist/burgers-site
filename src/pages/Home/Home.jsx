@@ -4,7 +4,6 @@ import { useState, useEffect } from "react";
 import Header from "../../components/Header/Header";
 import CategoriesList from "../../components/CategoriesList/CategoriesList";
 import Basket from "../../components/Basket/Basket";
-import BasketSample from "../../components/Basket/BasketSample/BasketSample";
 import FoodItemCard from "../../components/FoodItemCard/FoodItemCard";
 import Footer from "../../components/Footer/Footer";
 import BurgerMenu from "../../components/BurgerMenu/BurgerMenu";
