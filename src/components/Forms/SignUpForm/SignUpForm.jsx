@@ -1,6 +1,8 @@
 import { useState } from "react";
 import { useNavigate, Link } from "react-router-dom";
+import useYourMealService from "../../../services/YourMealService";
 import Input from "../Input/Input";
+import Spinner from "../../Spinner/Spinner";
 
 import st from "./SignUpForm.module.scss";
 
@@ -11,8 +13,18 @@ function SignUpForm({ setUserToLocalStorage }) {
   const [repeatPasswordState, setRepeatPasswordState] = useState("");
   const [invalidInput, setInvalidInput] = useState(false);
 
+  const {
+    loading,
+    serverError,
+    clearServerError,
+    isUserNameFree,
+    registerNewUser,
+  } = useYourMealService();
+
   const confirmBtnClicked = (e) => {
     e.preventDefault();
+    setInvalidInput(false);
+    clearServerError();
     if (loginState.indexOf(" ") >= 0) {
       setInvalidInput("Логин не должен содержать пробелов!");
     } else if (loginState.length > 8) {
@@ -30,9 +42,16 @@ function SignUpForm({ setUserToLocalStorage }) {
     } else if (passwordState !== repeatPasswordState) {
       setInvalidInput("Введённые пароли не совпадают!");
     } else {
-      setUserToLocalStorage(loginState);
-      setInvalidInput(false);
-      navigate("/");
+      isUserNameFree(loginState).then((isFree) => {
+        if (isFree) {
+          registerNewUser(loginState, passwordState).then(() => {
+            setUserToLocalStorage(loginState);
+            navigate("/");
+          });
+        } else {
+          setInvalidInput("Пользователь с таким именем уже существует!");
+        }
+      });
     }
   };
 
@@ -63,8 +82,12 @@ function SignUpForm({ setUserToLocalStorage }) {
         idName="repeatPasswordInput"
         placeholder="Повторите пароль"
       />
+      {loading ? <Spinner /> : null}
       {invalidInput ? (
         <span className={st["sign-up-form__error-label"]}>{invalidInput}</span>
+      ) : null}
+      {serverError ? (
+        <span className={st["sign-up-form__error-label"]}>{serverError}</span>
       ) : null}
       <Link to="/sign-in" className={st["sign-up-form__link-to-sign-in"]}>
         Уже есть аккаунт? Войти в аккаунт
@@ -72,6 +95,7 @@ function SignUpForm({ setUserToLocalStorage }) {
       <button
         className={st["sign-up-form__submit-btn"]}
         onClick={confirmBtnClicked}
+        disabled={loading ? true : false}
       >
         Зарегистрировать аккаунт
       </button>

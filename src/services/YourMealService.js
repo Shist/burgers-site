@@ -1,26 +1,40 @@
 import { useHttp } from "../hooks/http.hook";
 
 const useYourMealService = () => {
-  const { loading, request, error, clearError } = useHttp();
+  const { loading, request, serverError, clearServerError } = useHttp();
 
   const _baseUrl = "http://localhost:4000/";
 
   const getAllFoodData = async () => {
-    const result = await request(`${_baseUrl}categoryItems`);
-    return result;
+    const foodArr = await request(`${_baseUrl}categoryItems`);
+    return foodArr;
   };
 
-  const getAllUsersData = async () => {
-    const result = await request(`${_baseUrl}users`);
-    return result;
+  const isUserNameFree = async (name) => {
+    const nicknamesArr = await request(`${_baseUrl}users?name=${name}`);
+    if (nicknamesArr.length) {
+      return false;
+    } else {
+      return true;
+    }
+  };
+
+  const registerNewUser = async (name, password) => {
+    const response = await request(
+      `${_baseUrl}users`,
+      "POST",
+      JSON.stringify({ name, password, basket: [] })
+    );
+    return response;
   };
 
   return {
     loading,
-    error,
-    clearError,
+    serverError,
+    clearServerError,
     getAllFoodData,
-    getAllUsersData,
+    isUserNameFree,
+    registerNewUser,
   };
 };
 
