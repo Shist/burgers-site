@@ -71,6 +71,7 @@ function Home({ guestMode, deleteUserFromLocalStorage }) {
         <h2 className={st["home__food-headline"]}>
           {jsonData.categoryItems[categoryIdInArr].label}
         </h2>
+        {/* <div className={st["home__food-headline-sample"]}></div> */}
         <div className={st["home__basket-menu-wrapper"]}>
           <Basket basketData={basketData} setBasketData={setBasketData} />
           <div className={st["home__menu-wrapper"]}>{layoutFoodItemsArr}</div>
