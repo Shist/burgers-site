@@ -10,6 +10,15 @@
   @media (max-width: $phone-m) {
     padding-inline: 10px;
   }
+  &__error-headline {
+    margin-bottom: 25px;
+    font-family: $font;
+    font-size: 40px;
+    font-weight: 600;
+    line-height: 120%;
+    color: $color-red;
+    word-break: break-word;
+  }
   &__categories-list {
     margin-bottom: 50px;
   }
