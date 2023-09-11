@@ -387,5 +387,29 @@
         }
       ]
     }
+  ],
+  "users": [
+    {
+      "name": "Shist",
+      "password": "pasha4444",
+      "basket": [
+        {
+          "uniqueCategoryId": "burgers",
+          "uniqueFoodKey": "burger3",
+          "label": "Сытный",
+          "weight": 580,
+          "price": 639,
+          "amount": 3
+        },
+        {
+          "uniqueCategoryId": "shawarma",
+          "uniqueFoodKey": "shawarma4",
+          "label": "С курицей",
+          "weight": 1070,
+          "price": 274,
+          "amount": 1
+        }
+      ]
+    }
   ]
 }
