@@ -95,7 +95,9 @@ function SignUpForm({ setUserToLocalStorage }) {
       <button
         className={st["sign-up-form__submit-btn"]}
         onClick={confirmBtnClicked}
-        disabled={loading ? true : false}
+        disabled={
+          !loginState || !passwordState || !repeatPasswordState || loading
+        }
       >
         Зарегистрировать аккаунт
       </button>

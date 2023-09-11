@@ -11,8 +11,8 @@ const useYourMealService = () => {
   };
 
   const isUserNameFree = async (name) => {
-    const nicknamesArr = await request(`${_baseUrl}users?name=${name}`);
-    if (nicknamesArr.length) {
+    const usersArr = await request(`${_baseUrl}users?name=${name}`);
+    if (usersArr.length) {
       return false;
     } else {
       return true;
@@ -28,6 +28,15 @@ const useYourMealService = () => {
     return response;
   };
 
+  const getUserByName = async (name) => {
+    const usersArr = await request(`${_baseUrl}users?name=${name}`);
+    if (usersArr.length) {
+      return usersArr[0];
+    } else {
+      return null;
+    }
+  };
+
   return {
     loading,
     serverError,
@@ -35,6 +44,7 @@ const useYourMealService = () => {
     getAllFoodData,
     isUserNameFree,
     registerNewUser,
+    getUserByName,
   };
 };
 
