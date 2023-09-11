@@ -1,0 +1,32 @@
+@import "../../../styles/vars.scss";
+@import "../../../styles/template.scss";
+
+.food-item-card-sample {
+  padding: 12px;
+  width: 300px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  background-color: $color-white;
+  border-radius: 18px;
+  &__food-img {
+    margin-bottom: 16px;
+    @include sample(276px, 220px, 12px);
+  }
+  &__price {
+    margin-bottom: 8px;
+    @include sample(70px, 33px, 10%);
+  }
+  &__label {
+    margin-bottom: 29px;
+    @include sample(150px, 20px, 10%);
+  }
+  &__weight {
+    margin-bottom: 8px;
+    @include sample(50px, 20px, 10%);
+  }
+  &__btn-add {
+    align-self: center;
+    @include sample(270px, 45px, 12px);
+  }
+}
