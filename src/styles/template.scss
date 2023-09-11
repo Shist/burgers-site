@@ -32,6 +32,18 @@
   justify-content: flex-end;
 }
 
+@keyframes pulse {
+  0% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.4;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
 %default-input {
   padding-inline: 20px;
   max-width: 300px;
@@ -59,4 +71,13 @@
   @media (max-width: $phone-l) {
     padding: 10px 20px 20px;
   }
+}
+
+@mixin sample($max-width, $height, $border-radius) {
+  max-width: $max-width;
+  width: 100%;
+  height: $height;
+  background-color: $color-sample;
+  border-radius: $border-radius;
+  animation: pulse 1.5s ease-in-out 0.5s infinite;
 }

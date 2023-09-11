@@ -1,0 +1,32 @@
+@import "../../../../styles/vars.scss";
+@import "../../../../styles/template.scss";
+
+.basket-item-sample {
+  padding-block: 15px;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 5px;
+  border-top: 1px solid $color-gray;
+  &:last-child {
+    border-bottom: 1px solid $color-gray;
+  }
+  &__img {
+    @include sample(64px, 52px, 8px);
+  }
+  &__label-weight-price-wrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    row-gap: 3px;
+    overflow: hidden;
+    flex-grow: 1;
+    .basket-item-sample__label {
+      @include sample(150px, 15px, 10%);
+    }
+    .basket-item-sample__weight,
+    .basket-item-sample__price {
+      @include sample(30px, 15px, 10%);
+    }
+  }
+}
