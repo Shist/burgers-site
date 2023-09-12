@@ -89,7 +89,15 @@ function SignUpForm({ setUserToLocalStorage }) {
       {serverError ? (
         <span className={st["sign-up-form__error-label"]}>{serverError}</span>
       ) : null}
-      <Link to="/sign-in" className={st["sign-up-form__link-to-sign-in"]}>
+      <Link
+        to="/sign-in"
+        className={
+          loading
+            ? `${st["sign-up-form__link-to-sign-in"]} ${st["sign-up-form__link-to-sign-in_disabled"]}`
+            : st["sign-up-form__link-to-sign-in"]
+        }
+        onClick={(e) => (loading ? e.preventDefault() : null)}
+      >
         Уже есть аккаунт? Войти в аккаунт
       </Link>
       <button
@@ -104,6 +112,7 @@ function SignUpForm({ setUserToLocalStorage }) {
       <button
         className={st["sign-up-form__guest-mode-btn"]}
         onClick={() => navigate("/")}
+        disabled={loading}
       >
         Режим гостя
       </button>

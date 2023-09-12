@@ -32,6 +32,9 @@
     &:hover {
       transform: scale(1.05);
     }
+    &_disabled {
+      color: $color-dark-gray;
+    }
   }
   &__submit-btn {
     margin-bottom: 20px;
@@ -68,6 +71,10 @@
     transition: 0.3s;
     &:hover {
       transform: scale(1.05);
+    }
+    &:disabled {
+      transform: none;
+      filter: grayscale(0.5);
     }
   }
 }
