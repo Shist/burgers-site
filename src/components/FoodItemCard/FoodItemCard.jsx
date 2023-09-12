@@ -13,9 +13,9 @@ function FoodItemCard({
   basketData,
   setBasketData,
   guestMode,
-  setSendingData,
+  setIsDataSendingNow,
 }) {
-  const { serverError, clearServerError, updateUserBasket } =
+  const { serverError, clearServerError, updateUserBasketOnServer } =
     useYourMealService();
 
   const addFoodItemToBasket = () => {
@@ -34,8 +34,8 @@ function FoodItemCard({
       setBasketData(() => newBasketState);
     } else {
       clearServerError();
-      setSendingData(true);
-      updateUserBasket(localStorage.getItem("currentUserId"), {
+      setIsDataSendingNow(true);
+      updateUserBasketOnServer(localStorage.getItem("currentUserId"), {
         name: localStorage.getItem("currentUser"),
         password: localStorage.getItem("currentUserPassword"),
         basket: newBasketState,
@@ -45,7 +45,7 @@ function FoodItemCard({
           setBasketData(() => newBasketState);
         })
         .finally(() => {
-          setSendingData(false);
+          setIsDataSendingNow(false);
         });
     }
   };

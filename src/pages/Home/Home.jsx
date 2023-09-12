@@ -15,7 +15,7 @@ import st from "./Home.module.scss";
 function Home({ guestMode, deleteUserFromLocalStorage }) {
   const [burgerMenu, setBurgerMenu] = useState(false);
   const [foodArr, setFoodArr] = useState(null);
-  const [sendingData, setSendingData] = useState(false);
+  const [isDataSendingNow, setIsDataSendingNow] = useState(false);
 
   const { loading, serverError, getUserByName, getAllFoodData } =
     useYourMealService();
@@ -68,7 +68,7 @@ function Home({ guestMode, deleteUserFromLocalStorage }) {
             basketData={basketData}
             setBasketData={setBasketData}
             guestMode={guestMode}
-            setSendingData={setSendingData}
+            setIsDataSendingNow={setIsDataSendingNow}
           />
         );
       })
@@ -110,7 +110,7 @@ function Home({ guestMode, deleteUserFromLocalStorage }) {
               basketData={basketData}
               setBasketData={setBasketData}
               guestMode={guestMode}
-              setSendingData={setSendingData}
+              setIsDataSendingNow={setIsDataSendingNow}
             />
           )}
           <div className={st["home__menu-wrapper"]}>
@@ -136,7 +136,7 @@ function Home({ guestMode, deleteUserFromLocalStorage }) {
         guestMode={guestMode}
         deleteUserFromLocalStorage={deleteUserFromLocalStorage}
       />
-      <FullPageSpinner dataIsSending={sendingData} />
+      <FullPageSpinner dataIsSending={isDataSendingNow} />
     </>
   );
 }

@@ -37,7 +37,7 @@ const useYourMealService = () => {
     return foodArr;
   };
 
-  const updateUserBasket = async (userId, newDataObj) => {
+  const updateUserBasketOnServer = async (userId, newDataObj) => {
     const response = await request(
       `${_baseUrl}users/${userId}`,
       "PUT",
@@ -54,7 +54,7 @@ const useYourMealService = () => {
     isUserNameFree,
     registerNewUser,
     getAllFoodData,
-    updateUserBasket,
+    updateUserBasketOnServer,
   };
 };
 

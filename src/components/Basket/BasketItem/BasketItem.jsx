@@ -13,9 +13,9 @@ function BasketItem({
   basketData,
   setBasketData,
   guestMode,
-  setSendingData,
+  setIsDataSendingNow,
   clearServerError,
-  updateUserBasket,
+  updateUserBasketOnServer,
 }) {
   const ITEMS_MAX_LIMIT = 100;
 
@@ -24,8 +24,8 @@ function BasketItem({
       setBasketData(() => newBasketState);
     } else {
       clearServerError();
-      setSendingData(true);
-      updateUserBasket(localStorage.getItem("currentUserId"), {
+      setIsDataSendingNow(true);
+      updateUserBasketOnServer(localStorage.getItem("currentUserId"), {
         name: localStorage.getItem("currentUser"),
         password: localStorage.getItem("currentUserPassword"),
         basket: newBasketState,
@@ -35,7 +35,7 @@ function BasketItem({
           setBasketData(() => newBasketState);
         })
         .finally(() => {
-          setSendingData(false);
+          setIsDataSendingNow(false);
         });
     }
   };

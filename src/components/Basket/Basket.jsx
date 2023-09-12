@@ -6,8 +6,8 @@ import freeDeliveryIcon from "../../images/main/basket/delivery.svg";
 
 import st from "./Basket.module.scss";
 
-function Basket({ basketData, setBasketData, guestMode, setSendingData }) {
-  const { serverError, clearServerError, updateUserBasket } =
+function Basket({ basketData, setBasketData, guestMode, setIsDataSendingNow }) {
+  const { serverError, clearServerError, updateUserBasketOnServer } =
     useYourMealService();
 
   const itemsArr = Object.entries(basketData).map(
@@ -38,9 +38,9 @@ function Basket({ basketData, setBasketData, guestMode, setSendingData }) {
         basketData={basketData}
         setBasketData={setBasketData}
         guestMode={guestMode}
-        setSendingData={setSendingData}
+        setIsDataSendingNow={setIsDataSendingNow}
         clearServerError={clearServerError}
-        updateUserBasket={updateUserBasket}
+        updateUserBasketOnServer={updateUserBasketOnServer}
       />
     );
   });
@@ -50,8 +50,8 @@ function Basket({ basketData, setBasketData, guestMode, setSendingData }) {
       setBasketData({});
     } else {
       clearServerError();
-      setSendingData(true);
-      updateUserBasket(localStorage.getItem("currentUserId"), {
+      setIsDataSendingNow(true);
+      updateUserBasketOnServer(localStorage.getItem("currentUserId"), {
         name: localStorage.getItem("currentUser"),
         password: localStorage.getItem("currentUserPassword"),
         basket: {},
@@ -61,7 +61,7 @@ function Basket({ basketData, setBasketData, guestMode, setSendingData }) {
           setBasketData({});
         })
         .finally(() => {
-          setSendingData(false);
+          setIsDataSendingNow(false);
         });
     }
   };

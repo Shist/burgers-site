@@ -455,32 +455,7 @@
     {
       "name": "Shist",
       "password": "pasha4444",
-      "basket": {
-        "burger1": {
-          "uniqueCategoryId": "burgers",
-          "uniqueFoodKey": "burger1",
-          "label": "Мясная бомба",
-          "weight": 520,
-          "price": 689,
-          "amount": 2
-        },
-        "pizza3": {
-          "uniqueCategoryId": "pizza",
-          "uniqueFoodKey": "pizza3",
-          "label": "Итальянская",
-          "weight": 1135,
-          "price": 736,
-          "amount": 1
-        },
-        "dessert3": {
-          "uniqueCategoryId": "desserts",
-          "uniqueFoodKey": "dessert3",
-          "label": "Желе",
-          "weight": 218,
-          "price": 457,
-          "amount": 1
-        }
-      },
+      "basket": {},
       "id": 1
     }
   ]
