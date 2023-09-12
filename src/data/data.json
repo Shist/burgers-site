@@ -455,24 +455,7 @@
     {
       "name": "Shist",
       "password": "pasha4444",
-      "basket": {
-        "burger3": {
-          "uniqueCategoryId": "burgers",
-          "uniqueFoodKey": "burger3",
-          "label": "Сытный",
-          "weight": 580,
-          "price": 639,
-          "amount": 3
-        },
-        "shawarma4": {
-          "uniqueCategoryId": "shawarma",
-          "uniqueFoodKey": "shawarma4",
-          "label": "С курицей",
-          "weight": 1070,
-          "price": 274,
-          "amount": 1
-        }
-      },
+      "basket": {},
       "id": 1
     },
     {
@@ -480,6 +463,12 @@
       "password": "pashapasha4",
       "basket": {},
       "id": 2
+    },
+    {
+      "name": "abc",
+      "password": "2051868d",
+      "basket": [],
+      "id": 3
     }
   ]
 }

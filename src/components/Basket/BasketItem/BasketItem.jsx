@@ -12,27 +12,58 @@ function BasketItem({
   amount,
   basketData,
   setBasketData,
+  guestMode,
+  setSendingData,
+  clearServerError,
+  updateUserBasket,
 }) {
   const ITEMS_MAX_LIMIT = 100;
 
-  function subtractOne() {
+  const updateBasketData = (newBasketState) => {
+    if (guestMode) {
+      setBasketData(() => newBasketState);
+    } else {
+      clearServerError();
+      setSendingData(true);
+      updateUserBasket(localStorage.getItem("currentUserId"), {
+        name: localStorage.getItem("currentUser"),
+        password: localStorage.getItem("currentUserPassword"),
+        basket: newBasketState,
+        id: localStorage.getItem("currentUserId"),
+      })
+        .then(() => {
+          setBasketData(() => newBasketState);
+        })
+        .finally(() => {
+          setSendingData(false);
+        });
+    }
+  };
+
+  const clearBtnClicked = () => {
+    const newBasketState = { ...basketData };
+    delete newBasketState[uniqueFoodKey];
+    updateBasketData(newBasketState);
+  };
+
+  const subtractOne = () => {
     if (amount - 1 >= 0) {
       const newBasketState = { ...basketData };
       newBasketState[uniqueFoodKey].amount--;
       if (!newBasketState[uniqueFoodKey].amount) {
         delete newBasketState[uniqueFoodKey];
       }
-      setBasketData(() => newBasketState);
+      updateBasketData(newBasketState);
     }
-  }
+  };
 
-  function addOne() {
+  const addOne = () => {
     if (amount + 1 <= ITEMS_MAX_LIMIT) {
       const newBasketState = { ...basketData };
       newBasketState[uniqueFoodKey].amount++;
-      setBasketData(() => newBasketState);
+      updateBasketData(newBasketState);
     }
-  }
+  };
 
   return (
     <div className={st["basket-item"]}>
@@ -49,11 +80,7 @@ function BasketItem({
       <div className={st["basket-item__del-btn-and-amount-wrapper"]}>
         <button
           className={st["basket-item__clear-all-btn"]}
-          onClick={() => {
-            const newBasketState = { ...basketData };
-            delete newBasketState[uniqueFoodKey];
-            setBasketData(() => newBasketState);
-          }}
+          onClick={clearBtnClicked}
         >
           <img
             src={trashCanImg}

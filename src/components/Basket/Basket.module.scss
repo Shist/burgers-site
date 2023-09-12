@@ -18,6 +18,13 @@
     max-height: 500px;
     padding: 12px 8px;
   }
+  &__error-msg {
+    color: $color-red;
+    font-family: $font;
+    font-size: 24px;
+    font-weight: 600;
+    word-break: break-word;
+  }
   &__headline-amount-wrapper {
     margin-bottom: 12px;
     display: flex;

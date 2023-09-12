@@ -37,12 +37,40 @@ function Basket({ basketData, setBasketData, guestMode, setSendingData }) {
         {...otherProps}
         basketData={basketData}
         setBasketData={setBasketData}
+        guestMode={guestMode}
+        setSendingData={setSendingData}
+        clearServerError={clearServerError}
+        updateUserBasket={updateUserBasket}
       />
     );
   });
 
+  const clearAllBtnClicked = () => {
+    if (guestMode) {
+      setBasketData({});
+    } else {
+      clearServerError();
+      setSendingData(true);
+      updateUserBasket(localStorage.getItem("currentUserId"), {
+        name: localStorage.getItem("currentUser"),
+        password: localStorage.getItem("currentUserPassword"),
+        basket: {},
+        id: localStorage.getItem("currentUserId"),
+      })
+        .then(() => {
+          setBasketData({});
+        })
+        .finally(() => {
+          setSendingData(false);
+        });
+    }
+  };
+
   return (
     <div className={st["basket"]}>
+      {serverError ? (
+        <h3 className={st["basket__error-msg"]}>{serverError}</h3>
+      ) : null}
       <div className={st["basket__headline-amount-wrapper"]}>
         <h3 className={st["basket__headline"]}>Корзина</h3>
         <span className={st["basket__total-amount"]}>{totalAmount}</span>
@@ -50,22 +78,7 @@ function Basket({ basketData, setBasketData, guestMode, setSendingData }) {
       {layoutItemsArr.length ? (
         <button
           className={st["basket__clear-all-btn"]}
-          onClick={() => {
-            if (guestMode) {
-              setBasketData({});
-            } else {
-              setSendingData(true);
-              updateUserBasket(localStorage.getItem("currentUserId"), {
-                name: localStorage.getItem("currentUser"),
-                password: localStorage.getItem("currentUserPassword"),
-                basket: {},
-                id: localStorage.getItem("currentUserId"),
-              }).then(() => {
-                setBasketData({});
-                setSendingData(false);
-              });
-            }
-          }}
+          onClick={clearAllBtnClicked}
         >
           <img
             src={trashCanImg}
