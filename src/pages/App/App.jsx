@@ -9,14 +9,18 @@ function App() {
     localStorage.getItem("currentUser") === null ? true : false
   );
 
-  function setUserToLocalStorage(userName) {
+  function setUserToLocalStorage(userName, userId, userPassword) {
     setGuestMode(false);
+    localStorage.setItem("currentUserId", userId);
     localStorage.setItem("currentUser", userName);
+    localStorage.setItem("currentUserPassword", userPassword);
   }
 
   function deleteUserFromLocalStorage() {
     setGuestMode(true);
+    localStorage.removeItem("currentUserId");
     localStorage.removeItem("currentUser");
+    localStorage.removeItem("currentUserPassword");
   }
 
   return (

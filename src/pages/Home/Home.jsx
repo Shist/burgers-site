@@ -8,12 +8,14 @@ import FoodItemCard from "../../components/FoodItemCard/FoodItemCard";
 import FoodItemCardSample from "../../components/FoodItemCard/FoodItemCardSample/FoodItemCardSample";
 import Footer from "../../components/Footer/Footer";
 import BurgerMenu from "../../components/BurgerMenu/BurgerMenu";
+import FullPageSpinner from "../../components/FullPageSpinner/FullPageSpinner";
 
 import st from "./Home.module.scss";
 
 function Home({ guestMode, deleteUserFromLocalStorage }) {
   const [burgerMenu, setBurgerMenu] = useState(false);
   const [foodArr, setFoodArr] = useState(null);
+  const [sendingData, setSendingData] = useState(false);
 
   const { loading, serverError, getUserByName, getAllFoodData } =
     useYourMealService();
@@ -100,7 +102,12 @@ function Home({ guestMode, deleteUserFromLocalStorage }) {
           {loading ? (
             <BasketSample />
           ) : (
-            <Basket basketData={basketData} setBasketData={setBasketData} />
+            <Basket
+              basketData={basketData}
+              setBasketData={setBasketData}
+              guestMode={guestMode}
+              setSendingData={setSendingData}
+            />
           )}
           <div className={st["home__menu-wrapper"]}>
             {loading ? (
@@ -125,6 +132,7 @@ function Home({ guestMode, deleteUserFromLocalStorage }) {
         guestMode={guestMode}
         deleteUserFromLocalStorage={deleteUserFromLocalStorage}
       />
+      <FullPageSpinner dataIsSending={sendingData} />
     </>
   );
 }

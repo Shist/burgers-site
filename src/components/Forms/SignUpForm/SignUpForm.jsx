@@ -44,8 +44,8 @@ function SignUpForm({ setUserToLocalStorage }) {
     } else {
       isUserNameFree(loginState).then((isFree) => {
         if (isFree) {
-          registerNewUser(loginState, passwordState).then(() => {
-            setUserToLocalStorage(loginState);
+          registerNewUser(loginState, passwordState).then((newUser) => {
+            setUserToLocalStorage(newUser.name, newUser.id, newUser.password);
             navigate("/");
           });
         } else {

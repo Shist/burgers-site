@@ -1,3 +1,4 @@
+import useYourMealService from "../../services/YourMealService";
 import BasketItem from "./BasketItem/BasketItem";
 
 import trashCanImg from "../../images/main/basket/trash-can.png";
@@ -5,7 +6,10 @@ import freeDeliveryIcon from "../../images/main/basket/delivery.svg";
 
 import st from "./Basket.module.scss";
 
-function Basket({ basketData, setBasketData }) {
+function Basket({ basketData, setBasketData, guestMode, setSendingData }) {
+  const { serverError, clearServerError, updateUserBasket } =
+    useYourMealService();
+
   const itemsArr = Object.entries(basketData).map(
     (basketItemKeyValue) => basketItemKeyValue[1]
   );
@@ -46,7 +50,22 @@ function Basket({ basketData, setBasketData }) {
       {layoutItemsArr.length ? (
         <button
           className={st["basket__clear-all-btn"]}
-          onClick={() => setBasketData({})}
+          onClick={() => {
+            if (guestMode) {
+              setBasketData({});
+            } else {
+              setSendingData(true);
+              updateUserBasket(localStorage.getItem("currentUserId"), {
+                name: localStorage.getItem("currentUser"),
+                password: localStorage.getItem("currentUserPassword"),
+                basket: {},
+                id: localStorage.getItem("currentUserId"),
+              }).then(() => {
+                setBasketData({});
+                setSendingData(false);
+              });
+            }
+          }}
         >
           <img
             src={trashCanImg}

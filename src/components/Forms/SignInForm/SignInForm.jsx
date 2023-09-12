@@ -22,7 +22,7 @@ function SignInForm({ setUserToLocalStorage }) {
     getUserByName(loginState).then((user) => {
       if (user) {
         if (user.password === passwordState) {
-          setUserToLocalStorage(loginState);
+          setUserToLocalStorage(user.name, user.id, user.password);
           navigate("/");
         } else {
           setInvalidInput(

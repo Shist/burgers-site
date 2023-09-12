@@ -5,9 +5,13 @@ const useYourMealService = () => {
 
   const _baseUrl = "http://localhost:4000/";
 
-  const getAllFoodData = async () => {
-    const foodArr = await request(`${_baseUrl}categoryItems`);
-    return foodArr;
+  const getUserByName = async (name) => {
+    const usersArr = await request(`${_baseUrl}users?name=${name}`);
+    if (usersArr.length) {
+      return usersArr[0];
+    } else {
+      return null;
+    }
   };
 
   const isUserNameFree = async (name) => {
@@ -28,23 +32,29 @@ const useYourMealService = () => {
     return response;
   };
 
-  const getUserByName = async (name) => {
-    const usersArr = await request(`${_baseUrl}users?name=${name}`);
-    if (usersArr.length) {
-      return usersArr[0];
-    } else {
-      return null;
-    }
+  const getAllFoodData = async () => {
+    const foodArr = await request(`${_baseUrl}categoryItems`);
+    return foodArr;
+  };
+
+  const updateUserBasket = async (userId, newDataObj) => {
+    const response = await request(
+      `${_baseUrl}users/${userId}`,
+      "PUT",
+      JSON.stringify(newDataObj)
+    );
+    return response;
   };
 
   return {
     loading,
     serverError,
     clearServerError,
-    getAllFoodData,
+    getUserByName,
     isUserNameFree,
     registerNewUser,
-    getUserByName,
+    getAllFoodData,
+    updateUserBasket,
   };
 };
 
