@@ -3,6 +3,7 @@ import useYourMealService from "../../services/YourMealService";
 import Header from "../../components/Header/Header";
 import CategoriesList from "../../components/CategoriesList/CategoriesList";
 import Basket from "../../components/Basket/Basket";
+import BasketSample from "../../components/Basket/BasketSample/BasketSample";
 import FoodItemCard from "../../components/FoodItemCard/FoodItemCard";
 import FoodItemCardSample from "../../components/FoodItemCard/FoodItemCardSample/FoodItemCardSample";
 import Footer from "../../components/Footer/Footer";
@@ -14,9 +15,15 @@ function Home({ guestMode, deleteUserFromLocalStorage }) {
   const [burgerMenu, setBurgerMenu] = useState(false);
   const [foodArr, setFoodArr] = useState(null);
 
-  const { loading, serverError, getAllFoodData } = useYourMealService();
+  const { loading, serverError, getUserByName, getAllFoodData } =
+    useYourMealService();
 
   useEffect(() => {
+    if (!guestMode) {
+      getUserByName(localStorage.getItem("currentUser")).then((userData) => {
+        setBasketData(userData.basket);
+      });
+    }
     getAllFoodData().then((foodArrData) => {
       setFoodArr(foodArrData);
     });
@@ -90,7 +97,11 @@ function Home({ guestMode, deleteUserFromLocalStorage }) {
           </h2>
         )}
         <div className={st["home__basket-menu-wrapper"]}>
-          <Basket basketData={basketData} setBasketData={setBasketData} />
+          {loading ? (
+            <BasketSample />
+          ) : (
+            <Basket basketData={basketData} setBasketData={setBasketData} />
+          )}
           <div className={st["home__menu-wrapper"]}>
             {loading ? (
               <>
