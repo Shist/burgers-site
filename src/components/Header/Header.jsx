@@ -24,7 +24,10 @@ function Header({
         <div
           className={st["header__sign-in-btn-wrapper"]}
           onClick={() => {
-            guestMode ? navigate("/sign-in") : deleteUserFromLocalStorage();
+            if (!guestMode) {
+              deleteUserFromLocalStorage();
+            }
+            navigate("/sign-in");
           }}
         >
           <span className={st["header__sign-in-text"]}>

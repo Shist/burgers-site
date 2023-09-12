@@ -35,8 +35,11 @@ function BurgerMenu({
             <button
               className={st["burger-menu__link"]}
               onClick={() => {
-                guestMode ? navigate("sign-in") : deleteUserFromLocalStorage();
                 setBurgerMenu(false);
+                if (!guestMode) {
+                  deleteUserFromLocalStorage();
+                }
+                navigate("/sign-in");
               }}
             >
               {guestMode ? "Войти" : "Выйти"}
