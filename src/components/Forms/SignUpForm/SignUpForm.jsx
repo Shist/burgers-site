@@ -101,6 +101,12 @@ function SignUpForm({ setUserToLocalStorage }) {
       >
         Зарегистрировать аккаунт
       </button>
+      <button
+        className={st["sign-up-form__guest-mode-btn"]}
+        onClick={() => navigate("/")}
+      >
+        Режим гостя
+      </button>
     </form>
   );
 }

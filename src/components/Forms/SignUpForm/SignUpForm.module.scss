@@ -34,6 +34,7 @@
     }
   }
   &__submit-btn {
+    margin-bottom: 20px;
     max-width: 300px;
     width: 100%;
     padding: 12px 35px;
@@ -51,6 +52,22 @@
     &:disabled {
       transform: none;
       filter: grayscale(0.5);
+    }
+  }
+  &__guest-mode-btn {
+    max-width: 300px;
+    width: 100%;
+    padding: 12px 35px;
+    color: $color-white;
+    font-family: $font;
+    font-size: 18px;
+    border-radius: 12px;
+    background-color: $color-orange;
+    border: none;
+    cursor: pointer;
+    transition: 0.3s;
+    &:hover {
+      transform: scale(1.05);
     }
   }
 }

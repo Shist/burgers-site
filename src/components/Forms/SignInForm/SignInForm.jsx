@@ -71,6 +71,12 @@ function SignInForm({ setUserToLocalStorage }) {
       >
         Войти в аккаунт
       </button>
+      <button
+        className={st["sign-in-form__guest-mode-btn"]}
+        onClick={() => navigate("/")}
+      >
+        Режим гостя
+      </button>
     </form>
   );
 }
