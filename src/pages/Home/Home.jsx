@@ -67,6 +67,8 @@ function Home({ guestMode, deleteUserFromLocalStorage }) {
             {...otherProps}
             basketData={basketData}
             setBasketData={setBasketData}
+            guestMode={guestMode}
+            setSendingData={setSendingData}
           />
         );
       })
@@ -82,7 +84,9 @@ function Home({ guestMode, deleteUserFromLocalStorage }) {
       />
       <main className={st.home}>
         {serverError ? (
-          <h2 className={st["home__error-headline"]}>{serverError}</h2>
+          <h2
+            className={st["home__error-headline"]}
+          >{`Ошибка при попытке получения данных о товарах: ${serverError}`}</h2>
         ) : null}
         <CategoriesList
           extraClasses={st["home__categories-list"]}

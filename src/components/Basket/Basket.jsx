@@ -69,7 +69,9 @@ function Basket({ basketData, setBasketData, guestMode, setSendingData }) {
   return (
     <div className={st["basket"]}>
       {serverError ? (
-        <h3 className={st["basket__error-msg"]}>{serverError}</h3>
+        <h3
+          className={st["basket__error-msg"]}
+        >{`Ошибка при попытке обновления корзины: ${serverError}`}</h3>
       ) : null}
       <div className={st["basket__headline-amount-wrapper"]}>
         <h3 className={st["basket__headline"]}>Корзина</h3>

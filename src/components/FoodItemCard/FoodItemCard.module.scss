@@ -38,6 +38,13 @@
     font-weight: 600;
     line-height: 130%;
   }
+  &__error-msg {
+    margin-top: 8px;
+    color: $color-red;
+    font-family: $font;
+    font-size: 16px;
+    word-break: break-word;
+  }
   &__btn-add {
     align-self: center;
     max-width: 270px;

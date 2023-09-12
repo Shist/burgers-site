@@ -1,3 +1,5 @@
+import useYourMealService from "../../services/YourMealService";
+
 import { imagesObj } from "./FoodImgArr";
 
 import st from "./FoodItemCard.module.scss";
@@ -10,7 +12,12 @@ function FoodItemCard({
   weight,
   basketData,
   setBasketData,
+  guestMode,
+  setSendingData,
 }) {
+  const { serverError, clearServerError, updateUserBasket } =
+    useYourMealService();
+
   const addFoodItemToBasket = () => {
     const newBasketState = { ...basketData };
     newBasketState[uniqueFoodKey]
@@ -23,7 +30,24 @@ function FoodItemCard({
           price: price,
           amount: 1,
         });
-    setBasketData(() => newBasketState);
+    if (guestMode) {
+      setBasketData(() => newBasketState);
+    } else {
+      clearServerError();
+      setSendingData(true);
+      updateUserBasket(localStorage.getItem("currentUserId"), {
+        name: localStorage.getItem("currentUser"),
+        password: localStorage.getItem("currentUserPassword"),
+        basket: newBasketState,
+        id: localStorage.getItem("currentUserId"),
+      })
+        .then(() => {
+          setBasketData(() => newBasketState);
+        })
+        .finally(() => {
+          setSendingData(false);
+        });
+    }
   };
 
   return (
@@ -42,6 +66,11 @@ function FoodItemCard({
       >
         Добавить
       </button>
+      {serverError ? (
+        <span
+          className={st["food-item-card__error-msg"]}
+        >{`Ошибка при попытке добавления товара: ${serverError}`}</span>
+      ) : null}
     </div>
   );
 }
