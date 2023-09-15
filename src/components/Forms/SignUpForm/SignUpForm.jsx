@@ -45,7 +45,7 @@ function SignUpForm({ setUserToLocal }) {
       getUserByName(loginState).then((user) => {
         if (!user) {
           registerNewUser(loginState, passwordState).then((newUser) => {
-            setUserToLocal(newUser.name, newUser.id, newUser.password);
+            setUserToLocal(newUser);
             navigate("/");
           });
         } else {

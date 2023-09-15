@@ -22,7 +22,7 @@ function SignInForm({ setUserToLocal }) {
     getUserByName(loginState).then((user) => {
       if (user) {
         if (user.password === passwordState) {
-          setUserToLocal(user.name, user.id, user.password);
+          setUserToLocal(user);
           navigate("/");
         } else {
           setInvalidInput(

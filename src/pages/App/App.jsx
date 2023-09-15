@@ -8,16 +8,19 @@ function App() {
   const [guestMode, setGuestMode] = useState(
     localStorage.getItem("currentUserId") === null ? true : false
   );
+  const [currUser, setCurrUser] = useState(null);
 
-  function setUserToLocal(userName, userId, userPassword) {
+  function setUserToLocal(user) {
     setGuestMode(false);
-    localStorage.setItem("currentUserId", userId);
-    localStorage.setItem("currentUser", userName);
-    localStorage.setItem("currentUserPassword", userPassword);
+    setCurrUser(user);
+    localStorage.setItem("currentUserId", user.id);
+    localStorage.setItem("currentUser", user.name);
+    localStorage.setItem("currentUserPassword", user.password);
   }
 
   function deleteUserFromLocal() {
     setGuestMode(true);
+    setCurrUser(null);
     localStorage.removeItem("currentUserId");
     localStorage.removeItem("currentUser");
     localStorage.removeItem("currentUserPassword");
