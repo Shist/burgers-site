@@ -9,12 +9,7 @@ import burgerImage from "../../images/header/burger.png";
 
 import st from "./Header.module.scss";
 
-function Header({
-  burgerMenu,
-  setBurgerMenu,
-  guestMode,
-  deleteUserFromLocalStorage,
-}) {
+function Header({ burgerMenu, setBurgerMenu, guestMode, deleteUserFromLocal }) {
   const navigate = useNavigate();
 
   return (
@@ -25,7 +20,7 @@ function Header({
           className={st["header__sign-in-btn-wrapper"]}
           onClick={() => {
             if (!guestMode) {
-              deleteUserFromLocalStorage();
+              deleteUserFromLocal();
             }
             navigate("/sign-in");
           }}

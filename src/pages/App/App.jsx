@@ -9,14 +9,14 @@ function App() {
     localStorage.getItem("currentUserId") === null ? true : false
   );
 
-  function setUserToLocalStorage(userName, userId, userPassword) {
+  function setUserToLocal(userName, userId, userPassword) {
     setGuestMode(false);
     localStorage.setItem("currentUserId", userId);
     localStorage.setItem("currentUser", userName);
     localStorage.setItem("currentUserPassword", userPassword);
   }
 
-  function deleteUserFromLocalStorage() {
+  function deleteUserFromLocal() {
     setGuestMode(true);
     localStorage.removeItem("currentUserId");
     localStorage.removeItem("currentUser");
@@ -32,24 +32,24 @@ function App() {
             element={
               <Home
                 guestMode={guestMode}
-                deleteUserFromLocalStorage={deleteUserFromLocalStorage}
+                deleteUserFromLocal={deleteUserFromLocal}
               />
             }
           />
           <Route
             path="/sign-in"
-            element={<SignIn setUserToLocalStorage={setUserToLocalStorage} />}
+            element={<SignIn setUserToLocal={setUserToLocal} />}
           />
           <Route
             path="/sign-up"
-            element={<SignUp setUserToLocalStorage={setUserToLocalStorage} />}
+            element={<SignUp setUserToLocal={setUserToLocal} />}
           />
           <Route
             path="*"
             element={
               <Error
                 guestMode={guestMode}
-                deleteUserFromLocalStorage={deleteUserFromLocalStorage}
+                deleteUserFromLocal={deleteUserFromLocal}
               />
             }
           />

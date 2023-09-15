@@ -6,7 +6,7 @@ import Spinner from "../../Spinner/Spinner";
 
 import st from "./SignUpForm.module.scss";
 
-function SignUpForm({ setUserToLocalStorage }) {
+function SignUpForm({ setUserToLocal }) {
   const navigate = useNavigate();
   const [loginState, setLoginState] = useState("");
   const [passwordState, setPasswordState] = useState("");
@@ -45,7 +45,7 @@ function SignUpForm({ setUserToLocalStorage }) {
       getUserByName(loginState).then((user) => {
         if (!user) {
           registerNewUser(loginState, passwordState).then((newUser) => {
-            setUserToLocalStorage(newUser.name, newUser.id, newUser.password);
+            setUserToLocal(newUser.name, newUser.id, newUser.password);
             navigate("/");
           });
         } else {

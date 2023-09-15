@@ -5,7 +5,7 @@ import BurgerMenu from "../../components/BurgerMenu/BurgerMenu";
 
 import st from "./Error.module.scss";
 
-function Error({ guestMode, deleteUserFromLocalStorage }) {
+function Error({ guestMode, deleteUserFromLocal }) {
   const [burgerMenu, setBurgerMenu] = useState(false);
 
   const TABLET_WIDTH = 768;
@@ -27,7 +27,7 @@ function Error({ guestMode, deleteUserFromLocalStorage }) {
         burgerMenu={burgerMenu}
         setBurgerMenu={setBurgerMenu}
         guestMode={guestMode}
-        deleteUserFromLocalStorage={deleteUserFromLocalStorage}
+        deleteUserFromLocal={deleteUserFromLocal}
       />
       <main className={st["error"]}>
         <h2 className={st["error__headline"]}>Такой страницы не существует</h2>
@@ -40,7 +40,7 @@ function Error({ guestMode, deleteUserFromLocalStorage }) {
         burgerMenu={burgerMenu}
         setBurgerMenu={setBurgerMenu}
         guestMode={guestMode}
-        deleteUserFromLocalStorage={deleteUserFromLocalStorage}
+        deleteUserFromLocal={deleteUserFromLocal}
       />
     </>
   );

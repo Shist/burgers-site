@@ -12,7 +12,7 @@ import FullPageSpinner from "../../components/FullPageSpinner/FullPageSpinner";
 
 import st from "./Home.module.scss";
 
-function Home({ guestMode, deleteUserFromLocalStorage }) {
+function Home({ guestMode, deleteUserFromLocal }) {
   const [burgerMenu, setBurgerMenu] = useState(false);
   const [foodArr, setFoodArr] = useState(null);
   const [isDataSendingNow, setIsDataSendingNow] = useState(false);
@@ -80,7 +80,7 @@ function Home({ guestMode, deleteUserFromLocalStorage }) {
         burgerMenu={burgerMenu}
         setBurgerMenu={setBurgerMenu}
         guestMode={guestMode}
-        deleteUserFromLocalStorage={deleteUserFromLocalStorage}
+        deleteUserFromLocal={deleteUserFromLocal}
       />
       <main className={st.home}>
         {serverError ? (
@@ -134,7 +134,7 @@ function Home({ guestMode, deleteUserFromLocalStorage }) {
         burgerMenu={burgerMenu}
         setBurgerMenu={setBurgerMenu}
         guestMode={guestMode}
-        deleteUserFromLocalStorage={deleteUserFromLocalStorage}
+        deleteUserFromLocal={deleteUserFromLocal}
       />
       <FullPageSpinner dataIsSending={isDataSendingNow} />
     </>

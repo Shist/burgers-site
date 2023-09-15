@@ -8,7 +8,7 @@ function BurgerMenu({
   burgerMenu,
   setBurgerMenu,
   guestMode,
-  deleteUserFromLocalStorage,
+  deleteUserFromLocal,
 }) {
   const navigate = useNavigate();
   const handleClickToDarkSpace = (e) => {
@@ -37,7 +37,7 @@ function BurgerMenu({
               onClick={() => {
                 setBurgerMenu(false);
                 if (!guestMode) {
-                  deleteUserFromLocalStorage();
+                  deleteUserFromLocal();
                 }
                 navigate("/sign-in");
               }}

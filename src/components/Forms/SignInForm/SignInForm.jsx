@@ -6,7 +6,7 @@ import Spinner from "../../Spinner/Spinner";
 
 import st from "./SignInForm.module.scss";
 
-function SignInForm({ setUserToLocalStorage }) {
+function SignInForm({ setUserToLocal }) {
   const navigate = useNavigate();
   const [loginState, setLoginState] = useState("");
   const [passwordState, setPasswordState] = useState("");
@@ -22,7 +22,7 @@ function SignInForm({ setUserToLocalStorage }) {
     getUserByName(loginState).then((user) => {
       if (user) {
         if (user.password === passwordState) {
-          setUserToLocalStorage(user.name, user.id, user.password);
+          setUserToLocal(user.name, user.id, user.password);
           navigate("/");
         } else {
           setInvalidInput(
