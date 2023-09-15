@@ -457,6 +457,12 @@
       "password": "pasha4444",
       "basket": {},
       "id": 1
+    },
+    {
+      "name": "Shist1",
+      "password": "pasha4444",
+      "basket": [],
+      "id": 2
     }
   ]
 }

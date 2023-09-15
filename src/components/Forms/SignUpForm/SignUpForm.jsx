@@ -17,7 +17,7 @@ function SignUpForm({ setUserToLocalStorage }) {
     loading,
     serverError,
     clearServerError,
-    isUserNameFree,
+    getUserByName,
     registerNewUser,
   } = useYourMealService();
 
@@ -42,8 +42,8 @@ function SignUpForm({ setUserToLocalStorage }) {
     } else if (passwordState !== repeatPasswordState) {
       setInvalidInput("Введённые пароли не совпадают!");
     } else {
-      isUserNameFree(loginState).then((isFree) => {
-        if (isFree) {
+      getUserByName(loginState).then((user) => {
+        if (!user) {
           registerNewUser(loginState, passwordState).then((newUser) => {
             setUserToLocalStorage(newUser.name, newUser.id, newUser.password);
             navigate("/");

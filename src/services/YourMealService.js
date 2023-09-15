@@ -5,21 +5,22 @@ const useYourMealService = () => {
 
   const _baseUrl = "http://localhost:4000/";
 
+  const getAllFoodData = async () => {
+    const foodArr = await request(`${_baseUrl}categoryItems`);
+    return foodArr;
+  };
+
+  const getUserById = async (userId) => {
+    const user = await request(`${_baseUrl}users/${userId}`);
+    return Object.keys(user).length ? user : null;
+  };
+
   const getUserByName = async (name) => {
     const usersArr = await request(`${_baseUrl}users?name=${name}`);
     if (usersArr.length) {
       return usersArr[0];
     } else {
       return null;
-    }
-  };
-
-  const isUserNameFree = async (name) => {
-    const usersArr = await request(`${_baseUrl}users?name=${name}`);
-    if (usersArr.length) {
-      return false;
-    } else {
-      return true;
     }
   };
 
@@ -30,11 +31,6 @@ const useYourMealService = () => {
       JSON.stringify({ name, password, basket: [] })
     );
     return response;
-  };
-
-  const getAllFoodData = async () => {
-    const foodArr = await request(`${_baseUrl}categoryItems`);
-    return foodArr;
   };
 
   const updateUserBasketOnServer = async (userId, newDataObj) => {
@@ -50,10 +46,10 @@ const useYourMealService = () => {
     loading,
     serverError,
     clearServerError,
-    getUserByName,
-    isUserNameFree,
-    registerNewUser,
     getAllFoodData,
+    getUserById,
+    getUserByName,
+    registerNewUser,
     updateUserBasketOnServer,
   };
 };
