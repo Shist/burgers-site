@@ -45,8 +45,8 @@ function Home({ guestMode, deleteUserFromLocalStorage }) {
   }, []);
 
   const [currCategory, setCurrCategory] = useState(
-    localStorage.getItem("currCategory")
-      ? localStorage.getItem("currCategory")
+    localStorage.getItem("currentCategory")
+      ? localStorage.getItem("currentCategory")
       : "burgers"
   );
 

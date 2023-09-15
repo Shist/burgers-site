@@ -23,7 +23,7 @@ function CategoriesList({
             isActive={currCategory === uniqueCategoryId ? true : false}
             setAsCurrCategory={() => {
               setCurrCategory(uniqueCategoryId);
-              localStorage.setItem("currCategory", uniqueCategoryId);
+              localStorage.setItem("currentCategory", uniqueCategoryId);
             }}
           />
         );
