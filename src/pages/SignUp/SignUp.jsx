@@ -2,13 +2,10 @@ import SignUpForm from "../../components/Forms/SignUpForm/SignUpForm";
 
 import st from "./SignUp.module.scss";
 
-function SignUp({ setCurrForm, setUserToLocalStorage }) {
+function SignUp({ setUserToLocalStorage }) {
   return (
     <main className={st["sign-up"]}>
-      <SignUpForm
-        setCurrForm={setCurrForm}
-        setUserToLocalStorage={setUserToLocalStorage}
-      />
+      <SignUpForm setUserToLocalStorage={setUserToLocalStorage} />
     </main>
   );
 }

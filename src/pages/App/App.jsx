@@ -6,7 +6,7 @@ import "./App.scss";
 
 function App() {
   const [guestMode, setGuestMode] = useState(
-    localStorage.getItem("currentUser") === null ? true : false
+    localStorage.getItem("currentUserId") === null ? true : false
   );
 
   function setUserToLocalStorage(userName, userId, userPassword) {
