@@ -8,7 +8,7 @@ import FoodItemCard from "../../components/FoodItemCard/FoodItemCard";
 import FoodItemCardSample from "../../components/FoodItemCard/FoodItemCardSample/FoodItemCardSample";
 import Footer from "../../components/Footer/Footer";
 import BurgerMenu from "../../components/BurgerMenu/BurgerMenu";
-import FullPageSpinner from "../../components/FullPageSpinner/FullPageSpinner";
+import BottomFixedSpinner from "../../components/BottomFixedSpinner/BottomFixedSpinner";
 
 import st from "./Home.module.scss";
 
@@ -114,6 +114,7 @@ function Home({
               currUserData={currUserData}
               setCurrUserData={setCurrUserData}
               guestMode={guestMode}
+              isDataSendingNow={isDataSendingNow}
               setIsDataSendingNow={setIsDataSendingNow}
             />
           )}
@@ -140,7 +141,7 @@ function Home({
         guestMode={guestMode}
         deleteUserFromLocal={deleteUserFromLocal}
       />
-      <FullPageSpinner dataIsSending={isDataSendingNow} />
+      <BottomFixedSpinner dataIsSending={isDataSendingNow} />
     </>
   );
 }

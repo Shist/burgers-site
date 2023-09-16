@@ -13,6 +13,7 @@ function BasketItem({
   currUserData,
   setCurrUserData,
   guestMode,
+  isDataSendingNow,
   setIsDataSendingNow,
   clearServerError,
   updateUserBasketOnServer,
@@ -36,12 +37,16 @@ function BasketItem({
   };
 
   const clearBtnClicked = () => {
+    const newBasketState = {};
+    for (const foodItemKey in currUserData.basket) {
+      newBasketState[foodItemKey] = { ...currUserData.basket[foodItemKey] };
+    }
     const newUserDataState = guestMode
-      ? { basket: { ...currUserData.basket } }
+      ? { basket: newBasketState }
       : {
           name: currUserData.name,
           password: currUserData.password,
-          basket: { ...currUserData.basket },
+          basket: newBasketState,
           id: currUserData.id,
         };
     delete newUserDataState.basket[uniqueFoodKey];
@@ -50,12 +55,16 @@ function BasketItem({
 
   const subtractOne = () => {
     if (amount - 1 >= 0) {
+      const newBasketState = {};
+      for (const foodItemKey in currUserData.basket) {
+        newBasketState[foodItemKey] = { ...currUserData.basket[foodItemKey] };
+      }
       const newUserDataState = guestMode
-        ? { basket: { ...currUserData.basket } }
+        ? { basket: newBasketState }
         : {
             name: currUserData.name,
             password: currUserData.password,
-            basket: { ...currUserData.basket },
+            basket: newBasketState,
             id: currUserData.id,
           };
       newUserDataState.basket[uniqueFoodKey].amount--;
@@ -68,12 +77,16 @@ function BasketItem({
 
   const addOne = () => {
     if (amount + 1 <= ITEMS_MAX_LIMIT) {
+      const newBasketState = {};
+      for (const foodItemKey in currUserData.basket) {
+        newBasketState[foodItemKey] = { ...currUserData.basket[foodItemKey] };
+      }
       const newUserDataState = guestMode
-        ? { basket: { ...currUserData.basket } }
+        ? { basket: newBasketState }
         : {
             name: currUserData.name,
             password: currUserData.password,
-            basket: { ...currUserData.basket },
+            basket: newBasketState,
             id: currUserData.id,
           };
       newUserDataState.basket[uniqueFoodKey].amount++;
@@ -97,6 +110,7 @@ function BasketItem({
         <button
           className={st["basket-item__clear-all-btn"]}
           onClick={clearBtnClicked}
+          disabled={isDataSendingNow}
         >
           <img
             src={trashCanImg}
@@ -108,11 +122,16 @@ function BasketItem({
           <button
             className={st["basket-item__amount-minus"]}
             onClick={subtractOne}
+            disabled={isDataSendingNow}
           >
             -
           </button>
           <span className={st["basket-item__amount"]}>{amount}</span>
-          <button className={st["basket-item__amount-plus"]} onClick={addOne}>
+          <button
+            className={st["basket-item__amount-plus"]}
+            onClick={addOne}
+            disabled={isDataSendingNow}
+          >
             +
           </button>
         </div>

@@ -19,12 +19,16 @@ function FoodItemCard({
     useYourMealService();
 
   const addFoodItemToBasket = () => {
+    const newBasketState = {};
+    for (const foodItemKey in currUserData.basket) {
+      newBasketState[foodItemKey] = { ...currUserData.basket[foodItemKey] };
+    }
     const newUserDataState = guestMode
-      ? { basket: { ...currUserData.basket } }
+      ? { basket: newBasketState }
       : {
           name: currUserData.name,
           password: currUserData.password,
-          basket: { ...currUserData.basket },
+          basket: newBasketState,
           id: currUserData.id,
         };
     newUserDataState.basket[uniqueFoodKey]

@@ -10,6 +10,7 @@ function Basket({
   currUserData,
   setCurrUserData,
   guestMode,
+  isDataSendingNow,
   setIsDataSendingNow,
 }) {
   const { serverError, clearServerError, updateUserBasketOnServer } =
@@ -43,6 +44,7 @@ function Basket({
         currUserData={currUserData}
         setCurrUserData={setCurrUserData}
         guestMode={guestMode}
+        isDataSendingNow={isDataSendingNow}
         setIsDataSendingNow={setIsDataSendingNow}
         clearServerError={clearServerError}
         updateUserBasketOnServer={updateUserBasketOnServer}
@@ -89,6 +91,7 @@ function Basket({
         <button
           className={st["basket__clear-all-btn"]}
           onClick={clearAllBtnClicked}
+          disabled={isDataSendingNow}
         >
           <img
             src={trashCanImg}
@@ -113,7 +116,7 @@ function Basket({
       </div>
       <button
         className={st["basket__checkout-btn"]}
-        disabled={!layoutItemsArr.length}
+        disabled={!layoutItemsArr.length || isDataSendingNow}
       >
         Оформить заказ
       </button>

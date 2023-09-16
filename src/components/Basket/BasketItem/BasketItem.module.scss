@@ -56,6 +56,10 @@
       background-color: сolor-gray;
       border: none;
       cursor: pointer;
+      &:disabled {
+        transform: none;
+        filter: grayscale(0.5) brightness(0.5);
+      }
       .basket-item__clear-all-img {
         height: 20px;
         width: 20px;
@@ -76,6 +80,10 @@
         font-size: 16px;
         border: none;
         cursor: pointer;
+        &:disabled {
+          transform: none;
+          filter: grayscale(0.5) brightness(0.5);
+        }
       }
       .basket-item__amount {
         color: $color-black;

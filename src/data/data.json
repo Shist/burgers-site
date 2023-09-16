@@ -479,20 +479,20 @@
       "name": "Bronya",
       "password": "1111111f",
       "basket": {
-        "pizza6": {
-          "uniqueCategoryId": "pizza",
-          "uniqueFoodKey": "pizza6",
-          "label": "Четыре сезона",
-          "weight": 728,
-          "price": 507,
-          "amount": 2
-        },
-        "wok3": {
+        "wok2": {
           "uniqueCategoryId": "wok",
-          "uniqueFoodKey": "wok3",
-          "label": "Огромный вок",
-          "weight": 1047,
-          "price": 673,
+          "uniqueFoodKey": "wok2",
+          "label": "Вок побольше",
+          "weight": 1072,
+          "price": 739,
+          "amount": 3
+        },
+        "wok1": {
+          "uniqueCategoryId": "wok",
+          "uniqueFoodKey": "wok1",
+          "label": "Классический вок",
+          "weight": 843,
+          "price": 589,
           "amount": 1
         }
       },

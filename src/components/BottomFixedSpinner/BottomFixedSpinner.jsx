@@ -1,14 +1,14 @@
-import st from "./FullPageSpinner.module.scss";
+import st from "./BottomFixedSpinner.module.scss";
 import "./../../styles/template.scss";
 
-function FullPageSpinner({ dataIsSending }) {
+function BottomFixedSpinner({ dataIsSending }) {
   return (
     <div
-      className={`${st["full-page-spinner"]} ${
+      className={`${st["bottom-fixed-spinner"]} ${
         dataIsSending ? "appeared-flex" : "hidden-element"
       }`}
     >
-      <h2 className={st["full-page-spinner__headline"]}>
+      <h2 className={st["bottom-fixed-spinner__headline"]}>
         Отправка данных на сервер
       </h2>
       <div className={st["lds-ellipsis"]}>
@@ -21,4 +21,4 @@ function FullPageSpinner({ dataIsSending }) {
   );
 }
 
-export default FullPageSpinner;
+export default BottomFixedSpinner;
