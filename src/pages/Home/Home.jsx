@@ -70,6 +70,7 @@ function Home({
             currUserData={currUserData}
             setCurrUserData={setCurrUserData}
             guestMode={guestMode}
+            isDataSendingNow={isDataSendingNow}
             setIsDataSendingNow={setIsDataSendingNow}
           />
         );

@@ -13,6 +13,7 @@ function FoodItemCard({
   currUserData,
   setCurrUserData,
   guestMode,
+  isDataSendingNow,
   setIsDataSendingNow,
 }) {
   const ITEMS_MAX_LIMIT = 100;
@@ -72,6 +73,7 @@ function FoodItemCard({
         className={st["food-item-card__btn-add"]}
         onClick={addFoodItemToBasket}
         disabled={
+          isDataSendingNow ||
           currUserData.basket[uniqueFoodKey]?.amount === ITEMS_MAX_LIMIT
         }
       >

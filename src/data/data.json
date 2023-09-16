@@ -478,16 +478,7 @@
     {
       "name": "Bronya",
       "password": "1111111f",
-      "basket": {
-        "wok1": {
-          "uniqueCategoryId": "wok",
-          "uniqueFoodKey": "wok1",
-          "label": "Классический вок",
-          "weight": 843,
-          "price": 589,
-          "amount": 98
-        }
-      },
+      "basket": {},
       "id": 2
     }
   ]
