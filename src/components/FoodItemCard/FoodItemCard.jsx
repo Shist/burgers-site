@@ -10,8 +10,8 @@ function FoodItemCard({
   price,
   label,
   weight,
-  basketData,
-  setBasketData,
+  currUserData,
+  setCurrUserData,
   guestMode,
   setIsDataSendingNow,
 }) {
@@ -19,10 +19,17 @@ function FoodItemCard({
     useYourMealService();
 
   const addFoodItemToBasket = () => {
-    const newBasketState = { ...basketData };
-    newBasketState[uniqueFoodKey]
-      ? newBasketState[uniqueFoodKey].amount++
-      : (newBasketState[uniqueFoodKey] = {
+    const newUserDataState = guestMode
+      ? { basket: { ...currUserData.basket } }
+      : {
+          name: currUserData.name,
+          password: currUserData.password,
+          basket: { ...currUserData.basket },
+          id: currUserData.id,
+        };
+    newUserDataState.basket[uniqueFoodKey]
+      ? newUserDataState.basket[uniqueFoodKey].amount++
+      : (newUserDataState.basket[uniqueFoodKey] = {
           uniqueCategoryId: uniqueCategoryId,
           uniqueFoodKey: uniqueFoodKey,
           label: label,
@@ -31,18 +38,16 @@ function FoodItemCard({
           amount: 1,
         });
     if (guestMode) {
-      setBasketData(() => newBasketState);
+      setCurrUserData(() => newUserDataState);
     } else {
       clearServerError();
       setIsDataSendingNow(true);
-      updateUserBasketOnServer(localStorage.getItem("currentUserId"), {
-        name: localStorage.getItem("currentUser"),
-        password: localStorage.getItem("currentUserPassword"),
-        basket: newBasketState,
-        id: localStorage.getItem("currentUserId"),
-      })
+      updateUserBasketOnServer(
+        localStorage.getItem("currentUserId"),
+        newUserDataState
+      )
         .then(() => {
-          setBasketData(() => newBasketState);
+          setCurrUserData(() => newUserDataState);
         })
         .finally(() => {
           setIsDataSendingNow(false);

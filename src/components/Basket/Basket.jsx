@@ -6,11 +6,16 @@ import freeDeliveryIcon from "../../images/main/basket/delivery.svg";
 
 import st from "./Basket.module.scss";
 
-function Basket({ basketData, setBasketData, guestMode, setIsDataSendingNow }) {
+function Basket({
+  currUserData,
+  setCurrUserData,
+  guestMode,
+  setIsDataSendingNow,
+}) {
   const { serverError, clearServerError, updateUserBasketOnServer } =
     useYourMealService();
 
-  const itemsArr = Object.entries(basketData).map(
+  const itemsArr = Object.entries(currUserData.basket).map(
     (basketItemKeyValue) => basketItemKeyValue[1]
   );
 
@@ -35,8 +40,8 @@ function Basket({ basketData, setBasketData, guestMode, setIsDataSendingNow }) {
         key={uniqueFoodKey}
         uniqueFoodKey={uniqueFoodKey}
         {...otherProps}
-        basketData={basketData}
-        setBasketData={setBasketData}
+        currUserData={currUserData}
+        setCurrUserData={setCurrUserData}
         guestMode={guestMode}
         setIsDataSendingNow={setIsDataSendingNow}
         clearServerError={clearServerError}
@@ -46,19 +51,25 @@ function Basket({ basketData, setBasketData, guestMode, setIsDataSendingNow }) {
   });
 
   const clearAllBtnClicked = () => {
+    const newUserDataState = guestMode
+      ? { basket: {} }
+      : {
+          name: currUserData.name,
+          password: currUserData.password,
+          basket: {},
+          id: currUserData.id,
+        };
     if (guestMode) {
-      setBasketData({});
+      setCurrUserData(newUserDataState);
     } else {
       clearServerError();
       setIsDataSendingNow(true);
-      updateUserBasketOnServer(localStorage.getItem("currentUserId"), {
-        name: localStorage.getItem("currentUser"),
-        password: localStorage.getItem("currentUserPassword"),
-        basket: {},
-        id: localStorage.getItem("currentUserId"),
-      })
+      updateUserBasketOnServer(
+        localStorage.getItem("currentUserId"),
+        newUserDataState
+      )
         .then(() => {
-          setBasketData({});
+          setCurrUserData(newUserDataState);
         })
         .finally(() => {
           setIsDataSendingNow(false);

@@ -12,18 +12,28 @@ import FullPageSpinner from "../../components/FullPageSpinner/FullPageSpinner";
 
 import st from "./Home.module.scss";
 
-function Home({ guestMode, deleteUserFromLocal }) {
+function Home({
+  guestMode,
+  currUserData,
+  setCurrUserData,
+  deleteUserFromLocal,
+}) {
   const [burgerMenu, setBurgerMenu] = useState(false);
   const [foodArr, setFoodArr] = useState(null);
   const [isDataSendingNow, setIsDataSendingNow] = useState(false);
+  const [currCategory, setCurrCategory] = useState(
+    localStorage.getItem("currentCategory")
+      ? localStorage.getItem("currentCategory")
+      : "burgers"
+  );
 
-  const { loading, serverError, getUserByName, getAllFoodData } =
+  const { loading, serverError, getUserById, getAllFoodData } =
     useYourMealService();
 
   useEffect(() => {
-    if (!guestMode) {
-      getUserByName(localStorage.getItem("currentUser")).then((userData) => {
-        setBasketData(userData.basket);
+    if (!guestMode && !currUserData.name) {
+      getUserById(localStorage.getItem("currentUserId")).then((userData) => {
+        setCurrUserData(userData);
       });
     }
     getAllFoodData().then((foodArrData) => {
@@ -44,14 +54,6 @@ function Home({ guestMode, deleteUserFromLocal }) {
     };
   }, []);
 
-  const [currCategory, setCurrCategory] = useState(
-    localStorage.getItem("currentCategory")
-      ? localStorage.getItem("currentCategory")
-      : "burgers"
-  );
-
-  const [basketData, setBasketData] = useState({});
-
   const categoryIdInArr = foodArr
     ? foodArr.map((item) => item.uniqueCategoryId).indexOf(currCategory)
     : null;
@@ -65,8 +67,8 @@ function Home({ guestMode, deleteUserFromLocal }) {
             uniqueCategoryId={currCategory}
             uniqueFoodKey={uniqueFoodKey}
             {...otherProps}
-            basketData={basketData}
-            setBasketData={setBasketData}
+            currUserData={currUserData}
+            setCurrUserData={setCurrUserData}
             guestMode={guestMode}
             setIsDataSendingNow={setIsDataSendingNow}
           />
@@ -81,6 +83,8 @@ function Home({ guestMode, deleteUserFromLocal }) {
         setBurgerMenu={setBurgerMenu}
         guestMode={guestMode}
         deleteUserFromLocal={deleteUserFromLocal}
+        currUserData={currUserData}
+        loading={loading}
       />
       <main className={st.home}>
         {serverError ? (
@@ -107,8 +111,8 @@ function Home({ guestMode, deleteUserFromLocal }) {
             <BasketSample />
           ) : (
             <Basket
-              basketData={basketData}
-              setBasketData={setBasketData}
+              currUserData={currUserData}
+              setCurrUserData={setCurrUserData}
               guestMode={guestMode}
               setIsDataSendingNow={setIsDataSendingNow}
             />

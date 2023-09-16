@@ -28,7 +28,7 @@ const useYourMealService = () => {
     const response = await request(
       `${_baseUrl}users`,
       "POST",
-      JSON.stringify({ name, password, basket: [] })
+      JSON.stringify({ name, password, basket: {} })
     );
     return response;
   };

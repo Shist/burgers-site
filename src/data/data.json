@@ -455,14 +455,25 @@
     {
       "name": "Shist",
       "password": "pasha4444",
-      "basket": {},
+      "basket": {
+        "pizza2": {
+          "uniqueCategoryId": "pizza",
+          "uniqueFoodKey": "pizza2",
+          "label": "Сырная",
+          "weight": 1109,
+          "price": 410,
+          "amount": 3
+        },
+        "pizza1": {
+          "uniqueCategoryId": "pizza",
+          "uniqueFoodKey": "pizza1",
+          "label": "С колбаской",
+          "weight": 1120,
+          "price": 780,
+          "amount": 2
+        }
+      },
       "id": 1
-    },
-    {
-      "name": "Shist1",
-      "password": "pasha4444",
-      "basket": [],
-      "id": 2
     }
   ]
 }

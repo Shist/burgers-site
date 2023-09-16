@@ -8,22 +8,18 @@ function App() {
   const [guestMode, setGuestMode] = useState(
     localStorage.getItem("currentUserId") === null ? true : false
   );
-  const [currUser, setCurrUser] = useState(null);
+  const [currUserData, setCurrUserData] = useState({ basket: {} });
 
   function setUserToLocal(user) {
     setGuestMode(false);
-    setCurrUser(user);
+    setCurrUserData(user);
     localStorage.setItem("currentUserId", user.id);
-    localStorage.setItem("currentUser", user.name);
-    localStorage.setItem("currentUserPassword", user.password);
   }
 
   function deleteUserFromLocal() {
     setGuestMode(true);
-    setCurrUser(null);
+    setCurrUserData({ basket: {} });
     localStorage.removeItem("currentUserId");
-    localStorage.removeItem("currentUser");
-    localStorage.removeItem("currentUserPassword");
   }
 
   return (
@@ -35,6 +31,8 @@ function App() {
             element={
               <Home
                 guestMode={guestMode}
+                currUserData={currUserData}
+                setCurrUserData={setCurrUserData}
                 deleteUserFromLocal={deleteUserFromLocal}
               />
             }

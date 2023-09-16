@@ -10,8 +10,8 @@ function BasketItem({
   weight,
   price,
   amount,
-  basketData,
-  setBasketData,
+  currUserData,
+  setCurrUserData,
   guestMode,
   setIsDataSendingNow,
   clearServerError,
@@ -19,20 +19,18 @@ function BasketItem({
 }) {
   const ITEMS_MAX_LIMIT = 100;
 
-  const updateBasketData = (newBasketState) => {
+  const updateCurrUserData = (newUserDataState) => {
     if (guestMode) {
-      setBasketData(() => newBasketState);
+      setCurrUserData(() => newUserDataState);
     } else {
       clearServerError();
       setIsDataSendingNow(true);
-      updateUserBasketOnServer(localStorage.getItem("currentUserId"), {
-        name: localStorage.getItem("currentUser"),
-        password: localStorage.getItem("currentUserPassword"),
-        basket: newBasketState,
-        id: localStorage.getItem("currentUserId"),
-      })
+      updateUserBasketOnServer(
+        localStorage.getItem("currentUserId"),
+        newUserDataState
+      )
         .then(() => {
-          setBasketData(() => newBasketState);
+          setCurrUserData(() => newUserDataState);
         })
         .finally(() => {
           setIsDataSendingNow(false);
@@ -41,27 +39,48 @@ function BasketItem({
   };
 
   const clearBtnClicked = () => {
-    const newBasketState = { ...basketData };
-    delete newBasketState[uniqueFoodKey];
-    updateBasketData(newBasketState);
+    const newUserDataState = guestMode
+      ? { basket: { ...currUserData.basket } }
+      : {
+          name: currUserData.name,
+          password: currUserData.password,
+          basket: { ...currUserData.basket },
+          id: currUserData.id,
+        };
+    delete newUserDataState.basket[uniqueFoodKey];
+    updateCurrUserData(newUserDataState);
   };
 
   const subtractOne = () => {
     if (amount - 1 >= 0) {
-      const newBasketState = { ...basketData };
-      newBasketState[uniqueFoodKey].amount--;
-      if (!newBasketState[uniqueFoodKey].amount) {
-        delete newBasketState[uniqueFoodKey];
+      const newUserDataState = guestMode
+        ? { basket: { ...currUserData.basket } }
+        : {
+            name: currUserData.name,
+            password: currUserData.password,
+            basket: { ...currUserData.basket },
+            id: currUserData.id,
+          };
+      newUserDataState.basket[uniqueFoodKey].amount--;
+      if (!newUserDataState.basket[uniqueFoodKey].amount) {
+        delete newUserDataState.basket[uniqueFoodKey];
       }
-      updateBasketData(newBasketState);
+      updateCurrUserData(newUserDataState);
     }
   };
 
   const addOne = () => {
     if (amount + 1 <= ITEMS_MAX_LIMIT) {
-      const newBasketState = { ...basketData };
-      newBasketState[uniqueFoodKey].amount++;
-      updateBasketData(newBasketState);
+      const newUserDataState = guestMode
+        ? { basket: { ...currUserData.basket } }
+        : {
+            name: currUserData.name,
+            password: currUserData.password,
+            basket: { ...currUserData.basket },
+            id: currUserData.id,
+          };
+      newUserDataState.basket[uniqueFoodKey].amount++;
+      updateCurrUserData(newUserDataState);
     }
   };
 

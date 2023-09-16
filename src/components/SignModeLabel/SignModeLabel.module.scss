@@ -5,7 +5,7 @@
   display: flex;
   align-items: center;
   column-gap: 10px;
-  .curr-user-wrapper__text {
+  &__text {
     color: $color-white;
     font-family: $font;
     font-size: 24px;
@@ -17,7 +17,14 @@
       font-size: 16px;
     }
   }
-  .curr-user-wrapper__image {
+  &__text-sample {
+    width: 70px;
+    height: 20px;
+    background-color: $color-white;
+    border-radius: 10%;
+    animation: pulse 1.5s ease-in-out 0.5s infinite;
+  }
+  &__image {
     width: 50px;
     height: 50px;
     background-size: cover;

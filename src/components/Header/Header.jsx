@@ -9,13 +9,24 @@ import burgerImage from "../../images/header/burger.png";
 
 import st from "./Header.module.scss";
 
-function Header({ burgerMenu, setBurgerMenu, guestMode, deleteUserFromLocal }) {
+function Header({
+  burgerMenu,
+  setBurgerMenu,
+  guestMode,
+  deleteUserFromLocal,
+  currUserData,
+  loading,
+}) {
   const navigate = useNavigate();
 
   return (
     <header className={st.header}>
       <div className={st["header__sign-in-wrapper"]}>
-        <SignModeLabel guestMode={guestMode} />
+        <SignModeLabel
+          guestMode={guestMode}
+          currUserData={currUserData}
+          loading={loading}
+        />
         <div
           className={st["header__sign-in-btn-wrapper"]}
           onClick={() => {
