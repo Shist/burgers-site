@@ -42,10 +42,7 @@ function FoodItemCard({
     } else {
       clearServerError();
       setIsDataSendingNow(true);
-      updateUserBasketOnServer(
-        localStorage.getItem("currentUserId"),
-        newUserDataState
-      )
+      updateUserBasketOnServer(newUserDataState.id, newUserDataState)
         .then(() => {
           setCurrUserData(() => newUserDataState);
         })
