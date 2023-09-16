@@ -15,6 +15,8 @@ function FoodItemCard({
   guestMode,
   setIsDataSendingNow,
 }) {
+  const ITEMS_MAX_LIMIT = 100;
+
   const { serverError, clearServerError, updateUserBasketOnServer } =
     useYourMealService();
 
@@ -69,6 +71,9 @@ function FoodItemCard({
       <button
         className={st["food-item-card__btn-add"]}
         onClick={addFoodItemToBasket}
+        disabled={
+          currUserData.basket[uniqueFoodKey]?.amount === ITEMS_MAX_LIMIT
+        }
       >
         Добавить
       </button>
