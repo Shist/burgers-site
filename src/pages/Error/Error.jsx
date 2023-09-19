@@ -14,7 +14,7 @@ function Error({
 }) {
   const [burgerMenu, setBurgerMenu] = useState(false);
 
-  const { loading, getUserById } = useYourMealService();
+  const { loading, serverError, getUserById } = useYourMealService();
 
   useEffect(() => {
     if (!guestMode && !currUserData.name) {
@@ -46,6 +46,7 @@ function Error({
         deleteUserFromLocal={deleteUserFromLocal}
         currUserData={currUserData}
         loading={loading}
+        serverError={serverError}
       />
       <main className={st["error"]}>
         <h2 className={st["error__headline"]}>Такой страницы не существует</h2>
@@ -59,6 +60,9 @@ function Error({
         setBurgerMenu={setBurgerMenu}
         guestMode={guestMode}
         deleteUserFromLocal={deleteUserFromLocal}
+        currUserData={currUserData}
+        loading={loading}
+        serverError={serverError}
       />
     </>
   );

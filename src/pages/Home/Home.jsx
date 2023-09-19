@@ -86,6 +86,7 @@ function Home({
         deleteUserFromLocal={deleteUserFromLocal}
         currUserData={currUserData}
         loading={loading}
+        serverError={serverError}
       />
       <main className={st.home}>
         {serverError ? (
@@ -141,6 +142,9 @@ function Home({
         setBurgerMenu={setBurgerMenu}
         guestMode={guestMode}
         deleteUserFromLocal={deleteUserFromLocal}
+        currUserData={currUserData}
+        loading={loading}
+        serverError={serverError}
       />
       <BottomFixedSpinner dataIsSending={isDataSendingNow} />
     </>

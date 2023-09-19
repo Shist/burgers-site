@@ -16,6 +16,7 @@ function Header({
   deleteUserFromLocal,
   currUserData,
   loading,
+  serverError,
 }) {
   const navigate = useNavigate();
 
@@ -26,6 +27,7 @@ function Header({
           guestMode={guestMode}
           currUserData={currUserData}
           loading={loading}
+          serverError={serverError}
         />
         <div
           className={st["header__sign-in-btn-wrapper"]}

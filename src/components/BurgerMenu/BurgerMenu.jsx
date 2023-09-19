@@ -9,6 +9,9 @@ function BurgerMenu({
   setBurgerMenu,
   guestMode,
   deleteUserFromLocal,
+  currUserData,
+  loading,
+  serverError,
 }) {
   const navigate = useNavigate();
   const handleClickToDarkSpace = (e) => {
@@ -29,6 +32,9 @@ function BurgerMenu({
         <SignModeLabel
           extraClasses="flex-row-reverse mb30"
           guestMode={guestMode}
+          currUserData={currUserData}
+          loading={loading}
+          serverError={serverError}
         />
         <ul className={st["burger-menu__nav-list"]}>
           <li className={st["burger-menu__nav-list-item"]}>
