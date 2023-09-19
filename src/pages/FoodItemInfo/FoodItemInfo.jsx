@@ -33,9 +33,16 @@ const FoodItemInfo = () => {
         alt={foodItem?.label}
         className={st["food-item-info__img"]}
       />
-      <span className={st["food-item-info__price"]}>{foodItem?.price}₽</span>
-      <span className={st["food-item-info__label"]}>{foodItem?.label}</span>
-      <span className={st["food-item-info__weight"]}>{foodItem?.weight}г</span>
+      <div className={st["food-item-info__text-wrapper"]}>
+        <span className={st["food-item-info__label-label"]}>Название:</span>
+        <span className={st["food-item-info__label"]}>{foodItem?.label}</span>
+        <span className={st["food-item-info__price-label"]}>Цена:</span>
+        <span className={st["food-item-info__price"]}>{foodItem?.price}₽</span>
+        <span className={st["food-item-info__weight-label"]}>Вес:</span>
+        <span className={st["food-item-info__weight"]}>
+          {foodItem?.weight}г
+        </span>
+      </div>
     </main>
   );
 };

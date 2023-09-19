@@ -1,0 +1,74 @@
+@import "../../styles/vars.scss";
+@import "../../styles/template.scss";
+
+.food-item-info {
+  flex-grow: 1;
+  padding: 50px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  @media (max-width: $phone-l) {
+    padding: 20px 10px;
+  }
+  &__link-to-home {
+    margin-bottom: 30px;
+    text-align: center;
+    color: $color-orange;
+    font-family: $font;
+    font-size: 36px;
+    transition: 0.3s;
+    &:hover {
+      transform: scale(1.05);
+    }
+  }
+  &__img {
+    margin-bottom: 20px;
+    width: 552px;
+    height: 440px;
+    border-radius: 12px;
+    @media (max-width: $tablet-l) {
+      width: 276px;
+      height: 220px;
+    }
+  }
+  &__text-wrapper {
+    display: grid;
+    justify-items: start;
+    align-items: center;
+    row-gap: 15px;
+    column-gap: 30px;
+    grid-template-rows: repeat(3, 1fr);
+    grid-template-columns: repeat(2, 1fr);
+    @media (max-width: $tablet-l) {
+      justify-items: center;
+      grid-template-rows: repeat(6, 1fr);
+      grid-template-columns: repeat(1, 1fr);
+    }
+    .food-item-info__label-label,
+    .food-item-info__price-label,
+    .food-item-info__weight-label {
+      justify-self: end;
+      text-align: end;
+      color: $color-dark-yellow;
+      font-family: $font;
+      font-size: 36px;
+      @media (max-width: $tablet-l) {
+        justify-self: auto;
+        text-align: center;
+      }
+    }
+    .food-item-info__label,
+    .food-item-info__price,
+    .food-item-info__weight {
+      text-align: start;
+      color: $color-orange;
+      font-family: $font;
+      font-size: 36px;
+      font-weight: 600;
+      @media (max-width: $tablet-l) {
+        text-align: center;
+      }
+    }
+  }
+}
