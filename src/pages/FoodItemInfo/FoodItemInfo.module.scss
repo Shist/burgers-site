@@ -22,6 +22,15 @@
       transform: scale(1.05);
     }
   }
+  &__error-headline {
+    margin-bottom: 30px;
+    font-family: $font;
+    font-size: 40px;
+    font-weight: 600;
+    line-height: 120%;
+    color: $color-red;
+    word-break: break-word;
+  }
   &__img {
     margin-bottom: 20px;
     width: 552px;

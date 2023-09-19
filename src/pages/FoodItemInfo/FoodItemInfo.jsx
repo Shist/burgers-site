@@ -33,25 +33,35 @@ const FoodItemInfo = () => {
           <Link to="/" className={st["food-item-info__link-to-home"]}>
             На главную
           </Link>
-          <img
-            src={imagesObj[uniqueCategoryId][uniqueFoodKey]}
-            alt={foodItem?.label}
-            className={st["food-item-info__img"]}
-          />
-          <div className={st["food-item-info__text-wrapper"]}>
-            <span className={st["food-item-info__label-label"]}>Название:</span>
-            <span className={st["food-item-info__label"]}>
-              {foodItem?.label}
-            </span>
-            <span className={st["food-item-info__price-label"]}>Цена:</span>
-            <span className={st["food-item-info__price"]}>
-              {foodItem?.price}₽
-            </span>
-            <span className={st["food-item-info__weight-label"]}>Вес:</span>
-            <span className={st["food-item-info__weight"]}>
-              {foodItem?.weight}г
-            </span>
-          </div>
+          {serverError ? (
+            <h2
+              className={st["food-item-info__error-headline"]}
+            >{`Ошибка при попытке получения данных о товаре: ${serverError}`}</h2>
+          ) : (
+            <>
+              <img
+                src={imagesObj[uniqueCategoryId][uniqueFoodKey]}
+                alt={foodItem?.label}
+                className={st["food-item-info__img"]}
+              />
+              <div className={st["food-item-info__text-wrapper"]}>
+                <span className={st["food-item-info__label-label"]}>
+                  Название:
+                </span>
+                <span className={st["food-item-info__label"]}>
+                  {foodItem?.label}
+                </span>
+                <span className={st["food-item-info__price-label"]}>Цена:</span>
+                <span className={st["food-item-info__price"]}>
+                  {foodItem?.price}₽
+                </span>
+                <span className={st["food-item-info__weight-label"]}>Вес:</span>
+                <span className={st["food-item-info__weight"]}>
+                  {foodItem?.weight}г
+                </span>
+              </div>
+            </>
+          )}
         </main>
       )}
     </>
