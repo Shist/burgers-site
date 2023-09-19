@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import withHeaderAndFooter from "../../hoc/withHeaderAndFooter";
 
 import st from "./Error.module.scss";
@@ -9,6 +10,9 @@ function Error() {
       <span className={st["error__text"]}>
         Пожалуйста, перепроверьте адрес, по которому вы перешли.
       </span>
+      <Link to="/" className={st["error__link-to-home"]}>
+        На главную
+      </Link>
     </main>
   );
 }

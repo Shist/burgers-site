@@ -478,7 +478,24 @@
     {
       "name": "Bronya",
       "password": "1111111f",
-      "basket": {},
+      "basket": {
+        "snack2": {
+          "uniqueCategoryId": "snacks",
+          "uniqueFoodKey": "snack2",
+          "label": "Картошка фри",
+          "weight": 544,
+          "price": 616,
+          "amount": 2
+        },
+        "snack3": {
+          "uniqueCategoryId": "snacks",
+          "uniqueFoodKey": "snack3",
+          "label": "Луковые кольца",
+          "weight": 584,
+          "price": 541,
+          "amount": 3
+        }
+      },
       "id": 2
     }
   ]
