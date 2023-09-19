@@ -50,6 +50,8 @@ function App() {
             element={
               <Error
                 guestMode={guestMode}
+                currUserData={currUserData}
+                setCurrUserData={setCurrUserData}
                 deleteUserFromLocal={deleteUserFromLocal}
               />
             }

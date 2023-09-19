@@ -1,12 +1,28 @@
 import { useState, useEffect } from "react";
+import useYourMealService from "../../services/YourMealService";
 import Header from "../../components/Header/Header";
 import Footer from "../../components/Footer/Footer";
 import BurgerMenu from "../../components/BurgerMenu/BurgerMenu";
 
 import st from "./Error.module.scss";
 
-function Error({ guestMode, deleteUserFromLocal }) {
+function Error({
+  guestMode,
+  currUserData,
+  setCurrUserData,
+  deleteUserFromLocal,
+}) {
   const [burgerMenu, setBurgerMenu] = useState(false);
+
+  const { loading, getUserById } = useYourMealService();
+
+  useEffect(() => {
+    if (!guestMode && !currUserData.name) {
+      getUserById(localStorage.getItem("currentUserId")).then((userData) => {
+        setCurrUserData(userData);
+      });
+    }
+  }, []);
 
   const TABLET_WIDTH = 768;
   useEffect(() => {
@@ -28,6 +44,8 @@ function Error({ guestMode, deleteUserFromLocal }) {
         setBurgerMenu={setBurgerMenu}
         guestMode={guestMode}
         deleteUserFromLocal={deleteUserFromLocal}
+        currUserData={currUserData}
+        loading={loading}
       />
       <main className={st["error"]}>
         <h2 className={st["error__headline"]}>Такой страницы не существует</h2>
