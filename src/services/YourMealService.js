@@ -10,6 +10,13 @@ const useYourMealService = () => {
     return foodArr;
   };
 
+  const getFoodCategoryById = async (uniqueCategoryId) => {
+    const categoryData = await request(
+      `${_baseUrl}categoryItems?uniqueCategoryId=${uniqueCategoryId}`
+    );
+    return categoryData[0];
+  };
+
   const getUserById = async (userId) => {
     const user = await request(`${_baseUrl}users/${userId}`);
     return Object.keys(user).length ? user : null;
@@ -47,6 +54,7 @@ const useYourMealService = () => {
     serverError,
     clearServerError,
     getAllFoodData,
+    getFoodCategoryById,
     getUserById,
     getUserByName,
     registerNewUser,

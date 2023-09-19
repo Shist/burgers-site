@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import { Home, SignIn, SignUp, Error } from "../index";
+import { Home, FoodItemInfo, SignIn, SignUp, Error } from "../index";
 
 import "./App.scss";
 
@@ -30,6 +30,17 @@ function App() {
             path="/"
             element={
               <Home
+                guestMode={guestMode}
+                currUserData={currUserData}
+                setCurrUserData={setCurrUserData}
+                deleteUserFromLocal={deleteUserFromLocal}
+              />
+            }
+          />
+          <Route
+            path="/:uniqueCategoryId/:uniqueFoodKey"
+            element={
+              <FoodItemInfo
                 guestMode={guestMode}
                 currUserData={currUserData}
                 setCurrUserData={setCurrUserData}

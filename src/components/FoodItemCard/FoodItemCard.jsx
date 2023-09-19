@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import useYourMealService from "../../services/YourMealService";
 
 import { imagesObj } from "./FoodImgArr";
@@ -61,11 +62,13 @@ function FoodItemCard({
 
   return (
     <div className={st["food-item-card"]}>
-      <img
-        src={imagesObj[uniqueCategoryId][uniqueFoodKey]}
-        alt={label}
-        className={st["food-item-card__food-img"]}
-      />
+      <Link to={`/${uniqueCategoryId}/${uniqueFoodKey}`}>
+        <img
+          src={imagesObj[uniqueCategoryId][uniqueFoodKey]}
+          alt={label}
+          className={st["food-item-card__food-img"]}
+        />
+      </Link>
       <span className={st["food-item-card__price"]}>{price}₽</span>
       <span className={st["food-item-card__label"]}>{label}</span>
       <span className={st["food-item-card__weight"]}>{weight}г</span>
