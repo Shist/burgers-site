@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/static/css/main.81685f20.css",
-    "main.js": "/static/js/main.54853f37.js",
+    "main.css": "/static/css/main.83bed8bd.css",
+    "main.js": "/static/js/main.848c68fb.js",
     "static/media/Nunito-SemiBold.svg": "/static/media/Nunito-SemiBold.a44c840afe314462a12f.svg",
     "static/media/Nunito-ExtraBold.svg": "/static/media/Nunito-ExtraBold.5432e5702fe3fc2a9e0a.svg",
     "static/media/Nunito-Regular.svg": "/static/media/Nunito-Regular.90401253781e6d011493.svg",
@@ -94,11 +94,11 @@
     "static/media/telegram.svg": "/static/media/telegram.f127ae4db19d31e43edab50773b6ef68.svg",
     "static/media/phone.svg": "/static/media/phone.05cf066b32c5124b34c8c6bf83b502f6.svg",
     "index.html": "/index.html",
-    "main.81685f20.css.map": "/static/css/main.81685f20.css.map",
-    "main.54853f37.js.map": "/static/js/main.54853f37.js.map"
+    "main.83bed8bd.css.map": "/static/css/main.83bed8bd.css.map",
+    "main.848c68fb.js.map": "/static/js/main.848c68fb.js.map"
   },
   "entrypoints": [
-    "static/css/main.81685f20.css",
-    "static/js/main.54853f37.js"
+    "static/css/main.83bed8bd.css",
+    "static/js/main.848c68fb.js"
   ]
 }
