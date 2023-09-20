@@ -58,6 +58,7 @@ const FoodItemInfo = ({ guestMode, currUserData, setCurrUserData }) => {
   const updateCurrUserData = (newUserDataState, resetForm) => {
     if (guestMode) {
       setCurrUserData(() => newUserDataState);
+      navigate("/");
     } else {
       clearUserDataServerError();
       updateUserBasketOnServer(newUserDataState.id, newUserDataState).then(
