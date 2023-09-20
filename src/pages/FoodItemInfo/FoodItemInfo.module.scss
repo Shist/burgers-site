@@ -42,6 +42,7 @@
     }
   }
   &__text-wrapper {
+    margin-bottom: 30px;
     display: grid;
     justify-items: start;
     align-items: center;
@@ -77,6 +78,65 @@
       font-weight: 600;
       @media (max-width: $tablet-l) {
         text-align: center;
+      }
+    }
+  }
+  &__add-form {
+    padding: 30px;
+    max-width: 500px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: $color-white;
+    border-radius: 18px;
+    .food-item-info__add-headline {
+      margin-bottom: 20px;
+      color: $color-black;
+      font-family: $font;
+      font-size: 28px;
+      font-weight: 600;
+    }
+    .food-item-info__number-input {
+      margin-bottom: 20px;
+      padding-inline: 10px;
+      max-width: 80px;
+      width: 100%;
+      height: 40px;
+      color: $color-black;
+      font-family: $font;
+      font-size: 18px;
+      line-height: 20px;
+      border-radius: 10px;
+      border: 1px solid $color-dark-gray;
+      background: white;
+    }
+    .food-item-info__error-text {
+      margin-bottom: 20px;
+      text-align: center;
+      color: $color-red;
+      font-family: $font;
+      font-size: 20px;
+    }
+    .food-item-info__sumbit-btn {
+      align-self: center;
+      max-width: 270px;
+      width: 100%;
+      padding: 12px 70px;
+      color: $color-white;
+      font-family: $font;
+      font-size: 16px;
+      border-radius: 12px;
+      background-color: $color-orange;
+      border: none;
+      cursor: pointer;
+      transition: 0.3s;
+      &:hover {
+        transform: scale(1.05);
+      }
+      &:disabled {
+        transform: none;
+        filter: grayscale(0.5);
       }
     }
   }
