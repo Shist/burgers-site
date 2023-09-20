@@ -121,6 +121,19 @@
       font-family: $font;
       font-size: 20px;
     }
+    .food-item-info__whole-price-label {
+      margin-bottom: 20px;
+      color: $color-black;
+      font-family: $font;
+      font-size: 28px;
+    }
+    .food-item-info__whole-price {
+      margin-bottom: 20px;
+      color: $color-black;
+      font-family: $font;
+      font-size: 28px;
+      font-weight: 600;
+    }
     .food-item-info__sumbit-btn {
       align-self: center;
       max-width: 270px;

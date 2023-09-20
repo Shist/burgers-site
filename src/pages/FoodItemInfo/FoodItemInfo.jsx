@@ -160,40 +160,55 @@ const FoodItemInfo = ({ guestMode, currUserData, setCurrUserData }) => {
                       });
                   updateCurrUserData(newUserDataState, resetForm);
                 }}
+                initialTouched={{ itemsAmountToAdd: true }}
               >
-                <Form action="#" className={st["food-item-info__add-form"]}>
-                  <label
-                    htmlFor="itemsAmountToAdd"
-                    className={st["food-item-info__add-headline"]}
-                  >
-                    Укажите количество товара:
-                  </label>
-                  <Field
-                    id="itemsAmountToAdd"
-                    name="itemsAmountToAdd"
-                    type="number"
-                    min="1"
-                    max="100"
-                    className={st["food-item-info__number-input"]}
-                    required
-                  />
-                  <FormikErrorMessage
-                    component="span"
-                    name="itemsAmountToAdd"
-                    className={st["food-item-info__error-text"]}
-                  />
-                  {userDataSending ? <Spinner color="orange" /> : null}
-                  <button
-                    type="submit"
-                    className={st["food-item-info__sumbit-btn"]}
-                    disabled={userDataSending}
-                  >
-                    Добавить
-                  </button>
-                  <span className={st["food-item-info__server-error-text"]}>
-                    {userDataServerError}
-                  </span>
-                </Form>
+                {({ values, errors }) => (
+                  <Form action="#" className={st["food-item-info__add-form"]}>
+                    <label
+                      htmlFor="itemsAmountToAdd"
+                      className={st["food-item-info__add-headline"]}
+                    >
+                      Укажите количество товара:
+                    </label>
+                    <Field
+                      id="itemsAmountToAdd"
+                      name="itemsAmountToAdd"
+                      type="number"
+                      min="1"
+                      max="100"
+                      className={st["food-item-info__number-input"]}
+                      required
+                    />
+                    <FormikErrorMessage
+                      component="span"
+                      name="itemsAmountToAdd"
+                      className={st["food-item-info__error-text"]}
+                    />
+                    <label className={st["food-item-info__whole-price-label"]}>
+                      Общая цена:
+                    </label>
+                    {foodItem && !errors.itemsAmountToAdd ? (
+                      <span className={st["food-item-info__whole-price"]}>{`${
+                        foodItem.price * values.itemsAmountToAdd
+                      }₽`}</span>
+                    ) : (
+                      <Spinner color="orange" />
+                    )}
+                    {userDataSending ? <Spinner color="orange" /> : null}
+                    <button
+                      type="submit"
+                      className={st["food-item-info__sumbit-btn"]}
+                      disabled={userDataSending || errors.itemsAmountToAdd}
+                    >
+                      Добавить
+                    </button>
+                    {userDataServerError ? (
+                      <span className={st["food-item-info__server-error-text"]}>
+                        {`Ошибка при попытке обновления корзины: ${userDataServerError}`}
+                      </span>
+                    ) : null}
+                  </Form>
+                )}
               </Formik>
             </>
           )}
