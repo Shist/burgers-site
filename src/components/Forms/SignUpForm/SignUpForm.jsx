@@ -82,7 +82,7 @@ function SignUpForm({ setUserToLocal }) {
         idName="repeatPasswordInput"
         placeholder="Повторите пароль"
       />
-      {loading ? <Spinner /> : null}
+      {loading ? <Spinner color="white" /> : null}
       {invalidInput ? (
         <span className={st["sign-up-form__error-label"]}>{invalidInput}</span>
       ) : null}

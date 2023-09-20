@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { Link, useParams } from "react-router-dom";
+import { Link, useParams, useNavigate } from "react-router-dom";
 import {
   Formik,
   Form,
@@ -10,6 +10,7 @@ import * as Yup from "yup";
 import withHeaderAndFooter from "../../hoc/withHeaderAndFooter";
 import useYourMealService from "../../services/YourMealService";
 import FoodItemInfoSample from "./FoodItemInfoSample/FoodItemInfoSample";
+import Spinner from "../../components/Spinner/Spinner";
 
 import { imagesObj } from "../../components/FoodItemCard/FoodImgArr";
 
@@ -19,15 +20,30 @@ Yup.setLocale({
   number: {
     positive: "Число товаров должно быть положительным",
     integer: "Число товаров должно быть целым",
-    max: "Вы можете добавить не более 100 единиц товара",
   },
 });
 
-const FoodItemInfo = () => {
+const FoodItemInfo = ({ guestMode, currUserData, setCurrUserData }) => {
+  const navigate = useNavigate();
   const { uniqueCategoryId, uniqueFoodKey } = useParams();
   const [foodItem, setFoodItem] = useState(null);
 
-  const { loading, serverError, getFoodCategoryById } = useYourMealService();
+  const {
+    loading: foodLoading,
+    serverError: foodServerError,
+    getFoodCategoryById,
+  } = useYourMealService();
+
+  const {
+    loading: userDataSending,
+    serverError: userDataServerError,
+    clearServerError: clearUserDataServerError,
+    updateUserBasketOnServer,
+  } = useYourMealService();
+
+  const userAmountOfThisFoodInBasket = currUserData.basket[uniqueFoodKey]
+    ? currUserData.basket[uniqueFoodKey].amount
+    : 0;
 
   useEffect(() => {
     getFoodCategoryById(uniqueCategoryId).then((categoryData) => {
@@ -39,19 +55,44 @@ const FoodItemInfo = () => {
     });
   }, []);
 
+  const updateCurrUserData = (newUserDataState, resetForm) => {
+    if (guestMode) {
+      setCurrUserData(() => newUserDataState);
+    } else {
+      clearUserDataServerError();
+      updateUserBasketOnServer(newUserDataState.id, newUserDataState).then(
+        () => {
+          resetForm();
+          setCurrUserData(() => newUserDataState);
+          navigate("/");
+        }
+      );
+    }
+  };
+
   return (
     <>
-      {loading ? (
+      {foodLoading ? (
         <FoodItemInfoSample />
       ) : (
         <main className={st["food-item-info"]}>
-          <Link to="/" className={st["food-item-info__link-to-home"]}>
+          <Link
+            to="/"
+            className={
+              foodLoading || userDataSending
+                ? `${st["food-item-info__link-to-home"]} ${st["food-item-info__link-to-home_disabled"]}`
+                : st["food-item-info__link-to-home"]
+            }
+            onClick={(e) =>
+              foodLoading || userDataSending ? e.preventDefault() : null
+            }
+          >
             На главную
           </Link>
-          {serverError ? (
+          {foodServerError ? (
             <h2
               className={st["food-item-info__error-headline"]}
-            >{`Ошибка при попытке получения данных о товаре: ${serverError}`}</h2>
+            >{`Ошибка при попытке получения данных о товаре: ${foodServerError}`}</h2>
           ) : (
             <>
               <img
@@ -84,28 +125,40 @@ const FoodItemInfo = () => {
                     .typeError("Вы ввели не число")
                     .positive()
                     .integer()
-                    .max(100)
+                    .lessThan(
+                      101 - userAmountOfThisFoodInBasket,
+                      `Вы не можете добавить в корзину более 100 единиц товара одного типа. 
+                      У вас сейчас: ${userAmountOfThisFoodInBasket}`
+                    )
                     .required("Обязательное поле"),
                 })}
                 onSubmit={({ itemsAmountToAdd }, { resetForm }) => {
-                  console.log("sumbit!!!");
-                  //   const newHero = {
-                  //     id: uuidv4(),
-                  //     name: name,
-                  //     description: text,
-                  //     element: element,
-                  //   };
-                  //   dispatch(heroCreating());
-                  //   request(
-                  //     `http://localhost:3001/heroes`,
-                  //     "POST",
-                  //     JSON.stringify(newHero)
-                  //   )
-                  //     .then(() => {
-                  //       resetForm();
-                  //       dispatch(heroCreated(newHero));
-                  //     })
-                  //     .catch(() => dispatch(heroCreatingError()));
+                  const newBasketState = {};
+                  for (const foodItemKey in currUserData.basket) {
+                    newBasketState[foodItemKey] = {
+                      ...currUserData.basket[foodItemKey],
+                    };
+                  }
+                  const newUserDataState = guestMode
+                    ? { basket: newBasketState }
+                    : {
+                        name: currUserData.name,
+                        password: currUserData.password,
+                        basket: newBasketState,
+                        id: currUserData.id,
+                      };
+                  newUserDataState.basket[uniqueFoodKey]
+                    ? (newUserDataState.basket[uniqueFoodKey].amount +=
+                        itemsAmountToAdd)
+                    : (newUserDataState.basket[uniqueFoodKey] = {
+                        uniqueCategoryId: uniqueCategoryId,
+                        uniqueFoodKey: uniqueFoodKey,
+                        label: foodItem.label,
+                        weight: foodItem.weight,
+                        price: foodItem.price,
+                        amount: itemsAmountToAdd,
+                      });
+                  updateCurrUserData(newUserDataState, resetForm);
                 }}
               >
                 <Form action="#" className={st["food-item-info__add-form"]}>
@@ -129,12 +182,17 @@ const FoodItemInfo = () => {
                     name="itemsAmountToAdd"
                     className={st["food-item-info__error-text"]}
                   />
+                  {userDataSending ? <Spinner color="orange" /> : null}
                   <button
                     type="submit"
                     className={st["food-item-info__sumbit-btn"]}
+                    disabled={userDataSending}
                   >
                     Добавить
                   </button>
+                  <span className={st["food-item-info__server-error-text"]}>
+                    {userDataServerError}
+                  </span>
                 </Form>
               </Formik>
             </>

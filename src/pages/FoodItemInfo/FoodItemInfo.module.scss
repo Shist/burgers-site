@@ -21,6 +21,9 @@
     &:hover {
       transform: scale(1.05);
     }
+    &_disabled {
+      color: $color-dark-gray;
+    }
   }
   &__error-headline {
     margin-bottom: 30px;
@@ -138,6 +141,14 @@
         transform: none;
         filter: grayscale(0.5);
       }
+    }
+    .food-item-info__server-error-text {
+      margin-top: 20px;
+      text-align: center;
+      color: $color-red;
+      font-family: $font;
+      font-size: 20px;
+      word-break: break-word;
     }
   }
 }
