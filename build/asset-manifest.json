@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/static/css/main.83bed8bd.css",
-    "main.js": "/static/js/main.bb1510c5.js",
+    "main.css": "/static/css/main.7807e1d1.css",
+    "main.js": "/static/js/main.d6297297.js",
     "static/media/Nunito-SemiBold.svg": "/static/media/Nunito-SemiBold.a44c840afe314462a12f.svg",
     "static/media/Nunito-ExtraBold.svg": "/static/media/Nunito-ExtraBold.5432e5702fe3fc2a9e0a.svg",
     "static/media/Nunito-Regular.svg": "/static/media/Nunito-Regular.90401253781e6d011493.svg",
@@ -78,6 +78,7 @@
     "static/media/dessert.svg": "/static/media/dessert.6fed1cb70d8767b9f87d9fbd48c82cdc.svg",
     "static/media/hot-dog.svg": "/static/media/hot-dog.527295d43f1c7fc585226391dc225301.svg",
     "static/media/burger.png": "/static/media/burger.bb13339a9d259d1826c9.png",
+    "static/media/donut.png": "/static/media/donut.d8fc47312479f2517d7e.png",
     "static/media/shawarma.svg": "/static/media/shawarma.fef055b8a076668746a36fa42b82ab94.svg",
     "static/media/snack.svg": "/static/media/snack.4f2f838b56f8a51845eaeffd022c93e9.svg",
     "static/media/combo.svg": "/static/media/combo.da1fa944a3d7d3ac61a9d7b1a5dd8a54.svg",
@@ -94,11 +95,11 @@
     "static/media/telegram.svg": "/static/media/telegram.f127ae4db19d31e43edab50773b6ef68.svg",
     "static/media/phone.svg": "/static/media/phone.05cf066b32c5124b34c8c6bf83b502f6.svg",
     "index.html": "/index.html",
-    "main.83bed8bd.css.map": "/static/css/main.83bed8bd.css.map",
-    "main.bb1510c5.js.map": "/static/js/main.bb1510c5.js.map"
+    "main.7807e1d1.css.map": "/static/css/main.7807e1d1.css.map",
+    "main.d6297297.js.map": "/static/js/main.d6297297.js.map"
   },
   "entrypoints": [
-    "static/css/main.83bed8bd.css",
-    "static/js/main.bb1510c5.js"
+    "static/css/main.7807e1d1.css",
+    "static/js/main.d6297297.js"
   ]
 }
