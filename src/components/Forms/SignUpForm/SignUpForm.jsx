@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { useNavigate, Link } from "react-router-dom";
+import { v4 as uuidv4 } from "uuid";
 import useYourMealService from "../../../services/YourMealService";
 import Input from "../Input/Input";
 import Spinner from "../../Spinner/Spinner";
@@ -44,10 +45,12 @@ function SignUpForm({ setUserToLocal }) {
     } else {
       getUserByName(loginState).then((user) => {
         if (!user) {
-          registerNewUser(loginState, passwordState).then((newUser) => {
-            setUserToLocal(newUser);
-            navigate("/");
-          });
+          registerNewUser(uuidv4(), loginState, passwordState).then(
+            (newUser) => {
+              setUserToLocal(newUser);
+              navigate("/");
+            }
+          );
         } else {
           setInvalidInput("Пользователь с таким именем уже существует!");
         }
@@ -82,7 +85,7 @@ function SignUpForm({ setUserToLocal }) {
         idName="repeatPasswordInput"
         placeholder="Повторите пароль"
       />
-      {loading ? <Spinner color="white" /> : null}
+      {loading ? <Spinner color="white" mbClass="mb20" /> : null}
       {invalidInput ? (
         <span className={st["sign-up-form__error-label"]}>{invalidInput}</span>
       ) : null}

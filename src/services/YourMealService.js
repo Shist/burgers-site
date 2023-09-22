@@ -31,11 +31,11 @@ const useYourMealService = () => {
     }
   };
 
-  const registerNewUser = async (name, password) => {
+  const registerNewUser = async (id, name, password) => {
     const response = await request(
       `${_baseUrl}users`,
       "POST",
-      JSON.stringify({ name, password, basket: {} })
+      JSON.stringify({ id, name, password, basket: {} })
     );
     return response;
   };
@@ -52,7 +52,7 @@ const useYourMealService = () => {
   const sendOrderToServer = async (newDataObj) => {
     const response = await request(
       `${_baseUrl}orders`,
-      "PUT",
+      "POST",
       JSON.stringify(newDataObj)
     );
     return response;

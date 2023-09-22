@@ -57,6 +57,7 @@ const FoodItemInfo = ({ guestMode, currUserData, setCurrUserData }) => {
 
   const updateCurrUserData = (newUserDataState, resetForm) => {
     if (guestMode) {
+      resetForm();
       setCurrUserData(() => newUserDataState);
       navigate("/");
     } else {
@@ -143,10 +144,10 @@ const FoodItemInfo = ({ guestMode, currUserData, setCurrUserData }) => {
                   const newUserDataState = guestMode
                     ? { basket: newBasketState }
                     : {
+                        id: currUserData.id,
                         name: currUserData.name,
                         password: currUserData.password,
                         basket: newBasketState,
-                        id: currUserData.id,
                       };
                   newUserDataState.basket[uniqueFoodKey]
                     ? (newUserDataState.basket[uniqueFoodKey].amount +=
@@ -193,9 +194,11 @@ const FoodItemInfo = ({ guestMode, currUserData, setCurrUserData }) => {
                         foodItem.price * values.itemsAmountToAdd
                       }₽`}</span>
                     ) : (
-                      <Spinner color="orange" />
+                      <Spinner color="orange" mbClass="mb20" />
                     )}
-                    {userDataSending ? <Spinner color="orange" /> : null}
+                    {userDataSending ? (
+                      <Spinner color="orange" mbClass="mb20" />
+                    ) : null}
                     <button
                       type="submit"
                       className={st["food-item-info__sumbit-btn"]}

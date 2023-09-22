@@ -453,30 +453,30 @@
   ],
   "users": [
     {
-      "id": 1,
+      "id": "1ea0fe3a-804b-40e1-9825-b6e398a4074c",
       "name": "Shist",
       "password": "pasha4444",
       "basket": {
-        "pizza2": {
-          "uniqueCategoryId": "pizza",
-          "uniqueFoodKey": "pizza2",
-          "label": "Сырная",
-          "weight": 1109,
-          "price": 410,
+        "burger2": {
+          "uniqueCategoryId": "burgers",
+          "uniqueFoodKey": "burger2",
+          "label": "Супер сырный",
+          "weight": 512,
+          "price": 550,
           "amount": 3
         },
-        "pizza1": {
-          "uniqueCategoryId": "pizza",
-          "uniqueFoodKey": "pizza1",
-          "label": "С колбаской",
-          "weight": 1120,
-          "price": 780,
+        "snack2": {
+          "uniqueCategoryId": "snacks",
+          "uniqueFoodKey": "snack2",
+          "label": "Картошка фри",
+          "weight": 544,
+          "price": 616,
           "amount": 2
         }
       }
     },
     {
-      "id": 2,
+      "id": "cc72b86c-46ee-4250-902a-9e619817dfeb",
       "name": "Bronya",
       "password": "1111111f",
       "basket": {}
@@ -484,62 +484,98 @@
   ],
   "orders": [
     {
-      "id": 1,
-      "utcDate": "Fri, 22 Sep 2023 17:01:20 GMT",
-      "userId": 1,
+      "id": "e14801d6-70d9-492c-9957-829d0d8bc357",
+      "utcDate": "Fri, 22 Sep 2023 18:23:53 GMT",
+      "userId": "1ea0fe3a-804b-40e1-9825-b6e398a4074c",
       "userNickname": "Shist",
       "userName": "Павел",
-      "userPhone": "+375291234567",
+      "userPhone": "+375291112233",
       "pickupIsNeeded": false,
       "pickupPoint": null,
       "deliveryIsNeeded": true,
       "addressDetails": {
-        "address": "пр. Программистов, д. 41, кв. 228",
-        "floor": 8,
-        "doorphoneCode": "41B9581"
+        "address": "ул. Крушвице, д. 6, кв. 4",
+        "floor": 2,
+        "doorphoneCode": null
       },
-      "foodAmount": 5,
-      "wholePrice": 2790,
+      "foodAmount": 4,
+      "wholePrice": 1302,
       "userOrder": {
-        "pizza2": {
-          "uniqueCategoryId": "pizza",
-          "uniqueFoodKey": "pizza2",
-          "label": "Сырная",
-          "weight": 1109,
-          "price": 410,
-          "amount": 3
+        "burger4": {
+          "uniqueCategoryId": "burgers",
+          "uniqueFoodKey": "burger4",
+          "label": "Тяжелый удар",
+          "weight": 470,
+          "price": 480,
+          "amount": 1
         },
+        "shawarma4": {
+          "uniqueCategoryId": "shawarma",
+          "uniqueFoodKey": "shawarma4",
+          "label": "С курицей",
+          "weight": 1070,
+          "price": 274,
+          "amount": 3
+        }
+      }
+    },
+    {
+      "id": "cf738241-0fe3-401a-b399-481bcc5684f8",
+      "utcDate": "Fri, 22 Sep 2023 18:25:59 GMT",
+      "userId": "cc72b86c-46ee-4250-902a-9e619817dfeb",
+      "userNickname": "Bronya",
+      "userName": "Бронислава",
+      "userPhone": "+375441234567",
+      "pickupIsNeeded": true,
+      "pickupPoint": "пр. Пончиковый, 18",
+      "deliveryIsNeeded": false,
+      "addressDetails": null,
+      "foodAmount": 3,
+      "wholePrice": 1110,
+      "userOrder": {
         "pizza1": {
           "uniqueCategoryId": "pizza",
           "uniqueFoodKey": "pizza1",
           "label": "С колбаской",
           "weight": 1120,
           "price": 780,
+          "amount": 1
+        },
+        "sauce1": {
+          "uniqueCategoryId": "sauces",
+          "uniqueFoodKey": "sauce1",
+          "label": "Кетчуп",
+          "weight": 107,
+          "price": 165,
           "amount": 2
         }
       }
     },
     {
-      "id": 2,
-      "utcDate": "Fri, 22 Sep 2023 17:13:41 GMT",
-      "userId": 2,
-      "userNickname": "Bronya",
-      "userName": "Бронислава",
-      "userPhone": "+375291111111",
-      "pickupIsNeeded": true,
-      "pickupPoint": "ул. Соусная, 2",
-      "deliveryIsNeeded": false,
-      "addressDetails": null,
-      "foodAmount": 2,
-      "wholePrice": 820,
+      "id": "5ab5c8f0-4b31-47ba-b89c-908db3a57bd1",
+      "utcDate": "Fri, 22 Sep 2023 18:31:56 GMT",
+      "userId": null,
+      "userNickname": null,
+      "userName": "Петя (гость)",
+      "userPhone": "80299385918",
+      "pickupIsNeeded": false,
+      "pickupPoint": null,
+      "deliveryIsNeeded": true,
+      "addressDetails": {
+        "address": "ул. Классная, д. 5, кв. 12",
+        "floor": null,
+        "doorphoneCode": null
+      },
+      "foodAmount": 1,
+      "wholePrice": 639,
       "userOrder": {
-        "pizza2": {
-          "uniqueCategoryId": "pizza",
-          "uniqueFoodKey": "pizza2",
-          "label": "Сырная",
-          "weight": 1109,
-          "price": 410,
-          "amount": 2
+        "burger3": {
+          "uniqueCategoryId": "burgers",
+          "uniqueFoodKey": "burger3",
+          "label": "Сытный",
+          "weight": 580,
+          "price": 639,
+          "amount": 1
         }
       }
     }

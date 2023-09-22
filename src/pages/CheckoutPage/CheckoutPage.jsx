@@ -1,4 +1,3 @@
-import { useState, useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import {
   Formik,
@@ -7,9 +6,9 @@ import {
   ErrorMessage as FormikErrorMessage,
 } from "formik";
 import * as Yup from "yup";
+import { v4 as uuidv4 } from "uuid";
 import withHeaderAndFooter from "../../hoc/withHeaderAndFooter";
 import useYourMealService from "../../services/YourMealService";
-import CheckoutPageSample from "./CheckoutPageSample/CheckoutPageSample";
 import Spinner from "../../components/Spinner/Spinner";
 
 import donutImg from "../../images/main/checkout/donut.png";
@@ -25,7 +24,50 @@ Yup.setLocale({
 const CheckoutPage = ({ guestMode, currUserData, setCurrUserData }) => {
   const navigate = useNavigate();
 
-  const { loading, serverError, clearServerError } = useYourMealService();
+  const {
+    loading,
+    serverError,
+    clearServerError,
+    sendOrderToServer,
+    updateUserBasketOnServer,
+  } = useYourMealService();
+
+  const userFoodItemsArr = Object.entries(currUserData.basket).map(
+    (basketItemKeyValue) => basketItemKeyValue[1]
+  );
+
+  const userTotalFoodItemsAmount = userFoodItemsArr.length
+    ? userFoodItemsArr
+        .map((item) => item.amount)
+        .reduce(
+          (prevItemAmount, nextItemAmount) => prevItemAmount + nextItemAmount
+        )
+    : 0;
+
+  const userBasketWholePrice = userFoodItemsArr.length
+    ? userFoodItemsArr
+        .map((item) => item.price * item.amount)
+        .reduce((prevItemPrice, nextItemPrice) => prevItemPrice + nextItemPrice)
+    : 0;
+
+  const sendOrder = (orderObj, newUserDataState, resetForm) => {
+    clearServerError();
+    sendOrderToServer(orderObj).then(() => {
+      if (guestMode) {
+        resetForm();
+        setCurrUserData(() => newUserDataState);
+        navigate("/");
+      } else {
+        updateUserBasketOnServer(newUserDataState.id, newUserDataState).then(
+          () => {
+            resetForm();
+            setCurrUserData(() => newUserDataState);
+            navigate("/");
+          }
+        );
+      }
+    });
+  };
 
   return (
     <main className={st["checkout"]}>
@@ -110,8 +152,37 @@ const CheckoutPage = ({ guestMode, currUserData, setCurrUserData }) => {
               },
               { resetForm }
             ) => {
-              /* TODO */
-              console.log("submit!!!");
+              const orderObj = {
+                id: uuidv4(),
+                utcDate: new Date().toUTCString(),
+                userId: guestMode ? null : currUserData.id,
+                userNickname: guestMode ? null : currUserData.name,
+                userName: realName,
+                userPhone: phone,
+                pickupIsNeeded: deliveryType === "pickup",
+                pickupPoint: deliveryType === "pickup" ? pickupPlace : null,
+                deliveryIsNeeded: deliveryType === "delivery",
+                addressDetails:
+                  deliveryType === "delivery"
+                    ? {
+                        address: addressDescription,
+                        floor: floor ? floor : null,
+                        doorphoneCode: doorphoneCode ? doorphoneCode : null,
+                      }
+                    : null,
+                foodAmount: userTotalFoodItemsAmount,
+                wholePrice: userBasketWholePrice,
+                userOrder: currUserData.basket,
+              };
+              const newUserDataState = guestMode
+                ? { basket: {} }
+                : {
+                    id: currUserData.id,
+                    name: currUserData.name,
+                    password: currUserData.password,
+                    basket: {},
+                  };
+              sendOrder(orderObj, newUserDataState, resetForm);
             }}
           >
             {({ values, touched }) => (
@@ -241,6 +312,12 @@ const CheckoutPage = ({ guestMode, currUserData, setCurrUserData }) => {
                   <button type="submit" className={st["checkout__sumbit-btn"]}>
                     Оформить
                   </button>
+                  {loading ? <Spinner color="orange" /> : null}
+                  {serverError ? (
+                    <span className={st["checkout__server-error-text"]}>
+                      {`Ошибка при попытке отправки заказа: ${serverError}`}
+                    </span>
+                  ) : null}
                 </div>
               </Form>
             )}

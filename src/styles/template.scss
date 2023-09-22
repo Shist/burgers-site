@@ -103,7 +103,6 @@
 }
 
 @mixin loader($color) {
-  margin-bottom: 20px;
   --size: 40px;
   --color: #{$color};
   --animation-timing-function: linear;

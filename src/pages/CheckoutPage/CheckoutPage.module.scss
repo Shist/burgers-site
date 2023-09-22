@@ -114,6 +114,12 @@
         }
         .checkout__submit-btn-wrapper {
           margin-top: auto;
+          max-width: 294px;
+          width: 100%;
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          row-gap: 10px;
           .checkout__sumbit-btn {
             margin-top: 24px;
             align-self: center;
@@ -135,6 +141,15 @@
               transform: none;
               filter: grayscale(0.5);
             }
+          }
+          .checkout__server-error-text {
+            text-align: start;
+            margin-left: 2px;
+            margin-bottom: 2px;
+            color: $color-red;
+            font-family: $font;
+            font-size: 12px;
+            word-break: break-word;
           }
         }
       }

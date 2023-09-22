@@ -54,7 +54,7 @@ function SignInForm({ setUserToLocal }) {
         idName="passwordInput"
         placeholder="Введите пароль"
       />
-      {loading ? <Spinner color="white" /> : null}
+      {loading ? <Spinner color="white" mbClass="mb20" /> : null}
       {invalidInput ? (
         <span className={st["sign-in-form__error-label"]}>{invalidInput}</span>
       ) : null}
