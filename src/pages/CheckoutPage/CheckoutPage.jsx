@@ -18,7 +18,7 @@ import st from "./CheckoutPage.module.scss";
 
 Yup.setLocale({
   number: {
-    integer: "Вы ввели не целое число",
+    integer: "Укажите целое число этажей",
   },
 });
 
@@ -84,9 +84,9 @@ const CheckoutPage = ({ guestMode, currUserData, setCurrUserData }) => {
                 then: (schema) =>
                   schema
                     .typeError("Вы ввели не строку")
-                    .min(8, "Введите хотя бы 8 символов")
-                    .max(64, "Вы не можете ввести более 64 символов")
-                    .required("Обязательное поле"),
+                    .min(8, "Введите хотя бы 8 символов в адресе")
+                    .max(64, "Вы не можете ввести более 64 символов в адресе")
+                    .required("Укажите адрес"),
               }),
               floor: Yup.number().when("deliveryType", {
                 is: (val) => val === "delivery",
@@ -102,7 +102,8 @@ const CheckoutPage = ({ guestMode, currUserData, setCurrUserData }) => {
               {
                 realName,
                 phone,
-                isDeliveryRequired,
+                deliveryType,
+                pickupPlace,
                 addressDescription,
                 floor,
                 doorphoneCode,
@@ -113,7 +114,7 @@ const CheckoutPage = ({ guestMode, currUserData, setCurrUserData }) => {
               console.log("submit!!!");
             }}
           >
-            {({ values, errors }) => (
+            {({ values, touched }) => (
               <Form action="#" className={st["checkout__form"]}>
                 <h2 className={st["checkout__form-headline"]}>Доставка</h2>
                 <FormikErrorMessage
@@ -150,64 +151,74 @@ const CheckoutPage = ({ guestMode, currUserData, setCurrUserData }) => {
                   className={st["checkout__radio-group-wrapper"]}
                 >
                   <label className={st["checkout__radio-label"]}>
-                    <Field type="radio" name="deliveryType" value="pickup" />
+                    <Field
+                      type="radio"
+                      name="deliveryType"
+                      value="pickup"
+                      onClick={() => (touched["pickupPlace"] = false)}
+                    />
                     Самовывоз
                   </label>
                   <label className={st["checkout__radio-label"]}>
-                    <Field type="radio" name="deliveryType" value="delivery" />
+                    <Field
+                      type="radio"
+                      name="deliveryType"
+                      value="delivery"
+                      onClick={() => {
+                        touched["addressDescription"] = false;
+                        touched["floor"] = false;
+                        touched["doorphoneCode"] = false;
+                      }}
+                    />
                     Доставка
                   </label>
                 </div>
+                <FormikErrorMessage
+                  component="span"
+                  id="pickupPlace"
+                  name="pickupPlace"
+                  className={st["checkout__error-text"]}
+                />
+                <FormikErrorMessage
+                  component="span"
+                  id="addressDescription"
+                  name="addressDescription"
+                  className={st["checkout__error-text"]}
+                />
+                <FormikErrorMessage
+                  component="span"
+                  name="floor"
+                  className={st["checkout__error-text"]}
+                />
+                <FormikErrorMessage
+                  component="span"
+                  name="doorphoneCode"
+                  className={st["checkout__error-text"]}
+                />
                 {values.deliveryType === "pickup" ? (
-                  <>
-                    <FormikErrorMessage
-                      component="span"
-                      id="pickupPlace"
-                      name="pickupPlace"
-                      className={st["checkout__error-text"]}
-                    />
-                    <Field
-                      as="select"
-                      id="pickupPlace"
-                      name="pickupPlace"
-                      className={st["checkout__select-pickup"]}
-                    >
-                      <option value="" hidden>
-                        Выбрать пункт самовывоза
-                      </option>
-                      <option value="ул. Бургерная, 23">
-                        ул. Бургерная, 23
-                      </option>
-                      <option value="пр. Пончиковый, 18">
-                        пр. Пончиковый, 18
-                      </option>
-                      <option value="ул. Соусная, 2">ул. Соусная, 2</option>
-                    </Field>
-                  </>
+                  <Field
+                    as="select"
+                    id="pickupPlace"
+                    name="pickupPlace"
+                    className={st["checkout__select-pickup"]}
+                  >
+                    <option value="" hidden>
+                      Выбрать пункт самовывоза
+                    </option>
+                    <option value="ул. Бургерная, 23">ул. Бургерная, 23</option>
+                    <option value="пр. Пончиковый, 18">
+                      пр. Пончиковый, 18
+                    </option>
+                    <option value="ул. Соусная, 2">ул. Соусная, 2</option>
+                  </Field>
                 ) : values.deliveryType === "delivery" ? (
                   <>
-                    <FormikErrorMessage
-                      component="span"
-                      id="addressDescription"
-                      name="addressDescription"
-                      className={st["checkout__error-text"]}
-                    />
                     <Field
                       id="addressDescription"
                       name="addressDescription"
                       className={st["checkout__address-input"]}
                       placeholder="Улица, дом, квартира"
                       required
-                    />
-                    <FormikErrorMessage
-                      component="span"
-                      name="floor"
-                      className={st["checkout__error-text"]}
-                    />
-                    <FormikErrorMessage
-                      component="span"
-                      name="doorphoneCode"
-                      className={st["checkout__error-text"]}
                     />
                     <div className={st["checkout__floor-doorphone-wrapper"]}>
                       <Field
