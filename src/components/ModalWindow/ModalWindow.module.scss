@@ -1,0 +1,101 @@
+@import "../../styles/vars.scss";
+@import "../../styles/template.scss";
+
+.modal-window-wrapper {
+  padding: 20px;
+  position: fixed;
+  min-width: 100vw;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  top: 0;
+  left: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  &__window {
+    position: relative;
+    max-width: 650px;
+    display: flex;
+    flex-direction: column;
+    row-gap: 20px;
+    background-color: $color-dark-yellow;
+    padding: 20px;
+    border-radius: 10px;
+    @media (max-width: $phone-l) {
+      padding: 50px 10px 10px;
+    }
+    .modal-window-wrapper__close-btn {
+      position: absolute;
+      top: 5px;
+      right: 5px;
+      width: 50px;
+      height: 50px;
+      border: none;
+      cursor: pointer;
+      transition: 0.2s;
+      background-color: transparent;
+      background-image: url(../../images/header/white-cross.png);
+      background-size: cover;
+    }
+    .modal-window-wrapper__headline {
+      align-self: center;
+      text-align: center;
+      padding: 8px;
+      font-family: $font;
+      font-weight: 700;
+      font-size: 48px;
+      line-height: 48px;
+      color: $color-white;
+      padding-inline: 40px;
+      @media (max-width: $tablet-l) {
+        font-size: 34px;
+        line-height: 34px;
+      }
+      @media (max-width: $phone-l) {
+        font-size: 24px;
+        line-height: 24px;
+      }
+    }
+    .modal-window-wrapper__text-info {
+      text-align: center;
+      padding: 4px;
+      font-family: $font;
+      font-weight: 400;
+      font-size: 28px;
+      line-height: 28px;
+      color: $color-white;
+      @media (max-width: $tablet-l) {
+        font-size: 24px;
+        line-height: 24px;
+      }
+      @media (max-width: $phone-l) {
+        font-size: 20px;
+        line-height: 20px;
+      }
+    }
+    .modal-window-wrapper__btn-ok {
+      align-self: center;
+      max-width: 300px;
+      width: 100%;
+      padding: 20px;
+      font-family: $font;
+      font-weight: 700;
+      font-size: 22px;
+      line-height: 22px;
+      text-align: center;
+      color: $color-white;
+      background-color: $color-orange;
+      border-radius: 10px;
+      border: none;
+      cursor: pointer;
+      transition: 0.3s;
+      &:hover {
+        transform: scale(1.05);
+      }
+      @media (max-width: $phone-l) {
+        font-size: 20px;
+        line-height: 20px;
+      }
+    }
+  }
+}
