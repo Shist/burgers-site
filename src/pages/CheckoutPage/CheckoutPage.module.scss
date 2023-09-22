@@ -8,6 +8,9 @@
   flex-direction: column;
   align-items: center;
   text-align: center;
+  @media (max-width: $laptop-s) {
+    padding: 30px;
+  }
   @media (max-width: $phone-l) {
     padding: 20px 10px;
   }
@@ -31,11 +34,17 @@
     min-height: 440px;
     display: flex;
     border-radius: 24px;
+    @media (max-width: $tablet-l) {
+      max-width: 342px;
+    }
     .checkout__img-wrapper {
       flex: 1;
       padding: 65px 20px;
       background-color: $color-dark-yellow;
       border-radius: 24px 0 0 24px;
+      @media (max-width: $tablet-l) {
+        display: none;
+      }
     }
     .checkout__form-wrapper {
       flex: 1;
@@ -43,6 +52,9 @@
       background-color: $color-white;
       border-radius: 0 24px 24px 0;
       display: flex;
+      @media (max-width: $tablet-l) {
+        border-radius: 24px;
+      }
     }
     .checkout__form {
       flex-grow: 1;
@@ -74,6 +86,9 @@
           color: $color-black;
           font-family: $font;
           font-size: 12px;
+          input[type="radio"] {
+            accent-color: $color-black;
+          }
         }
       }
       .checkout__select-pickup {
