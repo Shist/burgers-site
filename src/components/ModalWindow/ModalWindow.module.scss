@@ -37,7 +37,8 @@
       background-image: url(../../images/header/white-cross.png);
       background-size: cover;
     }
-    .modal-window-wrapper__headline {
+    .modal-window-wrapper__headline,
+    .modal-window-wrapper__success-text {
       align-self: center;
       text-align: center;
       padding: 8px;

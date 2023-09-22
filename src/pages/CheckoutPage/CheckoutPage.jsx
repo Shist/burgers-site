@@ -15,6 +15,7 @@ import Spinner from "../../components/Spinner/Spinner";
 import donutImg from "../../images/main/checkout/donut.png";
 
 import st from "./CheckoutPage.module.scss";
+import { useState } from "react";
 
 Yup.setLocale({
   number: {
@@ -24,6 +25,8 @@ Yup.setLocale({
 
 const CheckoutPage = ({ guestMode, currUserData, setCurrUserData }) => {
   const navigate = useNavigate();
+
+  const [openModal, setOpenModal] = useState(false);
 
   const {
     loading,
@@ -57,13 +60,13 @@ const CheckoutPage = ({ guestMode, currUserData, setCurrUserData }) => {
       if (guestMode) {
         resetForm();
         setCurrUserData(() => newUserDataState);
-        navigate("/");
+        setOpenModal(true);
       } else {
         updateUserBasketOnServer(newUserDataState.id, newUserDataState).then(
           () => {
             resetForm();
             setCurrUserData(() => newUserDataState);
-            navigate("/");
+            setOpenModal(true);
           }
         );
       }
@@ -75,7 +78,23 @@ const CheckoutPage = ({ guestMode, currUserData, setCurrUserData }) => {
       <Link to="/" className={st["checkout__link-to-home"]}>
         На главную
       </Link>
-      {Object.keys(currUserData.basket).length ? (
+      {openModal ? (
+        <ModalWindow
+          headline="Успешное оформление заказа"
+          message="Ваш заказ успешно оформлен! Данные о вашем заказе переданы нашим сотрудникам, мы свяжемся с вами
+            в ближайшее время. Вы также можете продолжать делать новые заказы."
+          btnLabel="На главную"
+          isSuccess={true}
+        />
+      ) : !Object.keys(currUserData.basket).length ? (
+        <ModalWindow
+          headline="Ваша корзина пуста"
+          message="В данный момент для вас нет смысла оформлять заказ, так как ваша корзина не содержит ни одного товара. 
+        Добавьте в неё что-нибудь, а затем возвращайтесь на эту страницу."
+          btnLabel="На главную"
+          isSuccess={false}
+        />
+      ) : (
         <>
           <div className={st["checkout__img-form-wrapper"]}>
             <div className={st["checkout__img-wrapper"]}>
@@ -338,13 +357,6 @@ const CheckoutPage = ({ guestMode, currUserData, setCurrUserData }) => {
             </div>
           </div>
         </>
-      ) : (
-        <ModalWindow
-          headline="Ваша корзина пуста"
-          message="В данный момент для вас нет смысла оформлять заказ, так как ваша корзина не содержит ни одного товара. 
-          Добавьте в неё что-нибудь, а затем возвращайтесь на эту страницу."
-          btnLabel="На главную"
-        />
       )}
     </main>
   );

@@ -1,9 +1,9 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
 import st from "./ModalWindow.module.scss";
 
-const ModalWindow = ({ headline, message, btnLabel }) => {
+const ModalWindow = ({ headline, message, btnLabel, isSuccess }) => {
   const navigate = useNavigate();
 
   const [close, setClose] = useState(false);
@@ -23,6 +23,11 @@ const ModalWindow = ({ headline, message, btnLabel }) => {
           onClick={() => setClose(true)}
         ></button>
         <h3 className={st["modal-window-wrapper__headline"]}>{headline}</h3>
+        {isSuccess ? (
+          <span className={st["modal-window-wrapper__success-text"]}>
+            🥳🥳🥳
+          </span>
+        ) : null}
         <p className={st["modal-window-wrapper__text-info"]}>{message}</p>
         <button
           className={st["modal-window-wrapper__btn-ok"]}
