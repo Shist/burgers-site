@@ -1,3 +1,5 @@
+import { useNavigate } from "react-router-dom";
+
 import useYourMealService from "../../services/YourMealService";
 import BasketItem from "./BasketItem/BasketItem";
 
@@ -13,6 +15,8 @@ function Basket({
   isDataSendingNow,
   setIsDataSendingNow,
 }) {
+  const navigate = useNavigate();
+
   const { serverError, clearServerError, updateUserBasketOnServer } =
     useYourMealService();
 
@@ -117,6 +121,7 @@ function Basket({
       <button
         className={st["basket__checkout-btn"]}
         disabled={!layoutItemsArr.length || isDataSendingNow}
+        onClick={() => navigate("/checkout")}
       >
         Оформить заказ
       </button>

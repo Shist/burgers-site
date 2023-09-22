@@ -478,7 +478,16 @@
     {
       "name": "Bronya",
       "password": "1111111f",
-      "basket": {},
+      "basket": {
+        "burger1": {
+          "uniqueCategoryId": "burgers",
+          "uniqueFoodKey": "burger1",
+          "label": "Мясная бомба",
+          "weight": 520,
+          "price": 689,
+          "amount": 1
+        }
+      },
       "id": 2
     }
   ]
