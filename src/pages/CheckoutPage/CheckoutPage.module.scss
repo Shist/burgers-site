@@ -1,0 +1,127 @@
+@import "../../styles/vars.scss";
+@import "../../styles/template.scss";
+
+.checkout {
+  flex-grow: 1;
+  padding: 50px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  @media (max-width: $phone-l) {
+    padding: 20px 10px;
+  }
+  &__link-to-home {
+    margin-bottom: 30px;
+    text-align: center;
+    color: $color-orange;
+    font-family: $font;
+    font-size: 36px;
+    transition: 0.3s;
+    &:hover {
+      transform: scale(1.05);
+    }
+    &_disabled {
+      color: $color-dark-gray;
+    }
+  }
+  &__img-form-wrapper {
+    max-width: 684px;
+    width: 100%;
+    min-height: 440px;
+    display: flex;
+    border-radius: 24px;
+    .checkout__img-wrapper {
+      flex: 1;
+      padding: 65px 20px;
+      background-color: $color-dark-yellow;
+      border-radius: 24px 0 0 24px;
+    }
+    .checkout__form-wrapper {
+      flex: 1;
+      padding: 24px;
+      background-color: $color-white;
+      border-radius: 0 24px 24px 0;
+      display: flex;
+    }
+    .checkout__form {
+      flex-grow: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      .checkout__form-headline {
+        margin-bottom: 16px;
+        color: $color-black;
+        font-family: $font;
+        font-size: 24px;
+        font-weight: 600;
+      }
+      .checkout__real-name-input,
+      .checkout__phone-input,
+      .checkout__address-input {
+        @include checkout-input(294px);
+      }
+      .checkout__radio-group-wrapper {
+        margin-bottom: 8px;
+        padding-block: 8px;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        row-gap: 12px;
+        .checkout__radio-label {
+          display: flex;
+          column-gap: 8px;
+          color: $color-black;
+          font-family: $font;
+          font-size: 12px;
+        }
+      }
+      .checkout__select-pickup {
+        margin-bottom: 8px;
+        color: $color-black;
+        font-family: $font;
+        font-size: 14px;
+      }
+      .checkout__floor-doorphone-wrapper {
+        display: flex;
+        column-gap: 8px;
+        .checkout__floor-input,
+        .checkout__doorphone-input {
+          @include checkout-input(143px);
+        }
+      }
+      .checkout__error-text {
+        margin-left: 2px;
+        margin-bottom: 2px;
+        color: $color-red;
+        font-family: $font;
+        font-size: 12px;
+      }
+      .checkout__submit-btn-wrapper {
+        margin-top: auto;
+        .checkout__sumbit-btn {
+          margin-top: 24px;
+          align-self: center;
+          max-width: 294px;
+          width: 100%;
+          padding: 11px 32px;
+          color: $color-white;
+          font-family: $font;
+          font-size: 16px;
+          border-radius: 12px;
+          background-color: $color-orange;
+          border: none;
+          cursor: pointer;
+          transition: 0.3s;
+          &:hover {
+            transform: scale(1.05);
+          }
+          &:disabled {
+            transform: none;
+            filter: grayscale(0.5);
+          }
+        }
+      }
+    }
+  }
+}

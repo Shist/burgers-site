@@ -56,6 +56,9 @@
   border-radius: 10px;
   border: 1px solid $color-dark-gray;
   background: white;
+  &::placeholder {
+    color: $color-dark-gray;
+  }
 }
 
 %default-form {
@@ -70,6 +73,23 @@
   background-color: $color-dark-yellow;
   @media (max-width: $phone-l) {
     padding: 10px 20px 20px;
+  }
+}
+
+@mixin checkout-input($max-width) {
+  margin-bottom: 8px;
+  padding: 12px;
+  max-width: $max-width;
+  width: 100%;
+  color: $color-black;
+  font-family: $font;
+  font-size: 12px;
+  line-height: 130%;
+  border-radius: 12px;
+  border: 1px solid $color-gray;
+  background: $color-white;
+  &::placeholder {
+    color: $color-dark-gray;
   }
 }
 

@@ -1,6 +1,13 @@
 import { useState } from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import { Home, FoodItemInfo, SignIn, SignUp, Error } from "../index";
+import {
+  Home,
+  FoodItemInfo,
+  CheckoutPage,
+  SignIn,
+  SignUp,
+  Error,
+} from "../index";
 
 import "./App.scss";
 
@@ -41,6 +48,17 @@ function App() {
             path="/:uniqueCategoryId/:uniqueFoodKey"
             element={
               <FoodItemInfo
+                guestMode={guestMode}
+                currUserData={currUserData}
+                setCurrUserData={setCurrUserData}
+                deleteUserFromLocal={deleteUserFromLocal}
+              />
+            }
+          />
+          <Route
+            path="/checkout"
+            element={
+              <CheckoutPage
                 guestMode={guestMode}
                 currUserData={currUserData}
                 setCurrUserData={setCurrUserData}
