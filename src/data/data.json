@@ -453,6 +453,7 @@
   ],
   "users": [
     {
+      "id": 1,
       "name": "Shist",
       "password": "pasha4444",
       "basket": {
@@ -472,23 +473,75 @@
           "price": 780,
           "amount": 2
         }
-      },
-      "id": 1
+      }
     },
     {
+      "id": 2,
       "name": "Bronya",
       "password": "1111111f",
-      "basket": {
-        "burger1": {
-          "uniqueCategoryId": "burgers",
-          "uniqueFoodKey": "burger1",
-          "label": "Мясная бомба",
-          "weight": 520,
-          "price": 689,
-          "amount": 1
-        }
+      "basket": {}
+    }
+  ],
+  "orders": [
+    {
+      "id": 1,
+      "utcDate": "Fri, 22 Sep 2023 17:01:20 GMT",
+      "userId": 1,
+      "userNickname": "Shist",
+      "userName": "Павел",
+      "userPhone": "+375291234567",
+      "pickupIsNeeded": false,
+      "pickupPoint": null,
+      "deliveryIsNeeded": true,
+      "addressDetails": {
+        "address": "пр. Программистов, д. 41, кв. 228",
+        "floor": 8,
+        "doorphoneCode": "41B9581"
       },
-      "id": 2
+      "foodAmount": 5,
+      "wholePrice": 2790,
+      "userOrder": {
+        "pizza2": {
+          "uniqueCategoryId": "pizza",
+          "uniqueFoodKey": "pizza2",
+          "label": "Сырная",
+          "weight": 1109,
+          "price": 410,
+          "amount": 3
+        },
+        "pizza1": {
+          "uniqueCategoryId": "pizza",
+          "uniqueFoodKey": "pizza1",
+          "label": "С колбаской",
+          "weight": 1120,
+          "price": 780,
+          "amount": 2
+        }
+      }
+    },
+    {
+      "id": 2,
+      "utcDate": "Fri, 22 Sep 2023 17:13:41 GMT",
+      "userId": 2,
+      "userNickname": "Bronya",
+      "userName": "Бронислава",
+      "userPhone": "+375291111111",
+      "pickupIsNeeded": true,
+      "pickupPoint": "ул. Соусная, 2",
+      "deliveryIsNeeded": false,
+      "addressDetails": null,
+      "foodAmount": 2,
+      "wholePrice": 820,
+      "userOrder": {
+        "pizza2": {
+          "uniqueCategoryId": "pizza",
+          "uniqueFoodKey": "pizza2",
+          "label": "Сырная",
+          "weight": 1109,
+          "price": 410,
+          "amount": 2
+        }
+      }
     }
   ]
 }

@@ -44,10 +44,10 @@ function BasketItem({
     const newUserDataState = guestMode
       ? { basket: newBasketState }
       : {
+          id: currUserData.id,
           name: currUserData.name,
           password: currUserData.password,
           basket: newBasketState,
-          id: currUserData.id,
         };
     delete newUserDataState.basket[uniqueFoodKey];
     updateCurrUserData(newUserDataState);
@@ -62,10 +62,10 @@ function BasketItem({
       const newUserDataState = guestMode
         ? { basket: newBasketState }
         : {
+            id: currUserData.id,
             name: currUserData.name,
             password: currUserData.password,
             basket: newBasketState,
-            id: currUserData.id,
           };
       newUserDataState.basket[uniqueFoodKey].amount--;
       if (!newUserDataState.basket[uniqueFoodKey].amount) {
@@ -84,10 +84,10 @@ function BasketItem({
       const newUserDataState = guestMode
         ? { basket: newBasketState }
         : {
+            id: currUserData.id,
             name: currUserData.name,
             password: currUserData.password,
             basket: newBasketState,
-            id: currUserData.id,
           };
       newUserDataState.basket[uniqueFoodKey].amount++;
       updateCurrUserData(newUserDataState);

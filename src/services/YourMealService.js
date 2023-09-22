@@ -49,6 +49,15 @@ const useYourMealService = () => {
     return response;
   };
 
+  const sendOrderToServer = async (newDataObj) => {
+    const response = await request(
+      `${_baseUrl}orders`,
+      "PUT",
+      JSON.stringify(newDataObj)
+    );
+    return response;
+  };
+
   return {
     loading,
     serverError,
@@ -59,6 +68,7 @@ const useYourMealService = () => {
     getUserByName,
     registerNewUser,
     updateUserBasketOnServer,
+    sendOrderToServer,
   };
 };
 

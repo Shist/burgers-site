@@ -60,10 +60,10 @@ function Basket({
     const newUserDataState = guestMode
       ? { basket: {} }
       : {
+          id: currUserData.id,
           name: currUserData.name,
           password: currUserData.password,
           basket: {},
-          id: currUserData.id,
         };
     if (guestMode) {
       setCurrUserData(newUserDataState);

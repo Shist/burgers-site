@@ -30,10 +30,10 @@ function FoodItemCard({
     const newUserDataState = guestMode
       ? { basket: newBasketState }
       : {
+          id: currUserData.id,
           name: currUserData.name,
           password: currUserData.password,
           basket: newBasketState,
-          id: currUserData.id,
         };
     newUserDataState.basket[uniqueFoodKey]
       ? newUserDataState.basket[uniqueFoodKey].amount++
