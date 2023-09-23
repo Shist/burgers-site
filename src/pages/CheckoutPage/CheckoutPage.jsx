@@ -1,4 +1,4 @@
-import { Link, useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 import {
   Formik,
   Form,
@@ -19,13 +19,11 @@ import { useState } from "react";
 
 Yup.setLocale({
   number: {
-    integer: "Укажите целое число этажей",
+    integer: "Число должно быть целым",
   },
 });
 
 const CheckoutPage = ({ guestMode, currUserData, setCurrUserData }) => {
-  const navigate = useNavigate();
-
   const [openModal, setOpenModal] = useState(false);
 
   const {

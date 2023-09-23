@@ -90,7 +90,9 @@ function SignUpForm({ setUserToLocal }) {
         <span className={st["sign-up-form__error-label"]}>{invalidInput}</span>
       ) : null}
       {serverError ? (
-        <span className={st["sign-up-form__error-label"]}>{serverError}</span>
+        <span
+          className={st["sign-up-form__error-label"]}
+        >{`Ошибка при попытке регистрации: ${serverError}`}</span>
       ) : null}
       <Link
         to="/sign-in"

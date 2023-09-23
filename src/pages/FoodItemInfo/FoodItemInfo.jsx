@@ -18,8 +18,8 @@ import st from "./FoodItemInfo.module.scss";
 
 Yup.setLocale({
   number: {
-    positive: "Число товаров должно быть положительным",
-    integer: "Число товаров должно быть целым",
+    positive: "Число должно быть положительным",
+    integer: "Число должно быть целым",
   },
 });
 

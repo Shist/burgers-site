@@ -59,7 +59,9 @@ function SignInForm({ setUserToLocal }) {
         <span className={st["sign-in-form__error-label"]}>{invalidInput}</span>
       ) : null}
       {serverError ? (
-        <span className={st["sign-in-form__error-label"]}>{serverError}</span>
+        <span
+          className={st["sign-in-form__error-label"]}
+        >{`Ошибка при попытке авторизации: ${serverError}`}</span>
       ) : null}
       <Link
         to="/sign-up"

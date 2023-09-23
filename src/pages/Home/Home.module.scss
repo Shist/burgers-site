@@ -40,7 +40,7 @@
     margin-bottom: 24px;
     @include sample(200px, 40px, 10%);
     @media (max-width: $pc-s) {
-      padding-left: 0;
+      margin: 0 auto;
       text-align: center;
     }
   }
