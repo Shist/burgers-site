@@ -1,14 +1,29 @@
 # burgers-site
 
-React App with the page that consists of different burger meals.
+### This is React app that can work with online shop of food allowing users to register, log in, view and select products, place orders.
 
 ---
 
-### This project is hosted using the Vecel.com platform, you can see how it works here:
+## Video demo:
 
-## https://shist-your-meal.vercel.app/
+https://github.com/Shist/burgers-site/assets/40572268/de2e74af-2a70-4a82-9663-a53b4c12cebf
 
-## Attention! Since the server side of the project works locally (http://localhost:4000) only after running the "npm run start-back" command in the terminal, the hosting site does not have access to the json server. So that is normal to run into the error "TypeError: Failed to fetch" while trying to load food data or log in or register a new account.
+---
+
+## Instruction for launching this project
+
+1. Go to the folder on your PC where you want to install the project:
+   `cd "your-folder"`
+1. Download and install files of this project:
+   `git clone https://github.com/Shist/burgers-site`
+1. Go to the app folder:
+   `cd burgers-site`
+1. Install all needed dependencies:
+   `npm install`
+1. Start json-server:
+   `npm run start-back`
+1. Open second terminal in the same path and run the app:
+   `npm run start`
 
 ---
 
